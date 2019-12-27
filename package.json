@@ -6,6 +6,7 @@
 	"engines": {
 		"vscode": "^1.41.0"
 	},
+	"icon": "./256x256.png",
 	"categories": [
 		"Other"
 	],
@@ -61,6 +62,10 @@
 	},
 	"scripts": {
 		"test": "node ./test/runTest.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/massif-press/vscode-comp-con-content-authoring.git"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.1",
