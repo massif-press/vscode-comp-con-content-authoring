@@ -37,6 +37,8 @@ function activate(context) {
 							`${cmd} '${packageName.replace('\'', '\\\'')}' ${filesStr}`
 						), []);
 
+					task.group = vscode.TaskGroup.Build
+
 					return task;
 				})
 			]);
