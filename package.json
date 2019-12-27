@@ -6,6 +6,7 @@
 	"engines": {
 		"vscode": "^1.41.0"
 	},
+	"publisher": "massif-press",
 	"icon": "./256x256.png",
 	"categories": [
 		"Other"
