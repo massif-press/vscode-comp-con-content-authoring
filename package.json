@@ -1,0 +1,73 @@
+{
+	"name": "comp-con-content-authoring",
+	"displayName": "COMP/CON Content Authoring",
+	"description": "Provides JSON validation and scaffold/build tasks for authoring COMP/CON content packs",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"workspaceContains:**/lcp_manifest.json",
+		"onCommand:workbench.action.tasks.runTask"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"taskDefinitions": [
+			{
+				"type": "compconTaskProvider"
+			}
+		],
+		"jsonValidation": [
+			{
+				"fileMatch": "lcp_manifest.json",
+				"url": "./schemas/manifest.schema.json"
+			},
+			{
+				"fileMatch": "manufacturers.json",
+				"url": "./schemas/manufacturers.schema.json"
+			},
+			{
+				"fileMatch": "core_bonus.json",
+				"url": "./schemas/core_bonus.schema.json"
+			},
+			{
+				"fileMatch": "frames.json",
+				"url": "./schemas/frames.schema.json"
+			},
+			{
+				"fileMatch": "weapons.json",
+				"url": "./schemas/weapons.schema.json"
+			},
+			{
+				"fileMatch": "systems.json",
+				"url": "./schemas/systems.schema.json"
+			},
+			{
+				"fileMatch": "mods.json",
+				"url": "./schemas/mods.schema.json"
+			},
+			{
+				"fileMatch": "talents.json",
+				"url": "./schemas/talents.schema.json"
+			},
+			{
+				"fileMatch": "tags.json",
+				"url": "./schemas/tags.schema.json"
+			}
+		]
+	},
+	"scripts": {
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.41.0",
+		"eslint": "^6.6.0",
+		"glob": "^7.1.5"
+	}
+}

@@ -1,0 +1,18 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "COMP/CON: Build .LCP archive",
+            "command": "zip brew.lcp manifest.json manufacturers.json core_bonus.json frames.json weapons.json systems.json mods.json talents.json tags.json",
+            "windows": {
+                "command": "7z a -tzip brew.lcp manifest.json manufacturers.json core_bonus.json frames.json weapons.json systems.json mods.json talents.json tags.json"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+  }
