@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "author",
+    "name",
+    "version"
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

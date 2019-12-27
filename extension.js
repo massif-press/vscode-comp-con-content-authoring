@@ -17,7 +17,7 @@ const files = [
 /**
  * @param {vscode.ExtensionContext} context
  */
-function activate(context) {
+function activate() {
 
 	var type = "compconTaskProvider";
 	vscode.tasks.registerTaskProvider(type, {

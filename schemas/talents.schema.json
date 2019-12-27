@@ -1,0 +1,53 @@
+{
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/ITalentData"
+  },
+  "definitions": {
+    "ITalentData": {
+      "type": "object",
+      "properties": {
+        "ranks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITalentRank"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "brew": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "description",
+        "id",
+        "name",
+        "ranks"
+      ]
+    },
+    "ITalentRank": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "description",
+        "name"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

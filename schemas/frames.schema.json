@@ -1,0 +1,220 @@
+{
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Pick<IFrameData,\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\">"
+  },
+  "definitions": {
+    "Pick<IFrameData,\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\">": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "mechtype": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "Artillery",
+              "Balanced",
+              "Controller",
+              "Defender",
+              "Striker",
+              "Support"
+            ],
+            "type": "string"
+          }
+        },
+        "y_pos": {
+          "type": "number"
+        },
+        "mounts": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "Aux",
+              "Aux/Aux",
+              "Flex",
+              "Heavy",
+              "Integrated",
+              "Main",
+              "Main/Aux"
+            ],
+            "type": "string"
+          }
+        },
+        "stats": {
+          "$ref": "#/definitions/IFrameStats"
+        },
+        "traits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FrameTrait"
+          }
+        },
+        "core_system": {
+          "$ref": "#/definitions/ICoreData"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "brew": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "core_system",
+        "description",
+        "id",
+        "mechtype",
+        "mounts",
+        "name",
+        "stats",
+        "traits"
+      ]
+    },
+    "IFrameStats": {
+      "type": "object",
+      "properties": {
+        "size": {
+          "type": "number"
+        },
+        "armor": {
+          "type": "number"
+        },
+        "structuremod": {
+          "type": "number"
+        },
+        "hp": {
+          "type": "number"
+        },
+        "evasion": {
+          "type": "number"
+        },
+        "edef": {
+          "type": "number"
+        },
+        "stressmod": {
+          "type": "number"
+        },
+        "heatcap": {
+          "type": "number"
+        },
+        "repcap": {
+          "type": "number"
+        },
+        "sensor_range": {
+          "type": "number"
+        },
+        "tech_attack": {
+          "type": "number"
+        },
+        "save": {
+          "type": "number"
+        },
+        "speed": {
+          "type": "number"
+        },
+        "sp": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "armor",
+        "edef",
+        "evasion",
+        "heatcap",
+        "hp",
+        "repcap",
+        "save",
+        "sensor_range",
+        "size",
+        "sp",
+        "speed",
+        "tech_attack"
+      ]
+    },
+    "FrameTrait": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "description",
+        "name"
+      ]
+    },
+    "ICoreData": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "integrated": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "passive": {
+          "type": "string"
+        },
+        "active_name": {
+          "type": "string"
+        },
+        "effect": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        }
+      },
+      "required": [
+        "active_name",
+        "description",
+        "effect",
+        "name",
+        "tags"
+      ]
+    },
+    "ITagData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "val": {
+          "type": [
+            "string",
+            "number"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

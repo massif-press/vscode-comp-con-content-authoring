@@ -1,0 +1,165 @@
+{
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/IMechWeaponData"
+  },
+  "definitions": {
+    "IMechWeaponData": {
+      "type": "object",
+      "properties": {
+        "mount": {
+          "$ref": "#/definitions/WeaponSize"
+        },
+        "type": {
+          "$ref": "#/definitions/WeaponType"
+        },
+        "damage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IDamageData"
+          }
+        },
+        "range": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IRangeData"
+          }
+        },
+        "sp": {
+          "type": "number"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "effect": {
+          "type": "string"
+        },
+        "talent_item": {
+          "type": "boolean"
+        },
+        "frame_id": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "license_level": {
+          "type": "number"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "brew": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "damage",
+        "description",
+        "effect",
+        "id",
+        "license",
+        "license_level",
+        "mount",
+        "name",
+        "range",
+        "source",
+        "sp",
+        "tags",
+        "type"
+      ]
+    },
+    "WeaponSize": {
+      "enum": [
+        "Auxiliary",
+        "Heavy",
+        "Main",
+        "Superheavy"
+      ],
+      "type": "string"
+    },
+    "WeaponType": {
+      "enum": [
+        "CQB",
+        "Cannon",
+        "Launcher",
+        "Melee",
+        "Nexus",
+        "Rifle"
+      ],
+      "type": "string"
+    },
+    "IDamageData": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "val": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "override": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "val"
+      ]
+    },
+    "IRangeData": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "val": {
+          "type": "number"
+        },
+        "override": {
+          "type": "boolean"
+        },
+        "bonus": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "type",
+        "val"
+      ]
+    },
+    "ITagData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "val": {
+          "type": [
+            "string",
+            "number"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,43 @@
+{
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/IManufacturerData"
+  },
+  "definitions": {
+    "IManufacturerData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "quote": {
+          "type": "string"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "logo_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "color",
+        "description",
+        "id",
+        "logo",
+        "name",
+        "quote"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

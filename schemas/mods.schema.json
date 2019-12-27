@@ -1,0 +1,167 @@
+{
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/IWeaponModData"
+  },
+  "definitions": {
+    "IWeaponModData": {
+      "type": "object",
+      "properties": {
+        "sp": {
+          "type": "number"
+        },
+        "applied_to": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "CQB",
+              "Cannon",
+              "Launcher",
+              "Melee",
+              "Nexus",
+              "Rifle"
+            ],
+            "type": "string"
+          }
+        },
+        "applied_string": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "restricted_mounts": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "Auxiliary",
+              "Heavy",
+              "Main",
+              "Superheavy"
+            ],
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "added_tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "added_damage": {
+          "$ref": "#/definitions/IDamageData"
+        },
+        "added_range": {
+          "$ref": "#/definitions/IRangeData"
+        },
+        "effect": {
+          "type": "string"
+        },
+        "talent_item": {
+          "type": "boolean"
+        },
+        "frame_id": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "license_level": {
+          "type": "number"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "brew": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "applied_string",
+        "applied_to",
+        "description",
+        "effect",
+        "id",
+        "license",
+        "license_level",
+        "name",
+        "restricted_mounts",
+        "source",
+        "sp",
+        "tags"
+      ]
+    },
+    "ITagData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "val": {
+          "type": [
+            "string",
+            "number"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "IDamageData": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "val": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "override": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "val"
+      ]
+    },
+    "IRangeData": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "val": {
+          "type": "number"
+        },
+        "override": {
+          "type": "boolean"
+        },
+        "bonus": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "type",
+        "val"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
