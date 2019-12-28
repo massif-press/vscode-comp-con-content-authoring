@@ -15,6 +15,9 @@
     },
     "website": {
       "type": "string"
+    },
+    "image_url": {
+      "type": "string"
     }
   },
   "required": [

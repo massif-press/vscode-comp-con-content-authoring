@@ -1,29 +1,26 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/ITalentData"
+    "$ref": "#/definitions/Pick<ITalentData,\"name\"|\"id\"|\"description\"|\"ranks\">"
   },
   "definitions": {
-    "ITalentData": {
+    "Pick<ITalentData,\"name\"|\"id\"|\"description\"|\"ranks\">": {
       "type": "object",
       "properties": {
-        "ranks": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ITalentRank"
-          }
-        },
-        "id": {
+        "name": {
           "type": "string"
         },
-        "name": {
+        "id": {
           "type": "string"
         },
         "description": {
           "type": "string"
         },
-        "brew": {
-          "type": "string"
+        "ranks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITalentRank"
+          }
         }
       },
       "required": [

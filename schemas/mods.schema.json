@@ -1,14 +1,47 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/IWeaponModData"
+    "$ref": "#/definitions/Pick<IWeaponModData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"id\"|\"description\"|\"effect\"|\"sp\"|\"tags\"|\"talent_item\"|\"frame_id\"|\"applied_to\"|\"applied_string\"|\"restricted_mounts\"|\"added_tags\"|\"added_damage\"|\"added_range\">"
   },
   "definitions": {
-    "IWeaponModData": {
+    "Pick<IWeaponModData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"id\"|\"description\"|\"effect\"|\"sp\"|\"tags\"|\"talent_item\"|\"frame_id\"|\"applied_to\"|\"applied_string\"|\"restricted_mounts\"|\"added_tags\"|\"added_damage\"|\"added_range\">": {
       "type": "object",
       "properties": {
+        "source": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "license_level": {
+          "type": "number"
+        },
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "effect": {
+          "type": "string"
+        },
         "sp": {
           "type": "number"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "talent_item": {
+          "type": "boolean"
+        },
+        "frame_id": {
+          "type": "boolean"
         },
         "applied_to": {
           "type": "array",
@@ -27,9 +60,6 @@
         "applied_string": {
           "type": "string"
         },
-        "description": {
-          "type": "string"
-        },
         "restricted_mounts": {
           "type": "array",
           "items": {
@@ -40,12 +70,6 @@
               "Superheavy"
             ],
             "type": "string"
-          }
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ITagData"
           }
         },
         "added_tags": {
@@ -59,33 +83,6 @@
         },
         "added_range": {
           "$ref": "#/definitions/IRangeData"
-        },
-        "effect": {
-          "type": "string"
-        },
-        "talent_item": {
-          "type": "boolean"
-        },
-        "frame_id": {
-          "type": "boolean"
-        },
-        "source": {
-          "type": "string"
-        },
-        "license": {
-          "type": "string"
-        },
-        "license_level": {
-          "type": "number"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "brew": {
-          "type": "string"
         }
       },
       "required": [

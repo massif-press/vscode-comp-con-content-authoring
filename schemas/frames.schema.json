@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<IFrameData,\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\">"
+    "$ref": "#/definitions/Pick<Pick<IFrameData,\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\">,\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\">"
   },
   "definitions": {
-    "Pick<IFrameData,\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\">": {
+    "Pick<Pick<IFrameData,\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\">,\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\">": {
       "type": "object",
       "properties": {
         "name": {
@@ -61,9 +61,6 @@
           "type": "string"
         },
         "description": {
-          "type": "string"
-        },
-        "brew": {
           "type": "string"
         }
       },

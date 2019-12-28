@@ -1,31 +1,28 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/ICoreBonusData"
+    "$ref": "#/definitions/Pick<ICoreBonusData,\"source\"|\"name\"|\"id\"|\"description\"|\"effect\"|\"mounted_effect\">"
   },
   "definitions": {
-    "ICoreBonusData": {
+    "Pick<ICoreBonusData,\"source\"|\"name\"|\"id\"|\"description\"|\"effect\"|\"mounted_effect\">": {
       "type": "object",
       "properties": {
         "source": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "description": {
           "type": "string"
         },
         "effect": {
           "type": "string"
         },
         "mounted_effect": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "brew": {
           "type": "string"
         }
       },

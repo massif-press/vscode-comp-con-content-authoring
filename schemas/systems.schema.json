@@ -1,12 +1,33 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/IMechSystemData"
+    "$ref": "#/definitions/Pick<IMechSystemData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"id\"|\"description\"|\"effect\"|\"type\"|\"sp\"|\"tags\"|\"talent_item\"|\"frame_id\">"
   },
   "definitions": {
-    "IMechSystemData": {
+    "Pick<IMechSystemData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"id\"|\"description\"|\"effect\"|\"type\"|\"sp\"|\"tags\"|\"talent_item\"|\"frame_id\">": {
       "type": "object",
       "properties": {
+        "source": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "license_level": {
+          "type": "number"
+        },
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "effect": {
+          "type": "string"
+        },
         "type": {
           "$ref": "#/definitions/SystemType"
         },
@@ -19,35 +40,11 @@
             "$ref": "#/definitions/ITagData"
           }
         },
-        "effect": {
-          "type": "string"
-        },
         "talent_item": {
           "type": "boolean"
         },
         "frame_id": {
           "type": "boolean"
-        },
-        "source": {
-          "type": "string"
-        },
-        "license": {
-          "type": "string"
-        },
-        "license_level": {
-          "type": "number"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "brew": {
-          "type": "string"
         }
       },
       "required": [

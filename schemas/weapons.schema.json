@@ -1,12 +1,33 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/IMechWeaponData"
+    "$ref": "#/definitions/Pick<IMechWeaponData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"id\"|\"description\"|\"effect\"|\"mount\"|\"type\"|\"damage\"|\"range\"|\"sp\"|\"tags\"|\"talent_item\"|\"frame_id\">"
   },
   "definitions": {
-    "IMechWeaponData": {
+    "Pick<IMechWeaponData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"id\"|\"description\"|\"effect\"|\"mount\"|\"type\"|\"damage\"|\"range\"|\"sp\"|\"tags\"|\"talent_item\"|\"frame_id\">": {
       "type": "object",
       "properties": {
+        "source": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "license_level": {
+          "type": "number"
+        },
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "effect": {
+          "type": "string"
+        },
         "mount": {
           "$ref": "#/definitions/WeaponSize"
         },
@@ -34,35 +55,11 @@
             "$ref": "#/definitions/ITagData"
           }
         },
-        "effect": {
-          "type": "string"
-        },
         "talent_item": {
           "type": "boolean"
         },
         "frame_id": {
           "type": "boolean"
-        },
-        "source": {
-          "type": "string"
-        },
-        "license": {
-          "type": "string"
-        },
-        "license_level": {
-          "type": "number"
-        },
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "brew": {
-          "type": "string"
         }
       },
       "required": [

@@ -1,16 +1,16 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/IManufacturerData"
+    "$ref": "#/definitions/Pick<IManufacturerData,\"name\"|\"id\"|\"description\"|\"quote\"|\"logo\"|\"color\"|\"logo_url\">"
   },
   "definitions": {
-    "IManufacturerData": {
+    "Pick<IManufacturerData,\"name\"|\"id\"|\"description\"|\"quote\"|\"logo\"|\"color\"|\"logo_url\">": {
       "type": "object",
       "properties": {
-        "id": {
+        "name": {
           "type": "string"
         },
-        "name": {
+        "id": {
           "type": "string"
         },
         "description": {
