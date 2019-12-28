@@ -28,6 +28,10 @@ function activate() {
 
 			const root = vscode.workspace.workspaceFolders[0].uri.fsPath
 
+			const manifestExists = await existsPromise(root + '/lcp_manifest.json')
+
+			if (!manifestExists) return []
+
 			const textDoc = await vscode.workspace.openTextDocument(root + '/lcp_manifest.json')
 
 
