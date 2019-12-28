@@ -2,7 +2,7 @@
 	"name": "comp-con-content-authoring",
 	"displayName": "COMP/CON Content Authoring",
 	"description": "Provides JSON validation and automatic packaging for authoring COMP/CON content packs",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
