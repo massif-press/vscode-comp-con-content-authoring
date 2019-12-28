@@ -1,6 +1,12 @@
 'use strict';
 const vscode = require('vscode');
 const os = require('os')
+const path = require('path')
+
+const { exists } = require('fs');
+const { promisify } = require('util');
+
+const existsPromise = promisify(exists);
 
 const files = [
 	"lcp_manifest.json",
@@ -14,34 +20,39 @@ const files = [
 	"tags.json"
 ]
 
-/**
- * @param {vscode.ExtensionContext} context
- */
 function activate() {
 
 	var type = "compconTaskProvider";
 	vscode.tasks.registerTaskProvider(type, {
-		provideTasks() {
+		async provideTasks() {
 
-			return Promise.all([
-				vscode.workspace.openTextDocument(vscode.workspace.workspaceFolders[0].uri.fsPath + '/lcp_manifest.json').then((textDoc) => {
-					const manifest = JSON.parse(textDoc.getText())
-					const { name, version } = manifest
+			const root = vscode.workspace.workspaceFolders[0].uri.fsPath
 
-					const cmd = os.platform() === 'win32' ? '7z a -tzip' : 'zip'
-					const packageName = `${name}-${version}.lcp`
-					const filesStr = files.join(' ')
+			const textDoc = await vscode.workspace.openTextDocument(root + '/lcp_manifest.json')
 
-					const task = new vscode.Task({ type }, 'Build .LCP package', 'compcon',
-						new vscode.ShellExecution(
-							`${cmd} '${packageName.replace('\'', '\\\'')}' ${filesStr}`
-						), []);
 
-					task.group = vscode.TaskGroup.Build
 
-					return task;
-				})
-			]);
+			const existingFiles = (await Promise.all(files.map(async (filename) => {
+				const doesExist = await existsPromise(path.resolve(root, filename))
+				return doesExist ? filename : null
+			}))).filter(x => x)
+
+
+			const manifest = JSON.parse(textDoc.getText())
+			const { name, version } = manifest
+
+			const cmd = os.platform() === 'win32' ? '7z a -tzip' : 'zip'
+			const packageName = `${name}-${version}.lcp`
+			const filesStr = existingFiles.join(' ')
+
+			const task = new vscode.Task({ type }, 'Build .LCP package', 'compcon',
+				new vscode.ShellExecution(
+					`${cmd} '${packageName.replace('\'', '\\\'')}' ${filesStr}`
+				), []);
+
+			task.group = vscode.TaskGroup.Build
+
+			return [task]
 		},
 		resolveTask(task) {
 			return task;
