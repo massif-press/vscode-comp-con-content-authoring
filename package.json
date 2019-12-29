@@ -52,6 +52,10 @@
 				"url": "./schemas/mods.schema.json"
 			},
 			{
+				"fileMatch": "pilot_gear.json",
+				"url": "./schemas/pilot_gear.schema.json"
+			},
+			{
 				"fileMatch": "talents.json",
 				"url": "./schemas/talents.schema.json"
 			},

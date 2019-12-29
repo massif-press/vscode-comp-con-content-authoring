@@ -1,23 +1,24 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<IMechWeaponData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"id\"|\"description\"|\"effect\"|\"mount\"|\"type\"|\"damage\"|\"range\"|\"sp\"|\"tags\"|\"talent_item\"|\"frame_id\">"
+    "anyOf": [
+      {
+        "$ref": "#/definitions/Pick<IPilotWeaponData,\"name\"|\"id\"|\"description\"|\"effect\"|\"damage\"|\"range\"|\"tags\">"
+      },
+      {
+        "$ref": "#/definitions/Pick<IPilotArmorData,\"name\"|\"id\"|\"description\"|\"tags\"|\"hp_bonus\"|\"speed\"|\"speed_bonus\"|\"armor\"|\"edef\"|\"edef_bonus\"|\"evasion\"|\"evasion_bonus\">"
+      },
+      {
+        "$ref": "#/definitions/Pick<IPilotGearData,\"name\"|\"id\"|\"description\"|\"tags\"|\"uses\">"
+      }
+    ]
   },
   "definitions": {
-    "Pick<IMechWeaponData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"id\"|\"description\"|\"effect\"|\"mount\"|\"type\"|\"damage\"|\"range\"|\"sp\"|\"tags\"|\"talent_item\"|\"frame_id\">": {
+    "Pick<IPilotWeaponData,\"name\"|\"id\"|\"description\"|\"effect\"|\"damage\"|\"range\"|\"tags\">": {
       "type": "object",
       "properties": {
-        "source": {
-          "type": "string"
-        },
         "name": {
           "type": "string"
-        },
-        "license": {
-          "type": "string"
-        },
-        "license_level": {
-          "type": "number"
         },
         "id": {
           "type": "string"
@@ -27,12 +28,6 @@
         },
         "effect": {
           "type": "string"
-        },
-        "mount": {
-          "$ref": "#/definitions/WeaponSize"
-        },
-        "type": {
-          "$ref": "#/definitions/WeaponType"
         },
         "damage": {
           "type": "array",
@@ -46,57 +41,21 @@
             "$ref": "#/definitions/IRangeData"
           }
         },
-        "sp": {
-          "type": "number"
-        },
         "tags": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ITagData"
           }
-        },
-        "talent_item": {
-          "type": "boolean"
-        },
-        "frame_id": {
-          "type": "boolean"
         }
       },
       "required": [
         "damage",
         "description",
-        "effect",
         "id",
-        "license",
-        "license_level",
-        "mount",
         "name",
         "range",
-        "source",
-        "sp",
-        "tags",
-        "type"
+        "tags"
       ]
-    },
-    "WeaponSize": {
-      "enum": [
-        "Auxiliary",
-        "Heavy",
-        "Main",
-        "Superheavy"
-      ],
-      "type": "string"
-    },
-    "WeaponType": {
-      "enum": [
-        "CQB",
-        "Cannon",
-        "Launcher",
-        "Melee",
-        "Nexus",
-        "Rifle"
-      ],
-      "type": "string"
     },
     "IDamageData": {
       "type": "object",
@@ -178,6 +137,85 @@
       },
       "required": [
         "id"
+      ]
+    },
+    "Pick<IPilotArmorData,\"name\"|\"id\"|\"description\"|\"tags\"|\"hp_bonus\"|\"speed\"|\"speed_bonus\"|\"armor\"|\"edef\"|\"edef_bonus\"|\"evasion\"|\"evasion_bonus\">": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "hp_bonus": {
+          "type": "number"
+        },
+        "speed": {
+          "type": "number"
+        },
+        "speed_bonus": {
+          "type": "number"
+        },
+        "armor": {
+          "type": "number"
+        },
+        "edef": {
+          "type": "number"
+        },
+        "edef_bonus": {
+          "type": "number"
+        },
+        "evasion": {
+          "type": "number"
+        },
+        "evasion_bonus": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "description",
+        "id",
+        "name",
+        "tags"
+      ]
+    },
+    "Pick<IPilotGearData,\"name\"|\"id\"|\"description\"|\"tags\"|\"uses\">": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "uses": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "description",
+        "id",
+        "name",
+        "tags"
       ]
     }
   },
