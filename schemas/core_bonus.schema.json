@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<ICoreBonusData,\"source\"|\"name\"|\"id\"|\"description\"|\"effect\"|\"mounted_effect\">"
+    "$ref": "#/definitions/Pick<ICoreBonusData,\"source\"|\"name\"|\"description\"|\"counters\"|\"effect\"|\"mounted_effect\">"
   },
   "definitions": {
-    "Pick<ICoreBonusData,\"source\"|\"name\"|\"id\"|\"description\"|\"effect\"|\"mounted_effect\">": {
+    "Pick<ICoreBonusData,\"source\"|\"name\"|\"description\"|\"counters\"|\"effect\"|\"mounted_effect\">": {
       "type": "object",
       "properties": {
         "source": {
@@ -13,11 +13,14 @@
         "name": {
           "type": "string"
         },
-        "id": {
-          "type": "string"
-        },
         "description": {
           "type": "string"
+        },
+        "counters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ICounterData"
+          }
         },
         "effect": {
           "type": "string"
@@ -29,9 +32,35 @@
       "required": [
         "description",
         "effect",
-        "id",
         "name",
         "source"
+      ]
+    },
+    "ICounterData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "defaultValue": {
+          "type": "number"
+        },
+        "custom": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name"
       ]
     }
   },

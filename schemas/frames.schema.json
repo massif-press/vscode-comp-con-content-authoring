@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\">,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\">"
+    "$ref": "#/definitions/Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\"|\"counters\">,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"description\"|\"counters\">"
   },
   "definitions": {
-    "Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\">,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\">": {
+    "Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\"|\"counters\">,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"description\"|\"counters\">": {
       "type": "object",
       "properties": {
         "source": {
@@ -60,17 +60,19 @@
         "image_url": {
           "type": "string"
         },
-        "id": {
-          "type": "string"
-        },
         "description": {
           "type": "string"
+        },
+        "counters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ICounterData"
+          }
         }
       },
       "required": [
         "core_system",
         "description",
-        "id",
         "mechtype",
         "mounts",
         "name",
@@ -175,13 +177,16 @@
             "id"
           ]
         },
-        "passive": {
+        "passive_name": {
+          "type": "string"
+        },
+        "passive_effect": {
           "type": "string"
         },
         "active_name": {
           "type": "string"
         },
-        "effect": {
+        "active_effect": {
           "type": "string"
         },
         "tags": {
@@ -192,9 +197,9 @@
         }
       },
       "required": [
+        "active_effect",
         "active_name",
         "description",
-        "effect",
         "name",
         "tags"
       ]
@@ -214,6 +219,33 @@
       },
       "required": [
         "id"
+      ]
+    },
+    "ICounterData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "defaultValue": {
+          "type": "number"
+        },
+        "custom": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name"
       ]
     }
   },

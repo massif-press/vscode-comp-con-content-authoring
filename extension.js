@@ -17,7 +17,10 @@ const files = [
 	"systems.json",
 	"mods.json",
 	"talents.json",
-	"tags.json"
+	"tags.json",
+	"npc_classes.json",
+	"npc_features.json",
+	"npc_templates.json",
 ]
 
 function activate() {

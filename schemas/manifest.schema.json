@@ -4,6 +4,9 @@
     "name": {
       "type": "string"
     },
+    "item_prefix": {
+      "type": "string"
+    },
     "author": {
       "type": "string"
     },
@@ -22,6 +25,7 @@
   },
   "required": [
     "author",
+    "item_prefix",
     "name",
     "version"
   ],

@@ -1,0 +1,358 @@
+{
+  "type": "array",
+  "items": {
+    "anyOf": [
+      {
+        "$ref": "#/definitions/Pick<INpcFeatureData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"locked\"|\"bonus\">"
+      },
+      {
+        "$ref": "#/definitions/Pick<INpcWeaponData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"damage\"|\"range\"|\"tags\"|\"locked\"|\"bonus\"|\"weapon_type\"|\"on_hit\">"
+      },
+      {
+        "$ref": "#/definitions/Pick<INpcReactionData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"trigger\">"
+      },
+      {
+        "$ref": "#/definitions/Pick<INpcSystemData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\">"
+      },
+      {
+        "$ref": "#/definitions/Pick<INpcTechData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\"|\"tech_type\"|\"accuracy\">"
+      }
+    ]
+  },
+  "definitions": {
+    "Pick<INpcFeatureData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"locked\"|\"bonus\">": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "$ref": "#/definitions/IOriginData"
+        },
+        "name": {
+          "type": "string"
+        },
+        "effect": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/NpcFeatureType"
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "bonus": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "locked",
+        "name",
+        "origin",
+        "type"
+      ]
+    },
+    "IOriginData": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "base": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "base",
+        "name",
+        "type"
+      ]
+    },
+    "NpcFeatureType": {
+      "enum": [
+        "Reaction",
+        "System",
+        "Tech",
+        "Trait",
+        "Weapon"
+      ],
+      "type": "string"
+    },
+    "Pick<INpcWeaponData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"damage\"|\"range\"|\"tags\"|\"locked\"|\"bonus\"|\"weapon_type\"|\"on_hit\">": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "$ref": "#/definitions/IOriginData"
+        },
+        "name": {
+          "type": "string"
+        },
+        "effect": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Weapon"
+          ]
+        },
+        "damage": {
+          "$ref": "#/definitions/INpcDamageData"
+        },
+        "range": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IRangeData"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "bonus": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "weapon_type": {
+          "type": "string"
+        },
+        "on_hit": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "damage",
+        "locked",
+        "name",
+        "on_hit",
+        "origin",
+        "range",
+        "tags",
+        "type",
+        "weapon_type"
+      ]
+    },
+    "INpcDamageData": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "damage": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "accuracy": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "advantage": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "accuracy",
+        "advantage",
+        "damage",
+        "type"
+      ]
+    },
+    "IRangeData": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/RangeType"
+        },
+        "val": {
+          "type": "number"
+        },
+        "override": {
+          "type": "boolean"
+        },
+        "bonus": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "type",
+        "val"
+      ]
+    },
+    "RangeType": {
+      "enum": [
+        "Blast",
+        "Burst",
+        "Cone",
+        "Line",
+        "Range",
+        "Threat",
+        "Thrown"
+      ],
+      "type": "string"
+    },
+    "ITagData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "val": {
+          "type": [
+            "string",
+            "number"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "Pick<INpcReactionData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"trigger\">": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "$ref": "#/definitions/IOriginData"
+        },
+        "name": {
+          "type": "string"
+        },
+        "effect": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Reaction"
+          ]
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "bonus": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "trigger": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "locked",
+        "name",
+        "origin",
+        "trigger",
+        "type"
+      ]
+    },
+    "Pick<INpcSystemData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\">": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "$ref": "#/definitions/IOriginData"
+        },
+        "name": {
+          "type": "string"
+        },
+        "effect": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "System"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "bonus": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "locked",
+        "name",
+        "origin",
+        "tags",
+        "type"
+      ]
+    },
+    "Pick<INpcTechData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\"|\"tech_type\"|\"accuracy\">": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "$ref": "#/definitions/IOriginData"
+        },
+        "name": {
+          "type": "string"
+        },
+        "effect": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Tech"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "bonus": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "tech_type": {
+          "type": "string"
+        },
+        "accuracy": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "accuracy",
+        "locked",
+        "name",
+        "origin",
+        "tags",
+        "tech_type",
+        "type"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

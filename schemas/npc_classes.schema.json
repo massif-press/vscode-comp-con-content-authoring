@@ -1,0 +1,179 @@
+{
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Pick<INpcClassData,\"name\"|\"stats\"|\"info\"|\"role\"|\"base_features\"|\"optional_features\"|\"power\">"
+  },
+  "definitions": {
+    "Pick<INpcClassData,\"name\"|\"stats\"|\"info\"|\"role\"|\"base_features\"|\"optional_features\"|\"power\">": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "stats": {
+          "$ref": "#/definitions/INpcClassStats"
+        },
+        "info": {
+          "type": "object",
+          "properties": {
+            "flavor": {
+              "type": "string"
+            },
+            "tactics": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "flavor",
+            "tactics"
+          ]
+        },
+        "role": {
+          "type": "string"
+        },
+        "base_features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "optional_features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "power": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "base_features",
+        "info",
+        "name",
+        "optional_features",
+        "power",
+        "role",
+        "stats"
+      ]
+    },
+    "INpcClassStats": {
+      "type": "object",
+      "properties": {
+        "activations": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "armor": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "hp": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "evade": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "edef": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "heatcap": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "speed": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "sensor": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "save": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "hull": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "agility": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "systems": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "engineering": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "size": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "structure": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "stress": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "activations",
+        "agility",
+        "armor",
+        "edef",
+        "engineering",
+        "evade",
+        "heatcap",
+        "hp",
+        "hull",
+        "save",
+        "sensor",
+        "size",
+        "speed",
+        "systems"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

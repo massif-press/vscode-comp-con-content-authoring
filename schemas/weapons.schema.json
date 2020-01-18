@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<IMechWeaponData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"id\"|\"description\"|\"effect\"|\"mount\"|\"type\"|\"damage\"|\"range\"|\"sp\"|\"tags\"|\"talent_item\"|\"frame_id\">"
+    "$ref": "#/definitions/Pick<IMechWeaponData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"description\"|\"counters\"|\"effect\"|\"mount\"|\"type\"|\"damage\"|\"range\"|\"sp\"|\"tags\"|\"talent_item\"|\"frame_id\">"
   },
   "definitions": {
-    "Pick<IMechWeaponData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"id\"|\"description\"|\"effect\"|\"mount\"|\"type\"|\"damage\"|\"range\"|\"sp\"|\"tags\"|\"talent_item\"|\"frame_id\">": {
+    "Pick<IMechWeaponData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"description\"|\"counters\"|\"effect\"|\"mount\"|\"type\"|\"damage\"|\"range\"|\"sp\"|\"tags\"|\"talent_item\"|\"frame_id\">": {
       "type": "object",
       "properties": {
         "source": {
@@ -19,11 +19,14 @@
         "license_level": {
           "type": "number"
         },
-        "id": {
-          "type": "string"
-        },
         "description": {
           "type": "string"
+        },
+        "counters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ICounterData"
+          }
         },
         "effect": {
           "type": "string"
@@ -66,7 +69,6 @@
         "damage",
         "description",
         "effect",
-        "id",
         "license",
         "license_level",
         "mount",
@@ -76,6 +78,33 @@
         "sp",
         "tags",
         "type"
+      ]
+    },
+    "ICounterData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "defaultValue": {
+          "type": "number"
+        },
+        "custom": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name"
       ]
     },
     "WeaponSize": {

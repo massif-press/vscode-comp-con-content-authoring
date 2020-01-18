@@ -62,6 +62,18 @@
 			{
 				"fileMatch": "tags.json",
 				"url": "./schemas/tags.schema.json"
+			},
+			{
+				"fileMatch": "npc_classes.json",
+				"url": "./schemas/npc_classes.schema.json"
+			},
+			{
+				"fileMatch": "npc_features.json",
+				"url": "./schemas/npc_features.schema.json"
+			},
+			{
+				"fileMatch": "npc_templates.json",
+				"url": "./schemas/npc_templates.schema.json"
 			}
 		]
 	},

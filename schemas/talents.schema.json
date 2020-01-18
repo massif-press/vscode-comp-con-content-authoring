@@ -1,20 +1,23 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<ITalentData,\"name\"|\"id\"|\"description\"|\"ranks\">"
+    "$ref": "#/definitions/Pick<ITalentData,\"name\"|\"description\"|\"counters\"|\"ranks\">"
   },
   "definitions": {
-    "Pick<ITalentData,\"name\"|\"id\"|\"description\"|\"ranks\">": {
+    "Pick<ITalentData,\"name\"|\"description\"|\"counters\"|\"ranks\">": {
       "type": "object",
       "properties": {
         "name": {
           "type": "string"
         },
-        "id": {
-          "type": "string"
-        },
         "description": {
           "type": "string"
+        },
+        "counters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ICounterData"
+          }
         },
         "ranks": {
           "type": "array",
@@ -25,9 +28,35 @@
       },
       "required": [
         "description",
-        "id",
         "name",
         "ranks"
+      ]
+    },
+    "ICounterData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "defaultValue": {
+          "type": "number"
+        },
+        "custom": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name"
       ]
     },
     "ITalentRank": {

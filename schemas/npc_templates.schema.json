@@ -1,0 +1,42 @@
+{
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Pick<INpcTemplateData,\"name\"|\"description\"|\"base_features\"|\"optional_features\"|\"power\">"
+  },
+  "definitions": {
+    "Pick<INpcTemplateData,\"name\"|\"description\"|\"base_features\"|\"optional_features\"|\"power\">": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "base_features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "optional_features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "power": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "base_features",
+        "description",
+        "name",
+        "optional_features",
+        "power"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
