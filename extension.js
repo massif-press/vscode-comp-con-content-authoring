@@ -16,6 +16,7 @@ const files = [
 	"weapons.json",
 	"systems.json",
 	"mods.json",
+	"pilot_gear.json",
 	"talents.json",
 	"tags.json",
 	"npc_classes.json",
