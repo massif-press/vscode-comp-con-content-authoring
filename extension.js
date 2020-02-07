@@ -55,7 +55,7 @@ function activate() {
 
 			const task = new vscode.Task({ type }, 'Build .LCP package', 'compcon',
 				new vscode.ShellExecution(
-					`${cmd} '${packageName.replace('\'', '\\\'')}' ${filesStr}`
+					`${cmd} "${packageName.replace('\"', '\\\"')}" ${filesStr}`
 				), []);
 
 			task.group = vscode.TaskGroup.Build
