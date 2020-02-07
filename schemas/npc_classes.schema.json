@@ -141,7 +141,10 @@
         "size": {
           "type": "array",
           "items": {
-            "type": "number"
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
           }
         },
         "structure": {
