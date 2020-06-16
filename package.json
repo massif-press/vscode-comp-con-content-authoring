@@ -32,6 +32,10 @@
 				"url": "./schemas/manufacturers.schema.json"
 			},
 			{
+				"fileMatch": "factions.json",
+				"url": "./schemas/factions.schema.json"
+			},
+			{
 				"fileMatch": "core_bonus.json",
 				"url": "./schemas/core_bonus.schema.json"
 			},
