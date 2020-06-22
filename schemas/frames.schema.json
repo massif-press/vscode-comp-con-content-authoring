@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\"|\"counters\">,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"description\"|\"counters\">"
+    "$ref": "#/definitions/Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"other_art\"|\"id\"|\"description\"|\"brew\"|\"counters\">,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"other_art\"|\"description\"|\"counters\">"
   },
   "definitions": {
-    "Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\"|\"counters\">,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"description\"|\"counters\">": {
+    "Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"other_art\"|\"id\"|\"description\"|\"brew\"|\"counters\">,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"other_art\"|\"description\"|\"counters\">": {
       "type": "object",
       "properties": {
         "source": {
@@ -59,6 +59,24 @@
         },
         "image_url": {
           "type": "string"
+        },
+        "other_art": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "$ref": "#/definitions/ImageTag"
+              },
+              "src": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "src",
+              "tag"
+            ]
+          }
         },
         "description": {
           "type": "string"
@@ -221,6 +239,21 @@
         "id"
       ]
     },
+    "ImageTag": {
+      "enum": [
+        "enemy",
+        "frame",
+        "location",
+        "logo",
+        "map",
+        "mech",
+        "misc",
+        "npc",
+        "object",
+        "pilot"
+      ],
+      "type": "string"
+    },
     "ICounterData": {
       "type": "object",
       "properties": {
@@ -230,13 +263,16 @@
         "name": {
           "type": "string"
         },
+        "level": {
+          "type": "number"
+        },
         "min": {
           "type": "number"
         },
         "max": {
           "type": "number"
         },
-        "defaultValue": {
+        "default_value": {
           "type": "number"
         },
         "custom": {

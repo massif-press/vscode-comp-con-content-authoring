@@ -1,22 +1,22 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<IManufacturerData,\"name\"|\"description\"|\"quote\"|\"logo\"|\"color\"|\"logo_url\">"
+    "$ref": "#/definitions/Pick<IManufacturerData,\"name\"|\"id\"|\"description\"|\"quote\"|\"color\"|\"logo_url\">"
   },
   "definitions": {
-    "Pick<IManufacturerData,\"name\"|\"description\"|\"quote\"|\"logo\"|\"color\"|\"logo_url\">": {
+    "Pick<IManufacturerData,\"name\"|\"id\"|\"description\"|\"quote\"|\"color\"|\"logo_url\">": {
       "type": "object",
       "properties": {
         "name": {
+          "type": "string"
+        },
+        "id": {
           "type": "string"
         },
         "description": {
           "type": "string"
         },
         "quote": {
-          "type": "string"
-        },
-        "logo": {
           "type": "string"
         },
         "color": {
@@ -29,7 +29,7 @@
       "required": [
         "color",
         "description",
-        "logo",
+        "id",
         "name",
         "quote"
       ]

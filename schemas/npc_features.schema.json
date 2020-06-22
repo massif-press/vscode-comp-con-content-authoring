@@ -3,24 +3,24 @@
   "items": {
     "anyOf": [
       {
-        "$ref": "#/definitions/Pick<INpcFeatureData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"locked\"|\"bonus\">"
+        "$ref": "#/definitions/Pick<INpcFeatureData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\">"
       },
       {
-        "$ref": "#/definitions/Pick<INpcWeaponData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"damage\"|\"range\"|\"tags\"|\"locked\"|\"bonus\"|\"weapon_type\"|\"on_hit\">"
+        "$ref": "#/definitions/Pick<INpcWeaponData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"damage\"|\"range\"|\"tags\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"weapon_type\"|\"on_hit\"|\"accuracy\"|\"attack_bonus\">"
       },
       {
-        "$ref": "#/definitions/Pick<INpcReactionData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"trigger\">"
+        "$ref": "#/definitions/Pick<INpcReactionData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"trigger\">"
       },
       {
-        "$ref": "#/definitions/Pick<INpcSystemData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\">"
+        "$ref": "#/definitions/Pick<INpcSystemData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\">"
       },
       {
-        "$ref": "#/definitions/Pick<INpcTechData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\"|\"tech_type\"|\"accuracy\">"
+        "$ref": "#/definitions/Pick<INpcTechData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"accuracy\"|\"attack_bonus\"|\"tech_type\">"
       }
     ]
   },
   "definitions": {
-    "Pick<INpcFeatureData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"locked\"|\"bonus\">": {
+    "Pick<INpcFeatureData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\">": {
       "type": "object",
       "properties": {
         "origin": {
@@ -35,6 +35,12 @@
         "type": {
           "$ref": "#/definitions/NpcFeatureType"
         },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
         "locked": {
           "type": "boolean"
         },
@@ -42,12 +48,22 @@
           "type": "object",
           "properties": {},
           "additionalProperties": true
+        },
+        "override": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "hide_active": {
+          "type": "boolean"
         }
       },
       "required": [
+        "hide_active",
         "locked",
         "name",
         "origin",
+        "tags",
         "type"
       ]
     },
@@ -80,7 +96,24 @@
       ],
       "type": "string"
     },
-    "Pick<INpcWeaponData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"damage\"|\"range\"|\"tags\"|\"locked\"|\"bonus\"|\"weapon_type\"|\"on_hit\">": {
+    "ITagData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "val": {
+          "type": [
+            "string",
+            "number"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "Pick<INpcWeaponData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"damage\"|\"range\"|\"tags\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"weapon_type\"|\"on_hit\"|\"accuracy\"|\"attack_bonus\">": {
       "type": "object",
       "properties": {
         "origin": {
@@ -99,7 +132,10 @@
           ]
         },
         "damage": {
-          "$ref": "#/definitions/INpcDamageData"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/INpcDamageData"
+          }
         },
         "range": {
           "type": "array",
@@ -121,15 +157,38 @@
           "properties": {},
           "additionalProperties": true
         },
+        "override": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "hide_active": {
+          "type": "boolean"
+        },
         "weapon_type": {
           "type": "string"
         },
         "on_hit": {
           "type": "string"
+        },
+        "accuracy": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "attack_bonus": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
         }
       },
       "required": [
+        "accuracy",
+        "attack_bonus",
         "damage",
+        "hide_active",
         "locked",
         "name",
         "on_hit",
@@ -151,23 +210,9 @@
           "items": {
             "type": "number"
           }
-        },
-        "accuracy": {
-          "type": "array",
-          "items": {
-            "type": "number"
-          }
-        },
-        "advantage": {
-          "type": "array",
-          "items": {
-            "type": "number"
-          }
         }
       },
       "required": [
-        "accuracy",
-        "advantage",
         "damage",
         "type"
       ]
@@ -205,24 +250,7 @@
       ],
       "type": "string"
     },
-    "ITagData": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "val": {
-          "type": [
-            "string",
-            "number"
-          ]
-        }
-      },
-      "required": [
-        "id"
-      ]
-    },
-    "Pick<INpcReactionData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"trigger\">": {
+    "Pick<INpcReactionData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"trigger\">": {
       "type": "object",
       "properties": {
         "origin": {
@@ -240,6 +268,12 @@
             "Reaction"
           ]
         },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
         "locked": {
           "type": "boolean"
         },
@@ -248,19 +282,29 @@
           "properties": {},
           "additionalProperties": true
         },
+        "override": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "hide_active": {
+          "type": "boolean"
+        },
         "trigger": {
           "type": "string"
         }
       },
       "required": [
+        "hide_active",
         "locked",
         "name",
         "origin",
+        "tags",
         "trigger",
         "type"
       ]
     },
-    "Pick<INpcSystemData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\">": {
+    "Pick<INpcSystemData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\">": {
       "type": "object",
       "properties": {
         "origin": {
@@ -291,9 +335,18 @@
           "type": "object",
           "properties": {},
           "additionalProperties": true
+        },
+        "override": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "hide_active": {
+          "type": "boolean"
         }
       },
       "required": [
+        "hide_active",
         "locked",
         "name",
         "origin",
@@ -301,7 +354,7 @@
         "type"
       ]
     },
-    "Pick<INpcTechData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\"|\"tech_type\"|\"accuracy\">": {
+    "Pick<INpcTechData,\"origin\"|\"name\"|\"effect\"|\"type\"|\"tags\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"accuracy\"|\"attack_bonus\"|\"tech_type\">": {
       "type": "object",
       "properties": {
         "origin": {
@@ -333,18 +386,32 @@
           "properties": {},
           "additionalProperties": true
         },
-        "tech_type": {
-          "type": "string"
+        "override": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "hide_active": {
+          "type": "boolean"
         },
         "accuracy": {
           "type": "array",
           "items": {
             "type": "number"
           }
+        },
+        "attack_bonus": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "tech_type": {
+          "type": "string"
         }
       },
       "required": [
-        "accuracy",
+        "hide_active",
         "locked",
         "name",
         "origin",

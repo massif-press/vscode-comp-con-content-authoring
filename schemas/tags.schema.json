@@ -34,13 +34,16 @@
         "name": {
           "type": "string"
         },
+        "level": {
+          "type": "number"
+        },
         "min": {
           "type": "number"
         },
         "max": {
           "type": "number"
         },
-        "defaultValue": {
+        "default_value": {
           "type": "number"
         },
         "custom": {

@@ -3,18 +3,18 @@
   "items": {
     "anyOf": [
       {
-        "$ref": "#/definitions/Pick<IPilotWeaponData,\"name\"|\"description\"|\"counters\"|\"effect\"|\"damage\"|\"range\"|\"tags\">"
+        "$ref": "#/definitions/Pick<IPilotWeaponData,\"name\"|\"description\"|\"counters\"|\"effect\"|\"type\"|\"damage\"|\"range\"|\"tags\">"
       },
       {
-        "$ref": "#/definitions/Pick<IPilotArmorData,\"name\"|\"description\"|\"counters\"|\"tags\"|\"hp_bonus\"|\"speed\"|\"speed_bonus\"|\"armor\"|\"edef\"|\"edef_bonus\"|\"evasion\"|\"evasion_bonus\">"
+        "$ref": "#/definitions/Pick<IPilotArmorData,\"name\"|\"description\"|\"counters\"|\"type\"|\"tags\"|\"hp_bonus\"|\"speed\"|\"speed_bonus\"|\"armor\"|\"edef\"|\"edef_bonus\"|\"evasion\"|\"evasion_bonus\">"
       },
       {
-        "$ref": "#/definitions/Pick<IPilotGearData,\"name\"|\"description\"|\"counters\"|\"tags\"|\"uses\">"
+        "$ref": "#/definitions/Pick<IPilotGearData,\"name\"|\"description\"|\"counters\"|\"type\"|\"tags\"|\"uses\">"
       }
     ]
   },
   "definitions": {
-    "Pick<IPilotWeaponData,\"name\"|\"description\"|\"counters\"|\"effect\"|\"damage\"|\"range\"|\"tags\">": {
+    "Pick<IPilotWeaponData,\"name\"|\"description\"|\"counters\"|\"effect\"|\"type\"|\"damage\"|\"range\"|\"tags\">": {
       "type": "object",
       "properties": {
         "name": {
@@ -30,6 +30,9 @@
           }
         },
         "effect": {
+          "type": "string"
+        },
+        "type": {
           "type": "string"
         },
         "damage": {
@@ -68,13 +71,16 @@
         "name": {
           "type": "string"
         },
+        "level": {
+          "type": "number"
+        },
         "min": {
           "type": "number"
         },
         "max": {
           "type": "number"
         },
-        "defaultValue": {
+        "default_value": {
           "type": "number"
         },
         "custom": {
@@ -168,7 +174,7 @@
         "id"
       ]
     },
-    "Pick<IPilotArmorData,\"name\"|\"description\"|\"counters\"|\"tags\"|\"hp_bonus\"|\"speed\"|\"speed_bonus\"|\"armor\"|\"edef\"|\"edef_bonus\"|\"evasion\"|\"evasion_bonus\">": {
+    "Pick<IPilotArmorData,\"name\"|\"description\"|\"counters\"|\"type\"|\"tags\"|\"hp_bonus\"|\"speed\"|\"speed_bonus\"|\"armor\"|\"edef\"|\"edef_bonus\"|\"evasion\"|\"evasion_bonus\">": {
       "type": "object",
       "properties": {
         "name": {
@@ -182,6 +188,9 @@
           "items": {
             "$ref": "#/definitions/ICounterData"
           }
+        },
+        "type": {
+          "type": "string"
         },
         "tags": {
           "type": "array",
@@ -220,7 +229,7 @@
         "tags"
       ]
     },
-    "Pick<IPilotGearData,\"name\"|\"description\"|\"counters\"|\"tags\"|\"uses\">": {
+    "Pick<IPilotGearData,\"name\"|\"description\"|\"counters\"|\"type\"|\"tags\"|\"uses\">": {
       "type": "object",
       "properties": {
         "name": {
@@ -234,6 +243,9 @@
           "items": {
             "$ref": "#/definitions/ICounterData"
           }
+        },
+        "type": {
+          "type": "string"
         },
         "tags": {
           "type": "array",

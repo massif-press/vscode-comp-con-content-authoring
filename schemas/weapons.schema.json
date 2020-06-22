@@ -29,7 +29,24 @@
           }
         },
         "effect": {
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              }
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "mount": {
           "$ref": "#/definitions/WeaponSize"
@@ -89,13 +106,16 @@
         "name": {
           "type": "string"
         },
+        "level": {
+          "type": "number"
+        },
         "min": {
           "type": "number"
         },
         "max": {
           "type": "number"
         },
-        "defaultValue": {
+        "default_value": {
           "type": "number"
         },
         "custom": {
