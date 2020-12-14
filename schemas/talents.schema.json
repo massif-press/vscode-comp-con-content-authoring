@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<ITalentData,\"name\"|\"description\"|\"counters\"|\"ranks\">"
+    "$ref": "#/definitions/Pick<ITalentData,\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"terse\"|\"ranks\">"
   },
   "definitions": {
-    "Pick<ITalentData,\"name\"|\"description\"|\"counters\"|\"ranks\">": {
+    "Pick<ITalentData,\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"terse\"|\"ranks\">": {
       "type": "object",
       "properties": {
         "name": {
@@ -13,23 +13,393 @@
         "description": {
           "type": "string"
         },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IActionData"
+          }
+        },
+        "bonuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IBonusData"
+          }
+        },
+        "synergies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ISynergyData"
+          }
+        },
+        "deployables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IDeployableData"
+          }
+        },
         "counters": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ICounterData"
           }
         },
+        "integrated": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "terse": {
+          "type": "string"
+        },
         "ranks": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ITalentRank"
+            "$ref": "#/definitions/ITalentRankData"
           }
         }
       },
       "required": [
         "description",
         "name",
-        "ranks"
+        "ranks",
+        "terse"
+      ]
+    },
+    "IActionData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "activation": {
+          "$ref": "#/definitions/ActivationType"
+        },
+        "cost": {
+          "type": "number"
+        },
+        "frequency": {
+          "type": "string"
+        },
+        "init": {
+          "type": "string"
+        },
+        "trigger": {
+          "type": "string"
+        },
+        "terse": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "pilot": {
+          "type": "boolean"
+        },
+        "mech": {
+          "type": "boolean"
+        },
+        "hide_active": {
+          "type": "boolean"
+        },
+        "synergy_locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confirm": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "log": {
+          "type": "string"
+        },
+        "ignore_used": {
+          "type": "boolean"
+        },
+        "heat_cost": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "activation",
+        "detail",
+        "name"
+      ]
+    },
+    "ActivationType": {
+      "enum": [
+        "Free",
+        "Full",
+        "Full Tech",
+        "Invade",
+        "Move",
+        "None",
+        "Other",
+        "Passive",
+        "Protocol",
+        "Quick",
+        "Quick Tech",
+        "Reaction"
+      ],
+      "type": "string"
+    },
+    "IBonusData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "val": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "damage_types": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "Burn",
+              "Energy",
+              "Explosive",
+              "Heat",
+              "Kinetic",
+              "Variable"
+            ],
+            "type": "string"
+          }
+        },
+        "range_types": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "Blast",
+              "Burst",
+              "Cone",
+              "Line",
+              "Range",
+              "Threat",
+              "Thrown"
+            ],
+            "type": "string"
+          }
+        },
+        "weapon_types": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "CQB",
+              "Cannon",
+              "Launcher",
+              "Melee",
+              "Nexus",
+              "Rifle"
+            ],
+            "type": "string"
+          }
+        },
+        "weapon_sizes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "Auxiliary",
+              "Heavy",
+              "Main",
+              "Superheavy"
+            ],
+            "type": "string"
+          }
+        },
+        "overwrite": {
+          "type": "boolean"
+        },
+        "replace": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "val"
+      ]
+    },
+    "ISynergyData": {
+      "type": "object",
+      "properties": {
+        "locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "detail": {
+          "type": "string"
+        },
+        "weapon_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "system_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weapon_sizes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "detail",
+        "locations"
+      ]
+    },
+    "IDeployableData": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "activation": {
+          "$ref": "#/definitions/ActivationType"
+        },
+        "instances": {
+          "type": "number"
+        },
+        "deactivation": {
+          "$ref": "#/definitions/ActivationType"
+        },
+        "recall": {
+          "$ref": "#/definitions/ActivationType"
+        },
+        "redeploy": {
+          "$ref": "#/definitions/ActivationType"
+        },
+        "size": {
+          "type": "number"
+        },
+        "cost": {
+          "type": "number"
+        },
+        "armor": {
+          "type": "number"
+        },
+        "hp": {
+          "type": "number"
+        },
+        "evasion": {
+          "type": "number"
+        },
+        "edef": {
+          "type": "number"
+        },
+        "heatcap": {
+          "type": "number"
+        },
+        "repcap": {
+          "type": "number"
+        },
+        "sensor_range": {
+          "type": "number"
+        },
+        "tech_attack": {
+          "type": "number"
+        },
+        "save": {
+          "type": "number"
+        },
+        "speed": {
+          "type": "number"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IActionData"
+          }
+        },
+        "bonuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IBonusData"
+          }
+        },
+        "synergies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ISynergyData"
+          }
+        },
+        "counters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ICounterData"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "pilot": {
+          "type": "boolean"
+        },
+        "mech": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "deployables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IDeployableData"
+          }
+        },
+        "integrated": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "brew": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "activation",
+        "description",
+        "detail",
+        "id",
+        "name",
+        "size",
+        "type"
       ]
     },
     "ICounterData": {
@@ -41,13 +411,16 @@
         "name": {
           "type": "string"
         },
+        "level": {
+          "type": "number"
+        },
         "min": {
           "type": "number"
         },
         "max": {
           "type": "number"
         },
-        "defaultValue": {
+        "default_value": {
           "type": "number"
         },
         "custom": {
@@ -59,18 +432,88 @@
         "name"
       ]
     },
-    "ITalentRank": {
+    "ITagData": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
+        "val": {
+          "type": [
+            "string",
+            "number"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "ITalentRankData": {
+      "type": "object",
+      "properties": {
+        "exclusive": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
         "name": {
           "type": "string"
         },
         "description": {
           "type": "string"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IActionData"
+          }
+        },
+        "bonuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IBonusData"
+          }
+        },
+        "synergies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ISynergyData"
+          }
+        },
+        "deployables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IDeployableData"
+          }
+        },
+        "counters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ICounterData"
+          }
+        },
+        "integrated": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "brew": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
         }
       },
       "required": [
         "description",
+        "exclusive",
+        "id",
         "name"
       ]
     }

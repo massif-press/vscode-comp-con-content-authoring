@@ -1,0 +1,47 @@
+{
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Pick<Sitrep,\"name\"|\"description\"|\"pcVictory\"|\"enemyVictory\"|\"noVictory\"|\"deployment\"|\"objective\"|\"controlZone\"|\"extraction\">"
+  },
+  "definitions": {
+    "Pick<Sitrep,\"name\"|\"description\"|\"pcVictory\"|\"enemyVictory\"|\"noVictory\"|\"deployment\"|\"objective\"|\"controlZone\"|\"extraction\">": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "pcVictory": {
+          "type": "string"
+        },
+        "enemyVictory": {
+          "type": "string"
+        },
+        "noVictory": {
+          "type": "string"
+        },
+        "deployment": {
+          "type": "string"
+        },
+        "objective": {
+          "type": "string"
+        },
+        "controlZone": {
+          "type": "string"
+        },
+        "extraction": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "description",
+        "enemyVictory",
+        "name",
+        "pcVictory"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

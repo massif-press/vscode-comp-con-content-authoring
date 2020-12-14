@@ -1,13 +1,16 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<IManufacturerData,\"name\"|\"description\"|\"quote\"|\"logo\"|\"color\"|\"logo_url\">"
+    "$ref": "#/definitions/Pick<IManufacturerData,\"name\"|\"id\"|\"description\"|\"quote\"|\"light\"|\"dark\"|\"logo_url\">"
   },
   "definitions": {
-    "Pick<IManufacturerData,\"name\"|\"description\"|\"quote\"|\"logo\"|\"color\"|\"logo_url\">": {
+    "Pick<IManufacturerData,\"name\"|\"id\"|\"description\"|\"quote\"|\"light\"|\"dark\"|\"logo_url\">": {
       "type": "object",
       "properties": {
         "name": {
+          "type": "string"
+        },
+        "id": {
           "type": "string"
         },
         "description": {
@@ -16,10 +19,10 @@
         "quote": {
           "type": "string"
         },
-        "logo": {
+        "light": {
           "type": "string"
         },
-        "color": {
+        "dark": {
           "type": "string"
         },
         "logo_url": {
@@ -27,9 +30,10 @@
         }
       },
       "required": [
-        "color",
+        "dark",
         "description",
-        "logo",
+        "id",
+        "light",
         "name",
         "quote"
       ]

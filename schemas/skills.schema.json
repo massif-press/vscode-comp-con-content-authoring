@@ -1,23 +1,14 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<IMechSystemData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"type\"|\"sp\"|\"talent_item\"|\"frame_id\"|\"ammo\">"
+    "$ref": "#/definitions/Pick<ISkillData,\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"detail\"|\"family\">"
   },
   "definitions": {
-    "Pick<IMechSystemData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"type\"|\"sp\"|\"talent_item\"|\"frame_id\"|\"ammo\">": {
+    "Pick<ISkillData,\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"detail\"|\"family\">": {
       "type": "object",
       "properties": {
-        "source": {
-          "type": "string"
-        },
         "name": {
           "type": "string"
-        },
-        "license": {
-          "type": "string"
-        },
-        "license_level": {
-          "type": "number"
         },
         "description": {
           "type": "string"
@@ -64,36 +55,18 @@
             "$ref": "#/definitions/ITagData"
           }
         },
-        "effect": {
+        "detail": {
           "type": "string"
         },
-        "type": {
-          "$ref": "#/definitions/SystemType"
-        },
-        "sp": {
-          "type": "number"
-        },
-        "talent_item": {
-          "type": "boolean"
-        },
-        "frame_id": {
-          "type": "boolean"
-        },
-        "ammo": {
-          "type": "array",
-          "items": {}
+        "family": {
+          "type": "string"
         }
       },
       "required": [
         "description",
-        "effect",
-        "license",
-        "license_level",
-        "name",
-        "source",
-        "sp",
-        "tags",
-        "type"
+        "detail",
+        "family",
+        "name"
       ]
     },
     "IActionData": {
@@ -472,21 +445,6 @@
       "required": [
         "id"
       ]
-    },
-    "SystemType": {
-      "enum": [
-        "AI",
-        "Armor",
-        "Deployable",
-        "Drone",
-        "Flight System",
-        "Integrated",
-        "Mod",
-        "Shield",
-        "System",
-        "Tech"
-      ],
-      "type": "string"
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"

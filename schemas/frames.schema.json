@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\"|\"counters\">,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"description\"|\"counters\">"
+    "$ref": "#/definitions/Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"id\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"brew\"|\"tags\">,\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\">"
   },
   "definitions": {
-    "Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"id\"|\"description\"|\"brew\"|\"counters\">,\"source\"|\"name\"|\"mechtype\"|\"y_pos\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"image_url\"|\"description\"|\"counters\">": {
+    "Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"id\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"brew\"|\"tags\">,\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\">": {
       "type": "object",
       "properties": {
         "source": {
@@ -27,9 +27,6 @@
             "type": "string"
           }
         },
-        "y_pos": {
-          "type": "number"
-        },
         "mounts": {
           "type": "array",
           "items": {
@@ -51,22 +48,78 @@
         "traits": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/FrameTrait"
+            "$ref": "#/definitions/IFrameTraitData"
           }
         },
         "core_system": {
           "$ref": "#/definitions/ICoreData"
         },
+        "y_pos": {
+          "type": "number"
+        },
         "image_url": {
           "type": "string"
         },
+        "other_art": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "$ref": "#/definitions/ImageTag"
+              },
+              "src": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "description": {
           "type": "string"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IActionData"
+          }
+        },
+        "bonuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IBonusData"
+          }
+        },
+        "synergies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ISynergyData"
+          }
+        },
+        "deployables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IDeployableData"
+          }
         },
         "counters": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ICounterData"
+          }
+        },
+        "integrated": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
           }
         }
       },
@@ -87,10 +140,13 @@
         "size": {
           "type": "number"
         },
-        "armor": {
+        "structure": {
           "type": "number"
         },
-        "structuremod": {
+        "stress": {
+          "type": "number"
+        },
+        "armor": {
           "type": "number"
         },
         "hp": {
@@ -100,9 +156,6 @@
           "type": "number"
         },
         "edef": {
-          "type": "number"
-        },
-        "stressmod": {
           "type": "number"
         },
         "heatcap": {
@@ -139,10 +192,12 @@
         "size",
         "sp",
         "speed",
+        "stress",
+        "structure",
         "tech_attack"
       ]
     },
-    "FrameTrait": {
+    "IFrameTraitData": {
       "type": "object",
       "properties": {
         "name": {
@@ -150,6 +205,45 @@
         },
         "description": {
           "type": "string"
+        },
+        "use": {
+          "$ref": "#/definitions/Duration"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IActionData"
+          }
+        },
+        "bonuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IBonusData"
+          }
+        },
+        "synergies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ISynergyData"
+          }
+        },
+        "deployables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IDeployableData"
+          }
+        },
+        "counters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ICounterData"
+          }
+        },
+        "integrated": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
@@ -157,51 +251,376 @@
         "name"
       ]
     },
-    "ICoreData": {
+    "Duration": {
+      "enum": [
+        "Encounter",
+        "Free",
+        "Mission",
+        "Next Round",
+        "Next Turn",
+        "Round",
+        "Turn"
+      ],
+      "type": "string"
+    },
+    "IActionData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "activation": {
+          "$ref": "#/definitions/ActivationType"
+        },
+        "cost": {
+          "type": "number"
+        },
+        "frequency": {
+          "type": "string"
+        },
+        "init": {
+          "type": "string"
+        },
+        "trigger": {
+          "type": "string"
+        },
+        "terse": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "pilot": {
+          "type": "boolean"
+        },
+        "mech": {
+          "type": "boolean"
+        },
+        "hide_active": {
+          "type": "boolean"
+        },
+        "synergy_locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confirm": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "log": {
+          "type": "string"
+        },
+        "ignore_used": {
+          "type": "boolean"
+        },
+        "heat_cost": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "activation",
+        "detail",
+        "name"
+      ]
+    },
+    "ActivationType": {
+      "enum": [
+        "Free",
+        "Full",
+        "Full Tech",
+        "Invade",
+        "Move",
+        "None",
+        "Other",
+        "Passive",
+        "Protocol",
+        "Quick",
+        "Quick Tech",
+        "Reaction"
+      ],
+      "type": "string"
+    },
+    "IBonusData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "val": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "damage_types": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "Burn",
+              "Energy",
+              "Explosive",
+              "Heat",
+              "Kinetic",
+              "Variable"
+            ],
+            "type": "string"
+          }
+        },
+        "range_types": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "Blast",
+              "Burst",
+              "Cone",
+              "Line",
+              "Range",
+              "Threat",
+              "Thrown"
+            ],
+            "type": "string"
+          }
+        },
+        "weapon_types": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "CQB",
+              "Cannon",
+              "Launcher",
+              "Melee",
+              "Nexus",
+              "Rifle"
+            ],
+            "type": "string"
+          }
+        },
+        "weapon_sizes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "Auxiliary",
+              "Heavy",
+              "Main",
+              "Superheavy"
+            ],
+            "type": "string"
+          }
+        },
+        "overwrite": {
+          "type": "boolean"
+        },
+        "replace": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "val"
+      ]
+    },
+    "ISynergyData": {
+      "type": "object",
+      "properties": {
+        "locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "detail": {
+          "type": "string"
+        },
+        "weapon_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "system_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weapon_sizes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "detail",
+        "locations"
+      ]
+    },
+    "IDeployableData": {
       "type": "object",
       "properties": {
         "name": {
           "type": "string"
         },
-        "description": {
+        "detail": {
           "type": "string"
         },
-        "integrated": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "id"
-          ]
-        },
-        "passive_name": {
+        "type": {
           "type": "string"
         },
-        "passive_effect": {
-          "type": "string"
+        "activation": {
+          "$ref": "#/definitions/ActivationType"
         },
-        "active_name": {
-          "type": "string"
+        "instances": {
+          "type": "number"
         },
-        "active_effect": {
-          "type": "string"
+        "deactivation": {
+          "$ref": "#/definitions/ActivationType"
+        },
+        "recall": {
+          "$ref": "#/definitions/ActivationType"
+        },
+        "redeploy": {
+          "$ref": "#/definitions/ActivationType"
+        },
+        "size": {
+          "type": "number"
+        },
+        "cost": {
+          "type": "number"
+        },
+        "armor": {
+          "type": "number"
+        },
+        "hp": {
+          "type": "number"
+        },
+        "evasion": {
+          "type": "number"
+        },
+        "edef": {
+          "type": "number"
+        },
+        "heatcap": {
+          "type": "number"
+        },
+        "repcap": {
+          "type": "number"
+        },
+        "sensor_range": {
+          "type": "number"
+        },
+        "tech_attack": {
+          "type": "number"
+        },
+        "save": {
+          "type": "number"
+        },
+        "speed": {
+          "type": "number"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IActionData"
+          }
+        },
+        "bonuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IBonusData"
+          }
+        },
+        "synergies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ISynergyData"
+          }
+        },
+        "counters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ICounterData"
+          }
         },
         "tags": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ITagData"
           }
+        },
+        "pilot": {
+          "type": "boolean"
+        },
+        "mech": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "deployables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IDeployableData"
+          }
+        },
+        "integrated": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "brew": {
+          "type": "string"
         }
       },
       "required": [
-        "active_effect",
-        "active_name",
+        "activation",
         "description",
+        "detail",
+        "id",
         "name",
-        "tags"
+        "size",
+        "type"
+      ]
+    },
+    "ICounterData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "level": {
+          "type": "number"
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "default_value": {
+          "type": "number"
+        },
+        "custom": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name"
       ]
     },
     "ITagData": {
@@ -221,32 +640,120 @@
         "id"
       ]
     },
-    "ICounterData": {
+    "ICoreData": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
-        },
         "name": {
           "type": "string"
         },
-        "min": {
-          "type": "number"
+        "description": {
+          "type": "string"
         },
-        "max": {
-          "type": "number"
+        "active_name": {
+          "type": "string"
         },
-        "defaultValue": {
-          "type": "number"
+        "active_effect": {
+          "type": "string"
         },
-        "custom": {
-          "type": "boolean"
+        "activation": {
+          "$ref": "#/definitions/ActivationType"
+        },
+        "deactivation": {
+          "$ref": "#/definitions/ActivationType"
+        },
+        "use": {
+          "$ref": "#/definitions/Duration"
+        },
+        "active_actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IActionData"
+          }
+        },
+        "active_bonuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IBonusData"
+          }
+        },
+        "active_synergies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ISynergyData"
+          }
+        },
+        "passive_name": {
+          "type": "string"
+        },
+        "passive_effect": {
+          "type": "string"
+        },
+        "passive_actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IActionData"
+          }
+        },
+        "passive_bonuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IBonusData"
+          }
+        },
+        "passive_synergies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ISynergyData"
+          }
+        },
+        "deployables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IDeployableData"
+          }
+        },
+        "counters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ICounterData"
+          }
+        },
+        "integrated": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
         }
       },
       "required": [
-        "id",
-        "name"
+        "activation",
+        "active_effect",
+        "active_name",
+        "description",
+        "name",
+        "tags"
       ]
+    },
+    "ImageTag": {
+      "enum": [
+        "enemy",
+        "frame",
+        "location",
+        "logo",
+        "map",
+        "mech",
+        "misc",
+        "npc",
+        "object",
+        "pilot"
+      ],
+      "type": "string"
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"

@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Pick<ITagCompendiumData,\"hidden\"|\"name\"|\"description\"|\"filter_ignore\">,\"name\"|\"description\">"
+    "$ref": "#/definitions/Pick<Environment,\"name\"|\"description\">"
   },
   "definitions": {
-    "Pick<Pick<ITagCompendiumData,\"hidden\"|\"name\"|\"description\"|\"filter_ignore\">,\"name\"|\"description\">": {
+    "Pick<Environment,\"name\"|\"description\">": {
       "type": "object",
       "properties": {
         "name": {
