@@ -1,12 +1,15 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Sitrep,\"name\"|\"description\"|\"pcVictory\"|\"enemyVictory\"|\"noVictory\"|\"deployment\"|\"objective\"|\"controlZone\"|\"extraction\">"
+    "$ref": "#/definitions/Pick<Sitrep,\"id\"|\"name\"|\"description\"|\"pcVictory\"|\"enemyVictory\"|\"noVictory\"|\"deployment\"|\"objective\"|\"controlZone\"|\"extraction\">"
   },
   "definitions": {
-    "Pick<Sitrep,\"name\"|\"description\"|\"pcVictory\"|\"enemyVictory\"|\"noVictory\"|\"deployment\"|\"objective\"|\"controlZone\"|\"extraction\">": {
+    "Pick<Sitrep,\"id\"|\"name\"|\"description\"|\"pcVictory\"|\"enemyVictory\"|\"noVictory\"|\"deployment\"|\"objective\"|\"controlZone\"|\"extraction\">": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },        
         "name": {
           "type": "string"
         },
@@ -36,10 +39,9 @@
         }
       },
       "required": [
+        "id",
         "description",
-        "enemyVictory",
-        "name",
-        "pcVictory"
+        "name"
       ]
     }
   },

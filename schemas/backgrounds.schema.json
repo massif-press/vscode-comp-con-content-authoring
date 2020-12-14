@@ -1,15 +1,15 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Environment,\"id\"|\"name\"|\"description\">"
+    "$ref": "#/definitions/Pick<Background,\"id\"|\"name\"|\"description\">"
   },
   "definitions": {
-    "Pick<Environment,\"id\"|\"name\"|\"description\">": {
+    "Pick<Background,\"id\"|\"name\"|\"description\">": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
-        },
+        },        
         "name": {
           "type": "string"
         },
@@ -19,8 +19,8 @@
       },
       "required": [
         "id",
-        "description",
-        "name"
+        "name",
+        "description"
       ]
     }
   },

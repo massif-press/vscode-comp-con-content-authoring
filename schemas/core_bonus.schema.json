@@ -1,12 +1,15 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<ICoreBonusData,\"source\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"mounted_effect\">"
+    "$ref": "#/definitions/Pick<ICoreBonusData,\"id\"|\"source\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"mounted_effect\">"
   },
   "definitions": {
-    "Pick<ICoreBonusData,\"source\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"mounted_effect\">": {
+    "Pick<ICoreBonusData,\"id\"|\"source\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"mounted_effect\">": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "source": {
           "type": "string"
         },
@@ -66,6 +69,7 @@
         }
       },
       "required": [
+        "id",
         "description",
         "effect",
         "name",
@@ -299,40 +303,40 @@
           "$ref": "#/definitions/ActivationType"
         },
         "size": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "cost": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "armor": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "hp": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "evasion": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "edef": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "heatcap": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "repcap": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "sensor_range": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "tech_attack": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "save": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "speed": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "actions": {
           "type": "array",
@@ -393,12 +397,8 @@
         }
       },
       "required": [
-        "activation",
-        "description",
         "detail",
-        "id",
         "name",
-        "size",
         "type"
       ]
     },

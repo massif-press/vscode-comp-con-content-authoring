@@ -11,22 +11,24 @@
           "type": "string"
         },
         "type": {
-          "type": "string"
+          "enum": ["Status", "Condition"]
         },
+        "exclusive": {
+          "enum": ["Mech", "Pilot"]
+        },        
         "icon": {
           "type": "string"
         },
+        "icon_url": {
+          "type": "string"
+        },        
         "effects": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "type": "string"
         }
       },
       "required": [
-        "effects",
-        "icon",
         "name",
+        "effects",
         "type"
       ]
     }

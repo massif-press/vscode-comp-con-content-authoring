@@ -3,20 +3,23 @@
   "items": {
     "anyOf": [
       {
-        "$ref": "#/definitions/Pick<IPilotWeaponData,\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"type\"|\"damage\"|\"range\">"
+        "$ref": "#/definitions/Pick<IPilotWeaponData,\"id\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"type\"|\"damage\"|\"range\">"
       },
       {
-        "$ref": "#/definitions/Pick<IPilotArmorData,\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"type\"|\"hp_bonus\"|\"speed\"|\"speed_bonus\"|\"armor\"|\"edef\"|\"edef_bonus\"|\"evasion\"|\"evasion_bonus\">"
+        "$ref": "#/definitions/Pick<IPilotArmorData,\"id\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"type\"|\"hp_bonus\"|\"speed\"|\"speed_bonus\"|\"armor\"|\"edef\"|\"edef_bonus\"|\"evasion\"|\"evasion_bonus\">"
       },
       {
-        "$ref": "#/definitions/Pick<IPilotEquipmentData,\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"type\">"
+        "$ref": "#/definitions/Pick<IPilotEquipmentData,\"id\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"type\">"
       }
     ]
   },
   "definitions": {
-    "Pick<IPilotWeaponData,\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"type\"|\"damage\"|\"range\">": {
+    "Pick<IPilotWeaponData,\"id\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"type\"|\"damage\"|\"range\">": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "name": {
           "type": "string"
         },
@@ -85,11 +88,9 @@
         }
       },
       "required": [
-        "damage",
-        "description",
+        "id",
         "name",
-        "range",
-        "tags"
+        "type"
       ]
     },
     "IActionData": {
@@ -319,40 +320,40 @@
           "$ref": "#/definitions/ActivationType"
         },
         "size": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "cost": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "armor": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "hp": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "evasion": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "edef": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "heatcap": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "repcap": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "sensor_range": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "tech_attack": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "save": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "speed": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "actions": {
           "type": "array",
@@ -413,12 +414,8 @@
         }
       },
       "required": [
-        "activation",
-        "description",
         "detail",
-        "id",
         "name",
-        "size",
         "type"
       ]
     },
@@ -540,9 +537,12 @@
       ],
       "type": "string"
     },
-    "Pick<IPilotArmorData,\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"type\"|\"hp_bonus\"|\"speed\"|\"speed_bonus\"|\"armor\"|\"edef\"|\"edef_bonus\"|\"evasion\"|\"evasion_bonus\">": {
+    "Pick<IPilotArmorData,\"id\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"type\"|\"hp_bonus\"|\"speed\"|\"speed_bonus\"|\"armor\"|\"edef\"|\"edef_bonus\"|\"evasion\"|\"evasion_bonus\">": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "name": {
           "type": "string"
         },
@@ -620,14 +620,17 @@
         }
       },
       "required": [
-        "description",
+        "id",
         "name",
-        "tags"
+        "type"
       ]
     },
-    "Pick<IPilotEquipmentData,\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"type\">": {
+    "Pick<IPilotEquipmentData,\"id\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"type\">": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "name": {
           "type": "string"
         },
@@ -681,9 +684,9 @@
         }
       },
       "required": [
-        "description",
+        "id",
         "name",
-        "tags"
+        "type"
       ]
     }
   },

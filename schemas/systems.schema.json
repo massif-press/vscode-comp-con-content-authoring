@@ -1,12 +1,15 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<IMechSystemData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"type\"|\"sp\"|\"talent_item\"|\"frame_id\"|\"ammo\">"
+    "$ref": "#/definitions/Pick<IMechSystemData,\"id\"|\"source\"|\"name\"|\"license\"|\"license_level\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"type\"|\"sp\"|\"talent_item\"|\"frame_id\"|\"ammo\">"
   },
   "definitions": {
-    "Pick<IMechSystemData,\"source\"|\"name\"|\"license\"|\"license_level\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"type\"|\"sp\"|\"talent_item\"|\"frame_id\"|\"ammo\">": {
+    "Pick<IMechSystemData,\"id\"|\"source\"|\"name\"|\"license\"|\"license_level\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"type\"|\"sp\"|\"talent_item\"|\"frame_id\"|\"ammo\">": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "source": {
           "type": "string"
         },
@@ -85,15 +88,11 @@
         }
       },
       "required": [
-        "description",
-        "effect",
-        "license",
-        "license_level",
+        "id",
         "name",
         "source",
-        "sp",
-        "tags",
-        "type"
+        "license",
+        "license_level"
       ]
     },
     "IActionData": {
@@ -157,11 +156,7 @@
           "type": "number"
         }
       },
-      "required": [
-        "activation",
-        "detail",
-        "name"
-      ]
+      "required": []
     },
     "ActivationType": {
       "enum": [
@@ -323,40 +318,40 @@
           "$ref": "#/definitions/ActivationType"
         },
         "size": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "cost": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "armor": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "hp": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "evasion": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "edef": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "heatcap": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "repcap": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "sensor_range": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "tech_attack": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "save": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "speed": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "actions": {
           "type": "array",
@@ -417,12 +412,8 @@
         }
       },
       "required": [
-        "activation",
-        "description",
         "detail",
-        "id",
         "name",
-        "size",
         "type"
       ]
     },

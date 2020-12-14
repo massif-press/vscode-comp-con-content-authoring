@@ -1,0 +1,91 @@
+{
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/Pick<Action,\"id\"|\"name\"|\"description\"|\"activation\"|\"cost\"|\"frequency\"|\"init\"|\"trigger\"|\"terse\"|\"detail\"|\"pilot\"|\"mech\"|\"hide_active\"|\"synergy_locations\"|\"confirm\"|\"log\"|\"ignore_used\"|\"heat_cost\">"
+  },
+  "definitions": {
+    "Pick<Action,\"id\"|\"name\"|\"description\"|\"activation\"|\"cost\"|\"frequency\"|\"init\"|\"trigger\"|\"terse\"|\"detail\"|\"pilot\"|\"mech\"|\"hide_active\"|\"synergy_locations\"|\"confirm\"|\"log\"|\"ignore_used\"|\"heat_cost\">": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "activation": {
+          "enum": [
+            "Free",
+            "Full",
+            "Full Tech",
+            "Invade",
+            "Move",
+            "None",
+            "Other",
+            "Passive",
+            "Protocol",
+            "Quick",
+            "Quick Tech",
+            "Reaction",
+            "Downtime"
+          ]
+        },
+        "cost": {
+          "type": "number"
+        },
+        "frequency": {
+          "type": "string"
+        },
+        "init": {
+          "type": "string"
+        },
+        "trigger": {
+          "type": "string"
+        },
+        "terse": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "pilot": {
+          "type": "boolean"
+        },
+        "mech": {
+          "type": "boolean"
+        },
+        "hide_active": {
+          "type": "boolean"
+        },
+        "synergy_locations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confirm": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "log": {
+          "type": "string"
+        },
+        "ignore_used": {
+          "type": "boolean"
+        },
+        "heat_cost": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "activation",
+        "detail",
+        "name"
+      ]
+    }    
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

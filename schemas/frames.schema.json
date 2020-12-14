@@ -1,12 +1,18 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"id\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"brew\"|\"tags\">,\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\">"
+    "$ref": "#/definitions/Pick<Pick<IFrameData,\"id\"|\"license_level\"|\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"id\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"brew\"|\"tags\">,\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\">"
   },
   "definitions": {
-    "Pick<Pick<IFrameData,\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"id\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"brew\"|\"tags\">,\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\">": {
+    "Pick<Pick<IFrameData,\"id\"|\"license_level\"|\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"id\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"brew\"|\"tags\">,\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\">": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
+        "license_level": {
+          "type": "number"
+        },
         "source": {
           "type": "string"
         },
@@ -124,6 +130,8 @@
         }
       },
       "required": [
+        "id",
+        "license_level",
         "core_system",
         "description",
         "mechtype",
@@ -490,40 +498,40 @@
           "$ref": "#/definitions/ActivationType"
         },
         "size": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "cost": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "armor": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "hp": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "evasion": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "edef": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "heatcap": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "repcap": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "sensor_range": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "tech_attack": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "save": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "speed": {
-          "type": "number"
+          "type": ["string", "number"]
         },
         "actions": {
           "type": "array",
@@ -584,12 +592,8 @@
         }
       },
       "required": [
-        "activation",
-        "description",
         "detail",
-        "id",
         "name",
-        "size",
         "type"
       ]
     },
@@ -732,12 +736,10 @@
         }
       },
       "required": [
-        "activation",
-        "active_effect",
-        "active_name",
-        "description",
         "name",
-        "tags"
+        "active_name",
+        "active_effect",
+        "activation"
       ]
     },
     "ImageTag": {

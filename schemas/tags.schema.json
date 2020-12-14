@@ -1,20 +1,30 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Pick<ITagCompendiumData,\"hidden\"|\"name\"|\"description\"|\"filter_ignore\">,\"name\"|\"description\">"
+    "$ref": "#/definitions/Pick<Pick<ITagCompendiumData,\"id\"|\"hidden\"|\"name\"|\"description\"|\"filter_ignore\">,\"name\"|\"description\">"
   },
   "definitions": {
-    "Pick<Pick<ITagCompendiumData,\"hidden\"|\"name\"|\"description\"|\"filter_ignore\">,\"name\"|\"description\">": {
+    "Pick<Pick<ITagCompendiumData,\"id\"|\"hidden\"|\"name\"|\"description\"|\"filter_ignore\">,\"name\"|\"description\">": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },        
         "name": {
           "type": "string"
         },
         "description": {
           "type": "string"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "filter_ignore": {
+          "type": "boolean"
         }
       },
       "required": [
+        "id",
         "description",
         "name"
       ]

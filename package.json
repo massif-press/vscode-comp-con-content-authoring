@@ -24,6 +24,10 @@
 		],
 		"jsonValidation": [
 			{
+				"fileMatch": "actions.json",
+				"url": "./schemas/actions.schema.json"
+			},
+			{
 				"fileMatch": "lcp_manifest.json",
 				"url": "./schemas/manifest.schema.json"
 			},
@@ -32,8 +36,16 @@
 				"url": "./schemas/manufacturers.schema.json"
 			},
 			{
+				"fileMatch": "backgrounds.json",
+				"url": "./schemas/backgrounds.schema.json"
+			},
+			{
+				"fileMatch": "environments.json",
+				"url": "./schemas/environments.schema.json"
+			},
+			{
 				"fileMatch": "core_bonus.json",
-				"url": "./schemas/core_bonus.schema.json"
+				"url": "./schemas/core_bonuses.schema.json"
 			},
 			{
 				"fileMatch": "frames.json",
@@ -64,6 +76,22 @@
 				"url": "./schemas/tags.schema.json"
 			},
 			{
+				"fileMatch": "reserves.json",
+				"url": "./schemas/reserves.schema.json"
+			},
+			{
+				"fileMatch": "sitreps.json",
+				"url": "./schemas/sitreps.schema.json"
+			},
+			{
+				"fileMatch": "statuses.json",
+				"url": "./schemas/statuses.schema.json"
+			},
+			{
+				"fileMatch": "skills.json",
+				"url": "./schemas/skills.schema.json"
+			},												
+			{
 				"fileMatch": "npc_classes.json",
 				"url": "./schemas/npc_classes.schema.json"
 			},
@@ -91,5 +119,8 @@
 		"@types/vscode": "^1.41.0",
 		"eslint": "^6.6.0",
 		"glob": "^7.1.5"
+	},
+	"dependencies": {
+		"vsce": "^1.81.1"
 	}
 }
