@@ -90,7 +90,7 @@
 			{
 				"fileMatch": "skills.json",
 				"url": "./schemas/skills.schema.json"
-			},												
+			},
 			{
 				"fileMatch": "npc_classes.json",
 				"url": "./schemas/npc_classes.schema.json"
