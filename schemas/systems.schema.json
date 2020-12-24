@@ -89,7 +89,6 @@
       },
       "required": [
         "id",
-        "name",
         "source",
         "license",
         "license_level"
