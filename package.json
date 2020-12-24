@@ -44,7 +44,7 @@
 				"url": "./schemas/environments.schema.json"
 			},
 			{
-				"fileMatch": "core_bonus.json",
+				"fileMatch": "core_bonuses.json",
 				"url": "./schemas/core_bonuses.schema.json"
 			},
 			{

@@ -11,7 +11,7 @@ const existsPromise = promisify(exists);
 const files = [
 	"lcp_manifest.json",
 	"manufacturers.json",
-	"core_bonus.json",
+	"core_bonuses.json",
 	"environments.json",
 	"frames.json",
 	"weapons.json",
