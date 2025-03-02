@@ -1,25 +1,34 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<IReserveData,\"id\"|\"label\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"type\"|\"resource_name\"|\"resource_note\"|\"resource_cost\"|\"used\"|\"consumable\">"
+    "$ref": "#/definitions/IReserveData"
   },
   "definitions": {
-    "Pick<IReserveData,\"id\"|\"label\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"type\"|\"resource_name\"|\"resource_note\"|\"resource_cost\"|\"used\"|\"consumable\">": {
+    "IReserveData": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
-        },        
-        "type": {
-          "enum": [
-            "Mech", "Tactical", "Resource", "Bonus"
-          ]
         },
         "name": {
           "type": "string"
         },
+        "type": {
+          "enum": [
+            "Mech",
+            "Tactical",
+            "Resource",
+            "Bonus"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
         "description": {
           "type": "string"
+        },
+        "consumable": {
+          "type": "boolean"
         },
         "actions": {
           "type": "array",
@@ -57,23 +66,11 @@
             "type": "string"
           }
         },
-        "label": {
-          "type": "string"
-        },
-        "resource_name": {
-          "type": "string"
-        },
-        "resource_note": {
-          "type": "string"
-        },
-        "resource_cost": {
-          "type": "string"
-        },
-        "used": {
-          "type": "boolean"
-        },
-        "consumable": {
-          "type": "boolean"
+        "special_equipment": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
@@ -310,40 +307,76 @@
           "$ref": "#/definitions/ActivationType"
         },
         "size": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "cost": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "armor": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "hp": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "evasion": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "edef": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "heatcap": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "repcap": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "sensor_range": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "tech_attack": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "save": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "speed": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "actions": {
           "type": "array",
