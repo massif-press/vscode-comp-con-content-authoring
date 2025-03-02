@@ -60,14 +60,20 @@
           "items": {
             "type": "string"
           }
+        },
+        "special_equipment": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
         "id",
-        "description",
-        "effect",
         "name",
-        "source"
+        "source",
+        "effect",
+        "description"
       ]
     },
     "IActionData": {
