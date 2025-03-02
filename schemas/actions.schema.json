@@ -13,6 +13,9 @@
         "name": {
           "type": "string"
         },
+        "detail": {
+          "type": "string"
+        },
         "activation": {
           "enum": [
             "Free",
@@ -30,22 +33,7 @@
             "Downtime"
           ]
         },
-        "cost": {
-          "type": "number"
-        },
-        "frequency": {
-          "type": "string"
-        },
-        "init": {
-          "type": "string"
-        },
-        "trigger": {
-          "type": "string"
-        },
         "terse": {
-          "type": "string"
-        },
-        "detail": {
           "type": "string"
         },
         "pilot": {
@@ -54,8 +42,8 @@
         "mech": {
           "type": "boolean"
         },
-        "hide_active": {
-          "type": "boolean"
+        "cost": {
+          "type": "number"
         },
         "synergy_locations": {
           "type": "array",
@@ -77,6 +65,18 @@
         },
         "heat_cost": {
           "type": "number"
+        },
+        "frequency": {
+          "type": "string"
+        },
+        "init": {
+          "type": "string"
+        },
+        "trigger": {
+          "type": "string"
+        },
+        "hide_active": {
+          "type": "boolean"
         }
       },
       "required": [
