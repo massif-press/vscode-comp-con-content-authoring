@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Environment,\"id\"|\"name\"|\"description\">"
+    "$ref": "#/definitions/IEnvironment"
   },
   "definitions": {
-    "Pick<Environment,\"id\"|\"name\"|\"description\">": {
+    "IEnvironment": {
       "type": "object",
       "properties": {
         "id": {
