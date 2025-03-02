@@ -10,13 +10,19 @@
         "id": {
           "type": "string"
         },
-        "source": {
-          "type": "string"
-        },
         "name": {
           "type": "string"
         },
+        "source": {
+          "type": "string"
+        },
         "description": {
+          "type": "string"
+        },
+        "effect": {
+          "type": "string"
+        },
+        "mounted_effect": {
           "type": "string"
         },
         "actions": {
@@ -54,18 +60,6 @@
           "items": {
             "type": "string"
           }
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ITagData"
-          }
-        },
-        "effect": {
-          "type": "string"
-        },
-        "mounted_effect": {
-          "type": "string"
         }
       },
       "required": [
