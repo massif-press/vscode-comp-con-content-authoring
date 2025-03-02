@@ -128,7 +128,10 @@
           }
         },
         "log": {
-          "type": "string"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "ignore_used": {
           "type": "boolean"
@@ -143,23 +146,6 @@
         "name"
       ]
     },
-    "ActivationType": {
-      "enum": [
-        "Free",
-        "Full",
-        "Full Tech",
-        "Invade",
-        "Move",
-        "None",
-        "Other",
-        "Passive",
-        "Protocol",
-        "Quick",
-        "Quick Tech",
-        "Reaction"
-      ],
-      "type": "string"
-    },
     "IBonusData": {
       "type": "object",
       "properties": {
@@ -167,64 +153,43 @@
           "type": "string"
         },
         "val": {
-          "type": [
-            "string",
-            "number"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": ["number", "string"]
+              }
+            }
           ]
         },
         "damage_types": {
           "type": "array",
           "items": {
-            "enum": [
-              "Burn",
-              "Energy",
-              "Explosive",
-              "Heat",
-              "Kinetic",
-              "Variable"
-            ],
-            "type": "string"
+            "$ref": "#/definitions/DamageType"
           }
         },
         "range_types": {
           "type": "array",
           "items": {
-            "enum": [
-              "Blast",
-              "Burst",
-              "Cone",
-              "Line",
-              "Range",
-              "Threat",
-              "Thrown"
-            ],
             "type": "string"
           }
         },
         "weapon_types": {
           "type": "array",
           "items": {
-            "enum": [
-              "CQB",
-              "Cannon",
-              "Launcher",
-              "Melee",
-              "Nexus",
-              "Rifle"
-            ],
-            "type": "string"
+            "$ref": "#/definitions/WeaponType"
           }
         },
         "weapon_sizes": {
           "type": "array",
           "items": {
-            "enum": [
-              "Auxiliary",
-              "Heavy",
-              "Main",
-              "Superheavy"
-            ],
-            "type": "string"
+            "$ref": "#/definitions/WeaponSize"
           }
         },
         "overwrite": {
@@ -260,10 +225,16 @@
         "system_types": {
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/SystemType"
           }
         },
         "weapon_sizes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weapon_ranges": {
           "type": "array",
           "items": {
             "type": "string"
@@ -303,40 +274,76 @@
           "$ref": "#/definitions/ActivationType"
         },
         "size": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "cost": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "armor": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "hp": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "evasion": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "edef": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "heatcap": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "repcap": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "sensor_range": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "tech_attack": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "save": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "speed": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "actions": {
           "type": "array",
@@ -447,6 +454,65 @@
       },
       "required": [
         "id"
+      ]
+    },
+    "DamageType": {
+      "enum": [
+        "Burn",
+        "Energy",
+        "Explosive",
+        "Heat",
+        "Kinetic",
+        "Variable"
+      ],
+      "type": "string"
+    },
+    "WeaponType": {
+      "enum": [
+        "CQB",
+        "Cannon",
+        "Launcher",
+        "Melee",
+        "Nexus",
+        "Rifle"
+      ],
+      "type": "string"
+    },
+    "WeaponSize": {
+      "enum": [
+        "Auxiliary",
+        "Heavy",
+        "Main",
+        "Superheavy"
+      ],
+      "type": "string"
+    },
+    "ActivationType": {
+      "enum": [
+        "Free",
+        "Full",
+        "Full Tech",
+        "Invade",
+        "Move",
+        "None",
+        "Other",
+        "Passive",
+        "Protocol",
+        "Quick",
+        "Quick Tech",
+        "Reaction"
+      ],
+      "type": "string"
+    },
+    "SystemType": {
+      "enum": [
+        "AI",
+        "Deployable",
+        "Drone",
+        "Flight System",
+        "Shield",
+        "System",
+        "Tech"
       ]
     }
   },
