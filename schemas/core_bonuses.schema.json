@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<ICoreBonusData,\"id\"|\"source\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"mounted_effect\">"
+    "$ref": "#/definitions/ICoreBonus"
   },
   "definitions": {
-    "Pick<ICoreBonusData,\"id\"|\"source\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"mounted_effect\">": {
+    "ICoreBonus": {
       "type": "object",
       "properties": {
         "id": {
