@@ -1,27 +1,33 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Status,\"name\"|\"type\"|\"icon\"|\"effects\">"
+    "$ref": "#/definitions/IStatusData"
   },
   "definitions": {
-    "Pick<Status,\"name\"|\"type\"|\"icon\"|\"effects\">": {
+    "IStatusData": {
       "type": "object",
       "properties": {
         "name": {
           "type": "string"
         },
         "type": {
-          "enum": ["Status", "Condition"]
+          "enum": [
+            "Status",
+            "Condition"
+          ]
         },
         "exclusive": {
-          "enum": ["Mech", "Pilot"]
-        },        
+          "enum": [
+            "Mech",
+            "Pilot"
+          ]
+        },
         "icon": {
           "type": "string"
         },
         "icon_url": {
           "type": "string"
-        },        
+        },
         "effects": {
           "type": "string"
         }
