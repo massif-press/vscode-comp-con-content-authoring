@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<ISkillData,\"id\"|\"name\"|\"description\"|\"detail\"|\"family\">"
+    "$ref": "#/definitions/ISkillData"
   },
   "definitions": {
-    "Pick<ISkillData,\"id\"|\"name\"|\"description\"|\"detail\"|\"family\">": {
+    "ISkillData": {
       "type": "object",
       "properties": {
         "id": {
@@ -20,7 +20,13 @@
           "type": "string"
         },
         "family": {
-          "enum": ["str", "con", "dex", "int", "cha"]
+          "enum": [
+            "str",
+            "con",
+            "dex",
+            "int",
+            "cha"
+          ]
         }
       },
       "required": [
