@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Action,\"id\"|\"name\"|\"description\"|\"activation\"|\"cost\"|\"frequency\"|\"init\"|\"trigger\"|\"terse\"|\"detail\"|\"pilot\"|\"mech\"|\"hide_active\"|\"synergy_locations\"|\"confirm\"|\"log\"|\"ignore_used\"|\"heat_cost\">"
+    "$ref": "#/definitions/IAction"
   },
   "definitions": {
-    "Pick<Action,\"id\"|\"name\"|\"description\"|\"activation\"|\"cost\"|\"frequency\"|\"init\"|\"trigger\"|\"terse\"|\"detail\"|\"pilot\"|\"mech\"|\"hide_active\"|\"synergy_locations\"|\"confirm\"|\"log\"|\"ignore_used\"|\"heat_cost\">": {
+    "IAction": {
       "type": "object",
       "properties": {
         "id": {
