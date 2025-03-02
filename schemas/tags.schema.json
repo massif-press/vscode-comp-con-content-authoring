@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Pick<ITagCompendiumData,\"id\"|\"hidden\"|\"name\"|\"description\"|\"filter_ignore\">,\"name\"|\"description\">"
+    "$ref": "#/definitions/ITagData"
   },
   "definitions": {
-    "Pick<Pick<ITagCompendiumData,\"id\"|\"hidden\"|\"name\"|\"description\"|\"filter_ignore\">,\"name\"|\"description\">": {
+    "ITagData": {
       "type": "object",
       "properties": {
         "id": {
