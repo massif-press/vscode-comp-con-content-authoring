@@ -8,10 +8,18 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "examples": [
+            "pbg_hacker",
+            "pbg_mechanic"
+          ]
         },        
         "name": {
-          "type": "string"
+          "type": "string",
+          "examples": [
+            "Celebrity",
+            "Far-Field Team"
+          ]
         },
         "description": {
           "type": "string"
@@ -19,7 +27,11 @@
         "skills": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "examples": [
+              "sk_hack_or_fix",
+              "sk_patch"
+            ]
           }
         }
       },
