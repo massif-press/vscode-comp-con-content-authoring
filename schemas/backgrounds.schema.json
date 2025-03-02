@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Background,\"id\"|\"name\"|\"description\">"
+    "$ref": "#/definitions/IBackgrounds"
   },
   "definitions": {
-    "Pick<Background,\"id\"|\"name\"|\"description\">": {
+    "IBackgrounds": {
       "type": "object",
       "properties": {
         "id": {
@@ -15,6 +15,12 @@
         },
         "description": {
           "type": "string"
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
