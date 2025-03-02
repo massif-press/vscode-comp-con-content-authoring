@@ -3,18 +3,18 @@
   "items": {
     "anyOf": [
       {
-        "$ref": "#/definitions/Pick<IPilotWeaponData,\"id\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"type\"|\"damage\"|\"range\">"
+        "$ref": "#/definitions/IPilotWeaponData"
       },
       {
-        "$ref": "#/definitions/Pick<IPilotArmorData,\"id\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"type\"|\"hp_bonus\"|\"speed\"|\"speed_bonus\"|\"armor\"|\"edef\"|\"edef_bonus\"|\"evasion\"|\"evasion_bonus\">"
+        "$ref": "#/definitions/IPilotArmorData"
       },
       {
-        "$ref": "#/definitions/Pick<IPilotEquipmentData,\"id\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"type\">"
+        "$ref": "#/definitions/IPilotEquipmentData"
       }
     ]
   },
   "definitions": {
-    "Pick<IPilotWeaponData,\"id\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"effect\"|\"type\"|\"damage\"|\"range\">": {
+    "IPilotWeaponData": {
       "type": "object",
       "properties": {
         "id": {
@@ -23,8 +23,32 @@
         "name": {
           "type": "string"
         },
+        "type": {
+          "const": "Weapon"
+        },
         "description": {
           "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "effect": {
+          "type": "string"
+        },
+        "range": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IRangeData"
+          }
+        },
+        "damage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IDamageData"
+          }
         },
         "actions": {
           "type": "array",
@@ -60,30 +84,6 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ITagData"
-          }
-        },
-        "effect": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "damage": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/IDamageData"
-          }
-        },
-        "range": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/IRangeData"
           }
         }
       },
@@ -537,7 +537,7 @@
       ],
       "type": "string"
     },
-    "Pick<IPilotArmorData,\"id\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"type\"|\"hp_bonus\"|\"speed\"|\"speed_bonus\"|\"armor\"|\"edef\"|\"edef_bonus\"|\"evasion\"|\"evasion_bonus\">": {
+    "IPilotArmorData": {
       "type": "object",
       "properties": {
         "id": {
@@ -592,7 +592,7 @@
           }
         },
         "type": {
-          "type": "string"
+          "const": "Armor"
         },
         "hp_bonus": {
           "type": "number"
@@ -625,7 +625,7 @@
         "type"
       ]
     },
-    "Pick<IPilotEquipmentData,\"id\"|\"name\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\"|\"type\">": {
+    "IPilotEquipmentData": {
       "type": "object",
       "properties": {
         "id": {
@@ -680,7 +680,7 @@
           }
         },
         "type": {
-          "type": "string"
+         "const": "Gear"
         }
       },
       "required": [
