@@ -8,3 +8,4 @@ vsc-extension-quickstart.md
 **/.eslintrc.json
 .env
 node_modules
+.github
