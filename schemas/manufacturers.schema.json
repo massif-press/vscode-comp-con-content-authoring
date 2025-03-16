@@ -1,22 +1,22 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<IManufacturerData,\"name\"|\"id\"|\"description\"|\"quote\"|\"light\"|\"dark\"|\"logo_url\">"
+    "$ref": "#/definitions/IManufacturer"
   },
   "definitions": {
-    "Pick<IManufacturerData,\"name\"|\"id\"|\"description\"|\"quote\"|\"light\"|\"dark\"|\"logo_url\">": {
+    "IManufacturer": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
-        },
         "id": {
           "type": "string"
         },
-        "description": {
+        "name": {
           "type": "string"
         },
-        "quote": {
+        "logo": {
+          "type": "string"
+        },
+        "logo_url": {
           "type": "string"
         },
         "light": {
@@ -25,17 +25,20 @@
         "dark": {
           "type": "string"
         },
-        "logo_url": {
+        "quote": {
+          "type": "string"
+        },
+        "description": {
           "type": "string"
         }
       },
       "required": [
-        "dark",
-        "description",
         "id",
-        "light",
         "name",
-        "quote"
+        "light",
+        "dark",
+        "quote",
+        "description"
       ]
     }
   },

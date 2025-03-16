@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Pick<IFrameData,\"id\"|\"license_level\"|\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"id\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"brew\"|\"tags\">,\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\">"
+    "$ref": "#/definitions/IFrame"
   },
   "definitions": {
-    "Pick<Pick<IFrameData,\"id\"|\"license_level\"|\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"id\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"brew\"|\"tags\">,\"source\"|\"name\"|\"mechtype\"|\"mounts\"|\"stats\"|\"traits\"|\"core_system\"|\"y_pos\"|\"image_url\"|\"other_art\"|\"description\"|\"actions\"|\"bonuses\"|\"synergies\"|\"deployables\"|\"counters\"|\"integrated\"|\"tags\">": {
+    "IFrame": {
       "type": "object",
       "properties": {
         "id": {
@@ -12,6 +12,12 @@
         },
         "license_level": {
           "type": "number"
+        },
+        "license_id": {
+          "type": "string"
+        },
+        "variant": {
+          "type": "string"
         },
         "source": {
           "type": "string"
@@ -33,20 +39,22 @@
             "type": "string"
           }
         },
+        "specialty": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/definitions/IPrerequisite"
+            }
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
         "mounts": {
           "type": "array",
-          "items": {
-            "enum": [
-              "Aux",
-              "Aux/Aux",
-              "Flex",
-              "Heavy",
-              "Integrated",
-              "Main",
-              "Main/Aux"
-            ],
-            "type": "string"
-          }
+          "items": { "$ref": "#/definitions/MountType"}
         },
         "stats": {
           "$ref": "#/definitions/IFrameStats"
@@ -58,13 +66,13 @@
           }
         },
         "core_system": {
-          "$ref": "#/definitions/ICoreData"
-        },
-        "y_pos": {
-          "type": "number"
+          "$ref": "#/definitions/ICoreSystemData"
         },
         "image_url": {
           "type": "string"
+        },
+        "y_pos": {
+          "type": "number"
         },
         "other_art": {
           "type": "array",
@@ -82,9 +90,6 @@
               }
             }
           }
-        },
-        "description": {
-          "type": "string"
         },
         "actions": {
           "type": "array",
@@ -132,14 +137,33 @@
       "required": [
         "id",
         "license_level",
-        "core_system",
-        "description",
-        "mechtype",
-        "mounts",
-        "name",
+        "license_id",
         "source",
+        "name",
+        "mechtype",
+        "description",
+        "mounts",
         "stats",
-        "traits"
+        "traits",
+        "core_system"
+      ]
+    },
+    "IPrerequisite": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "min_rank": {
+          "type": "number"
+        },
+        "cumulative": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "source",
+        "min_rank"
       ]
     },
     "IFrameStats": {
@@ -259,18 +283,6 @@
         "name"
       ]
     },
-    "Duration": {
-      "enum": [
-        "Encounter",
-        "Free",
-        "Mission",
-        "Next Round",
-        "Next Turn",
-        "Round",
-        "Turn"
-      ],
-      "type": "string"
-    },
     "IActionData": {
       "type": "object",
       "properties": {
@@ -337,23 +349,6 @@
         "detail",
         "name"
       ]
-    },
-    "ActivationType": {
-      "enum": [
-        "Free",
-        "Full",
-        "Full Tech",
-        "Invade",
-        "Move",
-        "None",
-        "Other",
-        "Passive",
-        "Protocol",
-        "Quick",
-        "Quick Tech",
-        "Reaction"
-      ],
-      "type": "string"
     },
     "IBonusData": {
       "type": "object",
@@ -498,40 +493,76 @@
           "$ref": "#/definitions/ActivationType"
         },
         "size": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "cost": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "armor": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "hp": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "evasion": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "edef": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "heatcap": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "repcap": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "sensor_range": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "tech_attack": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "save": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "speed": {
-          "type": ["string", "number"]
+          "type": [
+            "string",
+            "number"
+          ]
         },
         "actions": {
           "type": "array",
@@ -644,7 +675,7 @@
         "id"
       ]
     },
-    "ICoreData": {
+    "ICoreSystemData": {
       "type": "object",
       "properties": {
         "name": {
@@ -741,6 +772,47 @@
         "active_effect",
         "activation"
       ]
+    },
+    "ActivationType": {
+      "enum": [
+        "Free",
+        "Full",
+        "Full Tech",
+        "Invade",
+        "Move",
+        "None",
+        "Other",
+        "Passive",
+        "Protocol",
+        "Quick",
+        "Quick Tech",
+        "Reaction"
+      ],
+      "type": "string"
+    },
+    "Duration": {
+      "enum": [
+        "Encounter",
+        "Free",
+        "Mission",
+        "Next Round",
+        "Next Turn",
+        "Round",
+        "Turn"
+      ],
+      "type": "string"
+    },
+    "MountType": {
+      "enum": [
+        "Aux",
+        "Aux/Aux",
+        "Flex",
+        "Heavy",
+        "Integrated",
+        "Main",
+        "Main/Aux"
+      ],
+      "type": "string"
     },
     "ImageTag": {
       "enum": [

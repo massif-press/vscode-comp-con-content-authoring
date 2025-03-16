@@ -1,10 +1,10 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Sitrep,\"id\"|\"name\"|\"description\"|\"pcVictory\"|\"enemyVictory\"|\"noVictory\"|\"deployment\"|\"objective\"|\"controlZone\"|\"extraction\">"
+    "$ref": "#/definitions/ISitrepData"
   },
   "definitions": {
-    "Pick<Sitrep,\"id\"|\"name\"|\"description\"|\"pcVictory\"|\"enemyVictory\"|\"noVictory\"|\"deployment\"|\"objective\"|\"controlZone\"|\"extraction\">": {
+    "ISitrepData": {
       "type": "object",
       "properties": {
         "id": {

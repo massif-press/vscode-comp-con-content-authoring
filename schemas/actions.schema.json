@@ -1,16 +1,19 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Action,\"id\"|\"name\"|\"description\"|\"activation\"|\"cost\"|\"frequency\"|\"init\"|\"trigger\"|\"terse\"|\"detail\"|\"pilot\"|\"mech\"|\"hide_active\"|\"synergy_locations\"|\"confirm\"|\"log\"|\"ignore_used\"|\"heat_cost\">"
+    "$ref": "#/definitions/IAction"
   },
   "definitions": {
-    "Pick<Action,\"id\"|\"name\"|\"description\"|\"activation\"|\"cost\"|\"frequency\"|\"init\"|\"trigger\"|\"terse\"|\"detail\"|\"pilot\"|\"mech\"|\"hide_active\"|\"synergy_locations\"|\"confirm\"|\"log\"|\"ignore_used\"|\"heat_cost\">": {
+    "IAction": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
         "name": {
+          "type": "string"
+        },
+        "detail": {
           "type": "string"
         },
         "activation": {
@@ -30,22 +33,7 @@
             "Downtime"
           ]
         },
-        "cost": {
-          "type": "number"
-        },
-        "frequency": {
-          "type": "string"
-        },
-        "init": {
-          "type": "string"
-        },
-        "trigger": {
-          "type": "string"
-        },
         "terse": {
-          "type": "string"
-        },
-        "detail": {
           "type": "string"
         },
         "pilot": {
@@ -54,8 +42,8 @@
         "mech": {
           "type": "boolean"
         },
-        "hide_active": {
-          "type": "boolean"
+        "cost": {
+          "type": "number"
         },
         "synergy_locations": {
           "type": "array",
@@ -77,6 +65,18 @@
         },
         "heat_cost": {
           "type": "number"
+        },
+        "frequency": {
+          "type": "string"
+        },
+        "init": {
+          "type": "string"
+        },
+        "trigger": {
+          "type": "string"
+        },
+        "hide_active": {
+          "type": "boolean"
         }
       },
       "required": [

@@ -1,20 +1,38 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<Background,\"id\"|\"name\"|\"description\">"
+    "$ref": "#/definitions/IBackgrounds"
   },
   "definitions": {
-    "Pick<Background,\"id\"|\"name\"|\"description\">": {
+    "IBackgrounds": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "examples": [
+            "pbg_hacker",
+            "pbg_mechanic"
+          ]
         },        
         "name": {
-          "type": "string"
+          "type": "string",
+          "examples": [
+            "Celebrity",
+            "Far-Field Team"
+          ]
         },
         "description": {
           "type": "string"
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "examples": [
+              "sk_hack_or_fix",
+              "sk_patch"
+            ]
+          }
         }
       },
       "required": [
