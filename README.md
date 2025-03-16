@@ -1,4 +1,5 @@
-# COMP/CON Content Authoring extension for VSCode
-This simple extension right now does two things:
-- Adds JSON schemas for C/C content pack .json files (lcp_manifest.json, weapons.json, etc...)
-- Adds a build task that generates the .LCP file at workspace root. For the task to work, you need in your PATH: 7zip CLI on windows (`7z`), or `zip` on mac/linux (NOTE: latter two not actually tested)
+## Please Note
+
+The VSCode extension "COMP/CON Content Authoring" is no longer being maintained and will be removed from the VSCode marketplace. Please use the new "COMP/CON Content Tools" extension instead, which can be found [here](https://marketplace.visualstudio.com/items?itemName=compcon.comp-con-content-tools).
+
+COMP/CON Content Tools supports C/C v3. For questions, comments, or more information, please check the #COMPCON channel in the [Lancer Discord](https://discord.gg/CuyFmn2).
