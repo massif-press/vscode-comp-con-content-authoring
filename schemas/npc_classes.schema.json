@@ -183,7 +183,8 @@
             "type": "array",
             "items": {
               "type": "number"
-            }
+            },
+            "minItems": 1
           },
           "minItems": 3,
           "maxItems": 3
