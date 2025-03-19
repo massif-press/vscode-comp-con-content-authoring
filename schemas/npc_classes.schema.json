@@ -39,7 +39,8 @@
             "defender",
             "striker",
             "support",
-            "balanced"
+            "balanced",
+            "biological"
           ]
         },
         "base_features": {
