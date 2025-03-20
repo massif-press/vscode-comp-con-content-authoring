@@ -3,26 +3,29 @@
   "items": {
     "anyOf": [
       {
-        "$ref": "#/definitions/Pick<INpcFeatureData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\">"
+        "$ref": "#/definitions/INpcFeature"
       },
       {
-        "$ref": "#/definitions/Pick<INpcWeaponData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"on_hit\"|\"damage\"|\"range\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"weapon_type\"|\"accuracy\"|\"attack_bonus\">"
+        "$ref": "#/definitions/INpcWeapon"
       },
       {
-        "$ref": "#/definitions/Pick<INpcReactionData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"trigger\">"
+        "$ref": "#/definitions/INpcReaction"
       },
       {
-        "$ref": "#/definitions/Pick<INpcSystemData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\">"
+        "$ref": "#/definitions/INpcSystem"
       },
       {
-        "$ref": "#/definitions/Pick<INpcTechData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"accuracy\"|\"attack_bonus\"|\"tech_type\">"
+        "$ref": "#/definitions/INpcTech"
       }
     ]
   },
   "definitions": {
-    "Pick<INpcFeatureData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\">": {
+    "INpcFeature": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "origin": {
           "$ref": "#/definitions/IOriginData"
         },
@@ -59,6 +62,7 @@
         }
       },
       "required": [
+        "id",
         "hide_active",
         "locked",
         "name",
@@ -71,7 +75,11 @@
       "type": "object",
       "properties": {
         "type": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "Class",
+            "Template"
+          ]
         },
         "name": {
           "type": "string"
@@ -113,7 +121,7 @@
       ],
       "type": "string"
     },
-    "Pick<INpcWeaponData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"on_hit\"|\"damage\"|\"range\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"weapon_type\"|\"accuracy\"|\"attack_bonus\">": {
+    "INpcWeapon": {
       "type": "object",
       "properties": {
         "origin": {
@@ -250,7 +258,7 @@
       ],
       "type": "string"
     },
-    "Pick<INpcReactionData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"trigger\">": {
+    "INpcReaction": {
       "type": "object",
       "properties": {
         "origin": {
@@ -304,7 +312,7 @@
         "type"
       ]
     },
-    "Pick<INpcSystemData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\">": {
+    "INpcSystem": {
       "type": "object",
       "properties": {
         "origin": {
@@ -354,7 +362,7 @@
         "type"
       ]
     },
-    "Pick<INpcTechData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"accuracy\"|\"attack_bonus\"|\"tech_type\">": {
+    "INpcTech": {
       "type": "object",
       "properties": {
         "origin": {
