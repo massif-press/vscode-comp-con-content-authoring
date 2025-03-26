@@ -370,6 +370,9 @@
     "INpcTech": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "origin": {
           "$ref": "#/definitions/IOriginData"
         },
@@ -386,10 +389,7 @@
           "type": "string"
         },
         "type": {
-          "type": "string",
-          "enum": [
-            "Tech"
-          ]
+          "const": "Tech"
         },
         "locked": {
           "type": "boolean"
@@ -420,7 +420,10 @@
           }
         },
         "tech_type": {
-          "type": "string"
+          "enum": [
+            "Quick",
+            "Full"
+          ]
         }
       },
       "required": [
@@ -430,6 +433,7 @@
         "origin",
         "tags",
         "tech_type",
+        "effect",
         "type"
       ]
     }
