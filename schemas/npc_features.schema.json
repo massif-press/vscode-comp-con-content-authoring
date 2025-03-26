@@ -190,7 +190,8 @@
         "range",
         "tags",
         "type",
-        "weapon_type"
+        "weapon_type",
+        "effect"
       ]
     },
     "INpcReaction": {
