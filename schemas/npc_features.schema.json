@@ -3,7 +3,7 @@
   "items": {
     "anyOf": [
       {
-        "$ref": "#/definitions/INpcFeature"
+        "$ref": "#/definitions/INpcTrait"
       },
       {
         "$ref": "#/definitions/INpcWeapon"
@@ -20,57 +20,6 @@
     ]
   },
   "definitions": {
-    "INpcFeature": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "origin": {
-          "$ref": "#/definitions/IOriginData"
-        },
-        "name": {
-          "type": "string"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ITagData"
-          }
-        },
-        "effect": {
-          "type": "string"
-        },
-        "type": {
-          "$ref": "#/definitions/NpcFeatureType"
-        },
-        "locked": {
-          "type": "boolean"
-        },
-        "bonus": {
-          "type": "object",
-          "properties": {},
-          "additionalProperties": true
-        },
-        "override": {
-          "type": "object",
-          "properties": {},
-          "additionalProperties": true
-        },
-        "hide_active": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "id",
-        "hide_active",
-        "locked",
-        "name",
-        "origin",
-        "tags",
-        "type"
-      ]
-    },
     "IOriginData": {
       "type": "object",
       "properties": {
@@ -111,15 +60,55 @@
         "id"
       ]
     },
-    "NpcFeatureType": {
+    "INpcDamageData": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "damage": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "damage",
+        "type"
+      ]
+    },
+    "IRangeData": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/RangeType"
+        },
+        "val": {
+          "type": "number"
+        },
+        "override": {
+          "type": "boolean"
+        },
+        "bonus": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "type",
+        "val"
+      ]
+    },
+    "RangeType": {
       "enum": [
-        "Reaction",
-        "System",
-        "Tech",
-        "Trait",
-        "Weapon"
-      ],
-      "type": "string"
+        "Blast",
+        "Burst",
+        "Cone",
+        "Line",
+        "Range",
+        "Threat",
+        "Thrown"
+      ]
     },
     "INpcWeapon": {
       "type": "object",
@@ -194,70 +183,15 @@
       },
       "required": [
         "id",
-        "accuracy",
-        "attack_bonus",
         "damage",
-        "hide_active",
         "locked",
         "name",
-        "on_hit",
         "origin",
         "range",
         "tags",
         "type",
         "weapon_type"
       ]
-    },
-    "INpcDamageData": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "damage": {
-          "type": "array",
-          "items": {
-            "type": "number"
-          }
-        }
-      },
-      "required": [
-        "damage",
-        "type"
-      ]
-    },
-    "IRangeData": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "$ref": "#/definitions/RangeType"
-        },
-        "val": {
-          "type": "number"
-        },
-        "override": {
-          "type": "boolean"
-        },
-        "bonus": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "type",
-        "val"
-      ]
-    },
-    "RangeType": {
-      "enum": [
-        "Blast",
-        "Burst",
-        "Cone",
-        "Line",
-        "Range",
-        "Threat",
-        "Thrown"
-      ],
-      "type": "string"
     },
     "INpcReaction": {
       "type": "object",
@@ -311,8 +245,92 @@
         "type",
         "effect",
         "tags",
-        "trigger",
-        "hide_active"
+        "trigger"
+      ]
+    },
+    "INpcTrait": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "origin": {
+          "$ref": "#/definitions/IOriginData"
+        },
+        "name": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "effect": {
+          "type": "string"
+        },
+        "type": {
+          "const": "Trait"
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "bonus": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true,
+          "examples": [
+            {
+              "hp": "2/+4/+6"
+            }
+          ]
+        },
+        "override": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "hide_active": {
+          "type": "boolean"
+        },
+        "immunity": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "examples": [
+            [
+              "Impaired",
+              "Slowed",
+              "Critical Hits"
+            ]
+          ]
+        },
+        "resistance": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "examples": [
+            [
+              "Melee"
+            ],
+            [
+              "Kinetic",
+              "Energy"
+            ]
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "origin",
+        "locked",
+        
+        "tags",
+        "effect",
+        "type"
       ]
     },
     "INpcSystem": {
@@ -362,7 +380,7 @@
         "origin",
         "locked",
         "type",
-        "hide_active",
+        
         "tags",
         "effect"
       ]
@@ -427,7 +445,6 @@
         }
       },
       "required": [
-        "hide_active",
         "locked",
         "name",
         "origin",
