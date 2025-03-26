@@ -262,6 +262,9 @@
     "INpcReaction": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "origin": {
           "$ref": "#/definitions/IOriginData"
         },
@@ -278,10 +281,7 @@
           "type": "string"
         },
         "type": {
-          "type": "string",
-          "enum": [
-            "Reaction"
-          ]
+          "const": "Reaction"
         },
         "locked": {
           "type": "boolean"
@@ -304,13 +304,15 @@
         }
       },
       "required": [
-        "hide_active",
-        "locked",
+        "id",
         "name",
         "origin",
+        "locked",
+        "type",
+        "effect",
         "tags",
         "trigger",
-        "type"
+        "hide_active"
       ]
     },
     "INpcSystem": {
