@@ -318,11 +318,17 @@
     "INpcSystem": {
       "type": "object",
       "properties": {
-        "origin": {
-          "$ref": "#/definitions/IOriginData"
+        "id": {
+          "type": "string"
         },
         "name": {
           "type": "string"
+        },
+        "origin": {
+          "$ref": "#/definitions/IOriginData"
+        },
+        "locked": {
+          "type": "boolean"
         },
         "tags": {
           "type": "array",
@@ -334,13 +340,7 @@
           "type": "string"
         },
         "type": {
-          "type": "string",
-          "enum": [
-            "System"
-          ]
-        },
-        "locked": {
-          "type": "boolean"
+          "const": "System"
         },
         "bonus": {
           "type": "object",
@@ -357,12 +357,14 @@
         }
       },
       "required": [
-        "hide_active",
-        "locked",
+        "id",
         "name",
         "origin",
+        "locked",
+        "type",
+        "hide_active",
         "tags",
-        "type"
+        "effect"
       ]
     },
     "INpcTech": {
