@@ -124,6 +124,9 @@
     "INpcWeapon": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "origin": {
           "$ref": "#/definitions/IOriginData"
         },
@@ -140,10 +143,7 @@
           "type": "string"
         },
         "type": {
-          "type": "string",
-          "enum": [
-            "Weapon"
-          ]
+          "const": "Weapon"
         },
         "on_hit": {
           "type": "string"
@@ -193,6 +193,7 @@
         }
       },
       "required": [
+        "id",
         "accuracy",
         "attack_bonus",
         "damage",
