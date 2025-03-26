@@ -21,13 +21,40 @@
     },
     "image_url": {
       "type": "string"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ILcpDependencies"
+      }
     }
   },
   "required": [
     "author",
-    "item_prefix",
     "name",
+    "description",
     "version"
   ],
+  "definitions": {
+    "ILcpDependencies": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "link": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "name",
+        "version"
+      ]
+    }
+  },
   "$schema": "http://json-schema.org/draft-07/schema#"
 }
