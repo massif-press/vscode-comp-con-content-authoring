@@ -1,12 +1,15 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<INpcClassData,\"name\"|\"stats\"|\"info\"|\"role\"|\"base_features\"|\"optional_features\"|\"power\">"
+    "$ref": "#/definitions/INpcClass"
   },
   "definitions": {
-    "Pick<INpcClassData,\"name\"|\"stats\"|\"info\"|\"role\"|\"base_features\"|\"optional_features\"|\"power\">": {
+    "INpcClass": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "name": {
           "type": "string"
         },
@@ -29,7 +32,16 @@
           ]
         },
         "role": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "artillery",
+            "controller",
+            "defender",
+            "striker",
+            "support",
+            "balanced",
+            "biological"
+          ]
         },
         "base_features": {
           "type": "array",
@@ -48,6 +60,7 @@
         }
       },
       "required": [
+        "id",
         "base_features",
         "info",
         "name",
@@ -64,79 +77,105 @@
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "armor": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "hp": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "evade": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "edef": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "heatcap": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "speed": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "sensor": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "save": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "hull": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "agility": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "systems": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "engineering": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "size": {
           "type": "array",
@@ -144,20 +183,27 @@
             "type": "array",
             "items": {
               "type": "number"
-            }
-          }
+            },
+            "minItems": 1
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "structure": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
         "stress": {
           "type": "array",
           "items": {
             "type": "number"
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3
         }
       },
       "required": [

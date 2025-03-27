@@ -3,75 +3,32 @@
   "items": {
     "anyOf": [
       {
-        "$ref": "#/definitions/Pick<INpcFeatureData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\">"
+        "$ref": "#/definitions/INpcTrait"
       },
       {
-        "$ref": "#/definitions/Pick<INpcWeaponData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"on_hit\"|\"damage\"|\"range\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"weapon_type\"|\"accuracy\"|\"attack_bonus\">"
+        "$ref": "#/definitions/INpcWeapon"
       },
       {
-        "$ref": "#/definitions/Pick<INpcReactionData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"trigger\">"
+        "$ref": "#/definitions/INpcReaction"
       },
       {
-        "$ref": "#/definitions/Pick<INpcSystemData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\">"
+        "$ref": "#/definitions/INpcSystem"
       },
       {
-        "$ref": "#/definitions/Pick<INpcTechData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"accuracy\"|\"attack_bonus\"|\"tech_type\">"
+        "$ref": "#/definitions/INpcTech"
       }
     ]
   },
   "definitions": {
-    "Pick<INpcFeatureData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\">": {
-      "type": "object",
-      "properties": {
-        "origin": {
-          "$ref": "#/definitions/IOriginData"
-        },
-        "name": {
-          "type": "string"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ITagData"
-          }
-        },
-        "effect": {
-          "type": "string"
-        },
-        "type": {
-          "$ref": "#/definitions/NpcFeatureType"
-        },
-        "locked": {
-          "type": "boolean"
-        },
-        "bonus": {
-          "type": "object",
-          "properties": {},
-          "additionalProperties": true
-        },
-        "override": {
-          "type": "object",
-          "properties": {},
-          "additionalProperties": true
-        },
-        "hide_active": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "hide_active",
-        "locked",
-        "name",
-        "origin",
-        "tags",
-        "type"
-      ]
-    },
     "IOriginData": {
       "type": "object",
       "properties": {
         "type": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "Class",
+            "Template"
+          ]
         },
         "name": {
           "type": "string"
@@ -101,102 +58,6 @@
       },
       "required": [
         "id"
-      ]
-    },
-    "NpcFeatureType": {
-      "enum": [
-        "Reaction",
-        "System",
-        "Tech",
-        "Trait",
-        "Weapon"
-      ],
-      "type": "string"
-    },
-    "Pick<INpcWeaponData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"on_hit\"|\"damage\"|\"range\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"weapon_type\"|\"accuracy\"|\"attack_bonus\">": {
-      "type": "object",
-      "properties": {
-        "origin": {
-          "$ref": "#/definitions/IOriginData"
-        },
-        "name": {
-          "type": "string"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ITagData"
-          }
-        },
-        "effect": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Weapon"
-          ]
-        },
-        "on_hit": {
-          "type": "string"
-        },
-        "damage": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/INpcDamageData"
-          }
-        },
-        "range": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/IRangeData"
-          }
-        },
-        "locked": {
-          "type": "boolean"
-        },
-        "bonus": {
-          "type": "object",
-          "properties": {},
-          "additionalProperties": true
-        },
-        "override": {
-          "type": "object",
-          "properties": {},
-          "additionalProperties": true
-        },
-        "hide_active": {
-          "type": "boolean"
-        },
-        "weapon_type": {
-          "type": "string"
-        },
-        "accuracy": {
-          "type": "array",
-          "items": {
-            "type": "number"
-          }
-        },
-        "attack_bonus": {
-          "type": "array",
-          "items": {
-            "type": "number"
-          }
-        }
-      },
-      "required": [
-        "accuracy",
-        "attack_bonus",
-        "damage",
-        "hide_active",
-        "locked",
-        "name",
-        "on_hit",
-        "origin",
-        "range",
-        "tags",
-        "type",
-        "weapon_type"
       ]
     },
     "INpcDamageData": {
@@ -247,12 +108,14 @@
         "Range",
         "Threat",
         "Thrown"
-      ],
-      "type": "string"
+      ]
     },
-    "Pick<INpcReactionData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"trigger\">": {
+    "INpcWeapon": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "origin": {
           "$ref": "#/definitions/IOriginData"
         },
@@ -269,10 +132,91 @@
           "type": "string"
         },
         "type": {
-          "type": "string",
-          "enum": [
-            "Reaction"
-          ]
+          "const": "Weapon"
+        },
+        "on_hit": {
+          "type": "string"
+        },
+        "damage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/INpcDamageData"
+          }
+        },
+        "range": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IRangeData"
+          }
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "bonus": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "override": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "hide_active": {
+          "type": "boolean"
+        },
+        "weapon_type": {
+          "type": "string"
+        },
+        "accuracy": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "attack_bonus": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "damage",
+        "locked",
+        "name",
+        "origin",
+        "range",
+        "tags",
+        "type",
+        "weapon_type",
+        "effect"
+      ]
+    },
+    "INpcReaction": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "origin": {
+          "$ref": "#/definitions/IOriginData"
+        },
+        "name": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "effect": {
+          "type": "string"
+        },
+        "type": {
+          "const": "Reaction"
         },
         "locked": {
           "type": "boolean"
@@ -295,18 +239,22 @@
         }
       },
       "required": [
-        "hide_active",
-        "locked",
+        "id",
         "name",
         "origin",
+        "locked",
+        "type",
+        "effect",
         "tags",
-        "trigger",
-        "type"
+        "trigger"
       ]
     },
-    "Pick<INpcSystemData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\">": {
+    "INpcTrait": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "origin": {
           "$ref": "#/definitions/IOriginData"
         },
@@ -323,13 +271,95 @@
           "type": "string"
         },
         "type": {
-          "type": "string",
-          "enum": [
-            "System"
-          ]
+          "const": "Trait"
         },
         "locked": {
           "type": "boolean"
+        },
+        "bonus": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true,
+          "examples": [
+            {
+              "hp": "2/+4/+6"
+            }
+          ]
+        },
+        "override": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "hide_active": {
+          "type": "boolean"
+        },
+        "immunity": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "examples": [
+            [
+              "Impaired",
+              "Slowed",
+              "Critical Hits"
+            ]
+          ]
+        },
+        "resistance": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "examples": [
+            [
+              "Melee"
+            ],
+            [
+              "Kinetic",
+              "Energy"
+            ]
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "origin",
+        "locked",
+        
+        "tags",
+        "effect",
+        "type"
+      ]
+    },
+    "INpcSystem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "origin": {
+          "$ref": "#/definitions/IOriginData"
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ITagData"
+          }
+        },
+        "effect": {
+          "type": "string"
+        },
+        "type": {
+          "const": "System"
         },
         "bonus": {
           "type": "object",
@@ -346,17 +376,22 @@
         }
       },
       "required": [
-        "hide_active",
-        "locked",
+        "id",
         "name",
         "origin",
+        "locked",
+        "type",
+        
         "tags",
-        "type"
+        "effect"
       ]
     },
-    "Pick<INpcTechData,\"origin\"|\"name\"|\"tags\"|\"effect\"|\"type\"|\"locked\"|\"bonus\"|\"override\"|\"hide_active\"|\"accuracy\"|\"attack_bonus\"|\"tech_type\">": {
+    "INpcTech": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "origin": {
           "$ref": "#/definitions/IOriginData"
         },
@@ -373,10 +408,7 @@
           "type": "string"
         },
         "type": {
-          "type": "string",
-          "enum": [
-            "Tech"
-          ]
+          "const": "Tech"
         },
         "locked": {
           "type": "boolean"
@@ -407,16 +439,19 @@
           }
         },
         "tech_type": {
-          "type": "string"
+          "enum": [
+            "Quick",
+            "Full"
+          ]
         }
       },
       "required": [
-        "hide_active",
         "locked",
         "name",
         "origin",
         "tags",
         "tech_type",
+        "effect",
         "type"
       ]
     }

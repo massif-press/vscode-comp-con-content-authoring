@@ -1,12 +1,15 @@
 {
   "type": "array",
   "items": {
-    "$ref": "#/definitions/Pick<INpcTemplateData,\"name\"|\"description\"|\"base_features\"|\"optional_features\"|\"power\">"
+    "$ref": "#/definitions/INpcTemplate"
   },
   "definitions": {
-    "Pick<INpcTemplateData,\"name\"|\"description\"|\"base_features\"|\"optional_features\"|\"power\">": {
+    "INpcTemplate": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "name": {
           "type": "string"
         },
@@ -30,6 +33,7 @@
         }
       },
       "required": [
+        "id",
         "base_features",
         "description",
         "name",
