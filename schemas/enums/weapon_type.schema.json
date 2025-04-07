@@ -1,0 +1,11 @@
+{
+    "$id": "/enums/WeaponType",
+    "enum": [
+        "CQB",
+        "Cannon",
+        "Launcher",
+        "Melee",
+        "Nexus",
+        "Rifle"
+    ]
+}

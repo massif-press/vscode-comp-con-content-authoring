@@ -1,0 +1,18 @@
+{
+    "$id": "/enums/ActivationType",
+    "enum": [
+        "Free",
+        "Full",
+        "Full Tech",
+        "Invade",
+        "Move",
+        "None",
+        "Other",
+        "Passive",
+        "Protocol",
+        "Quick",
+        "Quick Tech",
+        "Reaction",
+        "Downtime"
+    ]
+}

@@ -54,7 +54,7 @@
         },
         "mounts": {
           "type": "array",
-          "items": { "$ref": "#/definitions/MountType"}
+          "items": { "$ref": "enums/mount_type.schema.json#"}
         },
         "stats": {
           "$ref": "#/definitions/IFrameStats"
@@ -239,7 +239,7 @@
           "type": "string"
         },
         "use": {
-          "$ref": "#/definitions/Duration"
+          "$ref": "enums/duration.schema.json#"
         },
         "actions": {
           "type": "array",
@@ -293,7 +293,7 @@
           "type": "string"
         },
         "activation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "cost": {
           "type": "number"
@@ -478,19 +478,19 @@
           "type": "string"
         },
         "activation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "instances": {
           "type": "number"
         },
         "deactivation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "recall": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "redeploy": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "size": {
           "type": [
@@ -691,13 +691,13 @@
           "type": "string"
         },
         "activation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "deactivation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "use": {
-          "$ref": "#/definitions/Duration"
+          "$ref": "enums/duration.schema.json#"
         },
         "active_actions": {
           "type": "array",
@@ -772,47 +772,6 @@
         "active_effect",
         "activation"
       ]
-    },
-    "ActivationType": {
-      "enum": [
-        "Free",
-        "Full",
-        "Full Tech",
-        "Invade",
-        "Move",
-        "None",
-        "Other",
-        "Passive",
-        "Protocol",
-        "Quick",
-        "Quick Tech",
-        "Reaction"
-      ],
-      "type": "string"
-    },
-    "Duration": {
-      "enum": [
-        "Encounter",
-        "Free",
-        "Mission",
-        "Next Round",
-        "Next Turn",
-        "Round",
-        "Turn"
-      ],
-      "type": "string"
-    },
-    "MountType": {
-      "enum": [
-        "Aux",
-        "Aux/Aux",
-        "Flex",
-        "Heavy",
-        "Integrated",
-        "Main",
-        "Main/Aux"
-      ],
-      "type": "string"
     },
     "ImageTag": {
       "enum": [

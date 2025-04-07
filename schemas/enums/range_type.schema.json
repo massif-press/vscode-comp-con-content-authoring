@@ -1,0 +1,12 @@
+{
+    "$id": "/enums/RangeType",
+    "enum": [
+        "Blast",
+        "Burst",
+        "Cone",
+        "Line",
+        "Range",
+        "Threat",
+        "Thrown"
+    ]
+}
