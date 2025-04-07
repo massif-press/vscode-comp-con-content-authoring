@@ -1,0 +1,11 @@
+{
+    "$id": "/enums/DamageType",
+    "enum": [
+        "Burn",
+        "Energy",
+        "Explosive",
+        "Heat",
+        "Kinetic",
+        "Variable"
+    ]
+}

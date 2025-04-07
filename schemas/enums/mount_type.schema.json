@@ -1,0 +1,12 @@
+{
+    "$id": "/enums/MountType",
+    "enum": [
+        "Aux",
+        "Aux/Aux",
+        "Flex",
+        "Heavy",
+        "Integrated",
+        "Main",
+        "Main/Aux"
+    ]
+}

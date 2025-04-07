@@ -82,7 +82,7 @@
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "#/definitions/RangeType"
+          "$ref": "enums/range_type.schema.json#"
         },
         "val": {
           "type": "number"
@@ -97,17 +97,6 @@
       "required": [
         "type",
         "val"
-      ]
-    },
-    "RangeType": {
-      "enum": [
-        "Blast",
-        "Burst",
-        "Cone",
-        "Line",
-        "Range",
-        "Threat",
-        "Thrown"
       ]
     },
     "INpcWeapon": {

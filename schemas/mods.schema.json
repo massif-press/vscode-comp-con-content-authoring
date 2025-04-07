@@ -166,7 +166,7 @@
           "type": "string"
         },
         "activation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "cost": {
           "type": "number"
@@ -222,23 +222,6 @@
         "detail",
         "name"
       ]
-    },
-    "ActivationType": {
-      "enum": [
-        "Free",
-        "Full",
-        "Full Tech",
-        "Invade",
-        "Move",
-        "None",
-        "Other",
-        "Passive",
-        "Protocol",
-        "Quick",
-        "Quick Tech",
-        "Reaction"
-      ],
-      "type": "string"
     },
     "IBonusData": {
       "type": "object",
@@ -368,19 +351,19 @@
           "type": "string"
         },
         "activation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "instances": {
           "type": "number"
         },
         "deactivation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "recall": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "redeploy": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "size": {
           "type": [
@@ -569,7 +552,7 @@
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "#/definitions/DamageType"
+          "$ref": "enums/damage_type.schema.json#"
         },
         "val": {
           "type": [
@@ -591,23 +574,12 @@
         "type",
         "val"
       ]
-    },
-    "DamageType": {
-      "enum": [
-        "Burn",
-        "Energy",
-        "Explosive",
-        "Heat",
-        "Kinetic",
-        "Variable"
-      ],
-      "type": "string"
     },
     "IRangeData": {
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "#/definitions/RangeType"
+          "$ref": "enums/range_type.schema.json#"
         },
         "val": {
           "type": "number"
@@ -623,18 +595,6 @@
         "type",
         "val"
       ]
-    },
-    "RangeType": {
-      "enum": [
-        "Blast",
-        "Burst",
-        "Cone",
-        "Line",
-        "Range",
-        "Threat",
-        "Thrown"
-      ],
-      "type": "string"
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"

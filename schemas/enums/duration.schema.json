@@ -1,0 +1,12 @@
+{
+    "$id": "/enums/Duration",
+    "enum": [
+        "Encounter",
+        "Free",
+        "Mission",
+        "Next Round",
+        "Next Turn",
+        "Round",
+        "Turn"
+    ]
+}

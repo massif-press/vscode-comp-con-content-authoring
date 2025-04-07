@@ -90,7 +90,7 @@
           "type": "string"
         },
         "activation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "cost": {
           "type": "number"
@@ -146,23 +146,6 @@
         "detail",
         "name"
       ]
-    },
-    "ActivationType": {
-      "enum": [
-        "Free",
-        "Full",
-        "Full Tech",
-        "Invade",
-        "Move",
-        "None",
-        "Other",
-        "Passive",
-        "Protocol",
-        "Quick",
-        "Quick Tech",
-        "Reaction"
-      ],
-      "type": "string"
     },
     "IBonusData": {
       "type": "object",
@@ -292,19 +275,19 @@
           "type": "string"
         },
         "activation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "instances": {
           "type": "number"
         },
         "deactivation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "recall": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "redeploy": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "size": {
           "type": [

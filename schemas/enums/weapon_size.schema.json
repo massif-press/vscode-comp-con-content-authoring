@@ -1,0 +1,9 @@
+{
+    "$id": "/enums/WeaponSize",
+    "enum": [
+        "Auxiliary",
+        "Heavy",
+        "Main",
+        "Superheavy"
+    ]
+}
