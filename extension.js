@@ -59,6 +59,7 @@ function activate() {
 
       const task = new vscode.Task(
         { type },
+        vscode.TaskScope.Workspace,
         'Build .LCP package',
         'compcon',
         new vscode.ShellExecution(`${cmd} "${packageName.replace('"', '\\"')}" ${filesStr}`),
