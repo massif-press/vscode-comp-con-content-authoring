@@ -102,6 +102,10 @@
       {
         "fileMatch": "npc_templates.json",
         "url": "./schemas/npc_templates.schema.json"
+      },
+      {
+        "fileMatch": "bonds.json",
+        "url": "./schemas/bonds.schema.json"
       }
     ]
   },
