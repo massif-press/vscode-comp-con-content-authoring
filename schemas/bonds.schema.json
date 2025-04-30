@@ -1,0 +1,95 @@
+{
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/IBond"
+    },
+    "definitions": {
+        "IBond": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "major_ideals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "minor_ideals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "questions": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "question": {
+                                "type": "string"
+                            },
+                            "options": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "powers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IBondPower"
+                    }
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "major_ideals",
+                "minor_ideals",
+                "questions",
+                "powers"
+            ]
+        },
+        "IBondPower": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "frequency": {
+                    "type": "string",
+                    "pattern": "[0-9]+/(scene|session)"
+                },
+                "prerequisite": {
+                    "type": "string"
+                },
+                "veteran": {
+                    "type": "boolean"
+                },
+                "master": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "name",
+                "description"
+            ],
+            "dependencies": {
+                "master": ["prerequisite"],
+                "veteran": ["prerequisite"]
+            }
+        }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#"
+}
