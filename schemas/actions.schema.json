@@ -17,21 +17,7 @@
           "type": "string"
         },
         "activation": {
-          "enum": [
-            "Free",
-            "Full",
-            "Full Tech",
-            "Invade",
-            "Move",
-            "None",
-            "Other",
-            "Passive",
-            "Protocol",
-            "Quick",
-            "Quick Tech",
-            "Reaction",
-            "Downtime"
-          ]
+          "$ref": "enums/activation_type.schema.json#"
         },
         "terse": {
           "type": "string"

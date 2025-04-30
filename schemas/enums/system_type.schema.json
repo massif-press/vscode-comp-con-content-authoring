@@ -1,0 +1,12 @@
+{
+    "$id": "/enums/SystemType",
+    "enum": [
+        "AI",
+        "Deployable",
+        "Drone",
+        "Flight System",
+        "Shield",
+        "System",
+        "Tech"
+    ]
+}

@@ -86,7 +86,7 @@
           "type": "string"
         },
         "activation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "cost": {
           "type": "number"
@@ -171,7 +171,7 @@
         "damage_types": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/DamageType"
+            "$ref": "enums/damage_type.schema.json#"
           }
         },
         "range_types": {
@@ -183,13 +183,13 @@
         "weapon_types": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/WeaponType"
+            "$ref": "enums/weapon_type.schema.json#"
           }
         },
         "weapon_sizes": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/WeaponSize"
+            "$ref": "enums/weapon_size.schema.json#"
           }
         },
         "overwrite": {
@@ -225,7 +225,7 @@
         "system_types": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SystemType"
+            "$ref": "enums/system_type.schema.json#"
           }
         },
         "weapon_sizes": {
@@ -259,19 +259,19 @@
           "type": "string"
         },
         "activation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "instances": {
           "type": "number"
         },
         "deactivation": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "recall": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "redeploy": {
-          "$ref": "#/definitions/ActivationType"
+          "$ref": "enums/activation_type.schema.json#"
         },
         "size": {
           "type": [
@@ -454,65 +454,6 @@
       },
       "required": [
         "id"
-      ]
-    },
-    "DamageType": {
-      "enum": [
-        "Burn",
-        "Energy",
-        "Explosive",
-        "Heat",
-        "Kinetic",
-        "Variable"
-      ],
-      "type": "string"
-    },
-    "WeaponType": {
-      "enum": [
-        "CQB",
-        "Cannon",
-        "Launcher",
-        "Melee",
-        "Nexus",
-        "Rifle"
-      ],
-      "type": "string"
-    },
-    "WeaponSize": {
-      "enum": [
-        "Auxiliary",
-        "Heavy",
-        "Main",
-        "Superheavy"
-      ],
-      "type": "string"
-    },
-    "ActivationType": {
-      "enum": [
-        "Free",
-        "Full",
-        "Full Tech",
-        "Invade",
-        "Move",
-        "None",
-        "Other",
-        "Passive",
-        "Protocol",
-        "Quick",
-        "Quick Tech",
-        "Reaction"
-      ],
-      "type": "string"
-    },
-    "SystemType": {
-      "enum": [
-        "AI",
-        "Deployable",
-        "Drone",
-        "Flight System",
-        "Shield",
-        "System",
-        "Tech"
       ]
     }
   },
