@@ -1,0 +1,11 @@
+{
+    "$id": "/enums/Frequency",
+    "enum": [
+        "unlimited",
+        "1/round",
+        "1/turn",
+        "1/scene",
+        "1/encounter",
+        "1/mission"
+    ]
+}

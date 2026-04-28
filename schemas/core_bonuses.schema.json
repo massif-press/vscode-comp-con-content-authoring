@@ -66,6 +66,12 @@
           "items": {
             "type": "string"
           }
+        },
+        "active_effects": {
+          "type": "array",
+          "items": {
+            "$ref": "common/active_effect.schema.json#"
+          }
         }
       },
       "required": [
@@ -161,9 +167,12 @@
               "type": "number"
             },
             {
+              "type": "boolean"
+            },
+            {
               "type": "array",
               "items": {
-                "type": ["number", "string"]
+                "type": ["number", "string", "boolean"]
               }
             }
           ]
@@ -200,8 +209,7 @@
         }
       },
       "required": [
-        "id",
-        "val"
+        "id"
       ]
     },
     "ISynergyData": {
