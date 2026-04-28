@@ -239,7 +239,8 @@
           "type": "string"
         },
         "use": {
-          "$ref": "enums/duration.schema.json#"
+          "$ref": "enums/duration.schema.json#",
+          "deprecated": true
         },
         "actions": {
           "type": "array",
