@@ -27,6 +27,8 @@ const files = [
   'npc_classes.json',
   'npc_features.json',
   'npc_templates.json',
+  'lists.json',
+  'tables.json'
 ];
 
 function activate() {
