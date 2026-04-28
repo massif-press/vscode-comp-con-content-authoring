@@ -22,6 +22,16 @@
     "image_url": {
       "type": "string"
     },
+    "v3": {
+      "type": "boolean",
+      "description": "Is this LCP compatible with Comp/Con v3?"
+    },
+    "version_history": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/IChangeLogItem"
+        }
+    },
     "dependencies": {
       "type": "array",
       "items": {
@@ -43,7 +53,8 @@
           "type": "string"
         },
         "version": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^(\\*|=?[0-9]+\\.[0-9]+\\.[0-9]+([-+][0-9a-zA-Z-])?)$"
         },
         "link": {
           "type": "string",
@@ -54,6 +65,25 @@
         "name",
         "version"
       ]
+    },
+    "IChangeLogItem": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+([-+][0-9a-zA-Z-])?$"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"
