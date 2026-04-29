@@ -3,27 +3,71 @@
     "$schema": "https://json-schema.org/draft-07/schema#",
     "type": "object",
     "properties": {
-        "name": {"type": "string"},
-        "activation": {"$ref": "../enums/activation_type.schema.json"},
-        "detail": {"type": "string"},
-        "frequency": {"$ref": "../enums/frequency.schema.json"},
-        "trigger": {"type":"string"},
-        "cost": {"type": "number", "default": 1},
-        "pilot": {"type": "boolean"},
-        "mech": {"type": "boolean"},
-        "hide_active": {"type": "boolean"},
-        "bonus_damage": {"type": "string"},
-        "damage": {"$ref": "IDamageData.schema.json#"},
-        "range": {"$ref": "IRangeData.schema.json#"},
-        "add_status": {"$ref": "IStatusEffectData.schema.json#"},
-        "add_resist": {"$ref": "IResistanceData.schema.json#"},
-        "add_special": {"$ref": "ISpecialStatusData.schema.json#"},
-        "add_other": {"$ref": "IOtherEffectData.schema.json#"},
-        "remove_special": {"type":"array", "items": {"type": "string"}},
-        "save": {"$ref": "IEffectSaveData.schema.json#"},
-        "active_effects": {"$ref": "active_effect.schema.json#"}
+        "name": {
+            "type": "string"
+        },
+        "activation": {
+            "$ref": "../enums/activation_type.schema.json"
+        },
+        "detail": {
+            "type": "string"
+        },
+        "frequency": {
+            "$ref": "../enums/frequency.schema.json"
+        },
+        "trigger": {
+            "type": "string"
+        },
+        "cost": {
+            "type": "number",
+            "default": 1
+        },
+        "pilot": {
+            "type": "boolean"
+        },
+        "mech": {
+            "type": "boolean"
+        },
+        "hide_active": {
+            "type": "boolean"
+        },
+        "bonus_damage": {
+            "type": "string"
+        },
+        "damage": {
+            "$ref": "interfaces.schema.json#/definitions/IDamageData"
+        },
+        "range": {
+            "$ref": "interfaces.schema.json#/definitions/IRangeData"
+        },
+        "add_status": {
+            "$ref": "interfaces.schema.json#/definitions/IStatusEffectData"
+        },
+        "add_resist": {
+            "$ref": "interfaces.schema.json#/definitions/IResistanceData"
+        },
+        "add_special": {
+            "$ref": "interfaces.schema.json#/definitions/ISpecialStatusData"
+        },
+        "add_other": {
+            "$ref": "interfaces.schema.json#/definitions/IOtherEffectData"
+        },
+        "remove_special": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "save": {
+            "$ref": "interfaces.schema.json#/definitions/IEffectSaveData"
+        },
+        "active_effects": {
+            "$ref": "active_effect.schema.json#"
+        }
     },
     "required": [
-        "name", "activation", "detail"
+        "name",
+        "activation",
+        "detail"
     ]
 }

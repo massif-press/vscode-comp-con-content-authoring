@@ -152,7 +152,7 @@
         "name"
       ]
     },
-    "IBonusData": {"$ref": "common/IBonusData.schema.json#"},
+    "IBonusData": {"$ref": "common/interfaces.schema.json#/definitions/IBonusData"},
     "ISynergyData": {
       "type": "object",
       "properties": {

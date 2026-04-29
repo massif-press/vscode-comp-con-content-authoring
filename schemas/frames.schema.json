@@ -102,7 +102,7 @@
         "bonuses": {
           "type": "array",
           "items": {
-            "$ref": "common/IBonusData.schema.json"
+            "$ref": "common/interfaces.schema.json#/definitions/IBonusData"
           },
           "deprecated": true
         },
@@ -259,7 +259,7 @@
         "bonuses": {
           "type": "array",
           "items": {
-            "$ref": "common/IBonusData.schema.json"
+            "$ref": "common/interfaces.schema.json#/definitions/IBonusData"
           }
         },
         "synergies": {
@@ -503,7 +503,7 @@
         "bonuses": {
           "type": "array",
           "items": {
-            "$ref": "common/IBonusData.schema.json"
+            "$ref": "common/interfaces.schema.json#/definitions/IBonusData"
           }
         },
         "synergies": {
@@ -638,7 +638,7 @@
         "active_bonuses": {
           "type": "array",
           "items": {
-            "$ref": "common/IBonusData.schema.json"
+            "$ref": "common/interfaces.schema.json#/definitions/IBonusData"
           }
         },
         "active_synergies": {
@@ -662,7 +662,7 @@
         "passive_bonuses": {
           "type": "array",
           "items": {
-            "$ref": "common/IBonusData.schema.json"
+            "$ref": "common/interfaces.schema.json#/definitions/IBonusData"
           }
         },
         "passive_synergies": {
