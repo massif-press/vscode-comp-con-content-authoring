@@ -1,0 +1,27 @@
+{
+            "anyOf": [
+                {
+                    "enum": [
+                        "hull",
+                        "agi",
+                        "sys",
+                        "eng",
+                        "grit"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "stat": {
+                            "type": "string"
+                        },
+                        "aoe": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "stat"
+                    ]
+                }
+            ]
+        }

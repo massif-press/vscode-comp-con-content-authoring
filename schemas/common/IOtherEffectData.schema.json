@@ -1,0 +1,40 @@
+{
+            "type": "object",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "overshield",
+                        "hp",
+                        "repair",
+                        "cover"
+                    ]
+                },
+                "val": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "number"
+                        }
+                    ]
+                },
+                "target": {
+                    "enum": [
+                        "self",
+                        "ally",
+                        "enemy"
+                    ]
+                },
+                "aoe": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                }
+            }
+        }

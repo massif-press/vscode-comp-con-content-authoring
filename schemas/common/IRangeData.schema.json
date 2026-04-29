@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "type": {
+            "enum": [
+                "Threat",
+                "Range",
+                "Burst",
+                "Blast",
+                "Cone",
+                "Line"
+            ]
+        },
+        "val": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "examples": [
+                        "1d6",
+                        "(1d6+2)*2",
+                        "2d6+{agi}"
+                    ]
+                },
+                {
+                    "type": "number"
+                }
+            ]
+        },
+        "min": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "examples": [
+                        "1d6",
+                        "(1d6+2)*2",
+                        "2d6+{agi}"
+                    ]
+                },
+                {
+                    "type": "number"
+                }
+            ]
+        }
+    },
+    "required": [
+        "type",
+        "val"
+    ],
+    "$schema": "https://json-schema.org/draft-07/schema#"
+}

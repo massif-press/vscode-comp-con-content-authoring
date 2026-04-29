@@ -1,0 +1,25 @@
+{
+            "type": "object",
+            "properties": {
+                "attribute": {
+                    "type": "string"
+                },
+                "detail": {
+                    "type": "string"
+                },
+                "target": {
+                    "enum": [
+                        "self",
+                        "ally",
+                        "enemy"
+                    ],
+                    "default": "enemy"
+                },
+                "duration": {
+                    "$ref": "../enums/durationV3.schema.json"
+                }
+            },
+            "required": [
+                "attribute"
+            ]
+        }

@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "type": {
+            "$ref": "../enums/damage_type.schema.json#"
+        },
+        "val": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "examples": [
+                        "1d6",
+                        "(1d6+2)*2",
+                        "2d6+{agi}"
+                    ]
+                },
+                {
+                    "type": "number"
+                }
+            ]
+        },
+        "aoe": {
+            "anyOf": [
+                {
+                    "type": "boolean"
+                },
+                {
+                    "type": "string",
+                    "examples": [
+                        "burst 3",
+                        "blast 2"
+                    ]
+                }
+            ]
+        },
+        "save": {
+            "$ref": "IEffectSaveData.schema.json#"
+        },
+        "save_half": {
+            "type": "boolean",
+            "description": "If true, targets that succeed on their saving throws take half damage. Otherwise, targets that succeed on their saving throws take NO damage."
+        },
+        "ap": {
+            "type": "boolean",
+            "description": "If true, the damage ignores armor"
+        },
+        "target": {
+            "enum": [
+                "self",
+                "ally",
+                "enemy"
+            ]
+        }
+    },
+    "required": [
+        "type",
+        "val"
+    ],
+    "$schema": "https://json-schema.org/draft-07/schema#"
+}

@@ -89,49 +89,57 @@
                 "type": "string"
               }
             }
-          }
+          },
+          "deprecated": true
         },
         "actions": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/IActionData"
-          }
+          },
+          "deprecated": true
         },
         "bonuses": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IBonusData"
-          }
+            "$ref": "common/IBonusData.schema.json"
+          },
+          "deprecated": true
         },
         "synergies": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ISynergyData"
-          }
+          },
+          "deprecated": true
         },
         "deployables": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/IDeployableData"
-          }
+          },
+          "deprecated": true
         },
         "counters": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ICounterData"
-          }
+          },
+          "deprecated": true
         },
         "integrated": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "deprecated": true
         },
         "tags": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ITagData"
-          }
+          },
+          "deprecated": true
         }
       },
       "required": [
@@ -245,13 +253,13 @@
         "actions": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IActionData"
+            "$ref": "common/actions.schema.json"
           }
         },
         "bonuses": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IBonusData"
+            "$ref": "common/IBonusData.schema.json"
           }
         },
         "synergies": {
@@ -277,7 +285,7 @@
           "items": {
             "type": "string"
           }
-        }
+        }        
       },
       "required": [
         "description",
@@ -349,85 +357,6 @@
         "activation",
         "detail",
         "name"
-      ]
-    },
-    "IBonusData": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "val": {
-          "type": [
-            "string",
-            "number"
-          ]
-        },
-        "damage_types": {
-          "type": "array",
-          "items": {
-            "enum": [
-              "Burn",
-              "Energy",
-              "Explosive",
-              "Heat",
-              "Kinetic",
-              "Variable"
-            ],
-            "type": "string"
-          }
-        },
-        "range_types": {
-          "type": "array",
-          "items": {
-            "enum": [
-              "Blast",
-              "Burst",
-              "Cone",
-              "Line",
-              "Range",
-              "Threat",
-              "Thrown"
-            ],
-            "type": "string"
-          }
-        },
-        "weapon_types": {
-          "type": "array",
-          "items": {
-            "enum": [
-              "CQB",
-              "Cannon",
-              "Launcher",
-              "Melee",
-              "Nexus",
-              "Rifle"
-            ],
-            "type": "string"
-          }
-        },
-        "weapon_sizes": {
-          "type": "array",
-          "items": {
-            "enum": [
-              "Auxiliary",
-              "Heavy",
-              "Main",
-              "Superheavy"
-            ],
-            "type": "string"
-          }
-        },
-        "overwrite": {
-          "type": "boolean"
-        },
-        "replace": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "id",
-        "val"
       ]
     },
     "ISynergyData": {
@@ -574,7 +503,7 @@
         "bonuses": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IBonusData"
+            "$ref": "common/IBonusData.schema.json"
           }
         },
         "synergies": {
@@ -709,7 +638,7 @@
         "active_bonuses": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IBonusData"
+            "$ref": "common/IBonusData.schema.json"
           }
         },
         "active_synergies": {
@@ -733,7 +662,7 @@
         "passive_bonuses": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IBonusData"
+            "$ref": "common/IBonusData.schema.json"
           }
         },
         "passive_synergies": {

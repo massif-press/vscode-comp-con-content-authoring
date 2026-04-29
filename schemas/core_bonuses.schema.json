@@ -152,66 +152,7 @@
         "name"
       ]
     },
-    "IBonusData": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "val": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "number"
-            },
-            {
-              "type": "boolean"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": ["number", "string", "boolean"]
-              }
-            }
-          ]
-        },
-        "damage_types": {
-          "type": "array",
-          "items": {
-            "$ref": "enums/damage_type.schema.json#"
-          }
-        },
-        "range_types": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "weapon_types": {
-          "type": "array",
-          "items": {
-            "$ref": "enums/weapon_type.schema.json#"
-          }
-        },
-        "weapon_sizes": {
-          "type": "array",
-          "items": {
-            "$ref": "enums/weapon_size.schema.json#"
-          }
-        },
-        "overwrite": {
-          "type": "boolean"
-        },
-        "replace": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "id"
-      ]
-    },
+    "IBonusData": {"$ref": "common/IBonusData.schema.json#"},
     "ISynergyData": {
       "type": "object",
       "properties": {
