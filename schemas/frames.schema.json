@@ -95,7 +95,7 @@
         "actions": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IActionData"
+            "$ref": "common/actions.schema.json"
           },
           "deprecated": true
         },
@@ -109,21 +109,21 @@
         "synergies": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ISynergyData"
+            "$ref": "common/interfaces.schema.json#/definitions/ISynergyData"
           },
           "deprecated": true
         },
         "deployables": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IDeployableData"
+            "$ref": "common/interfaces.schema.json#/definitions/IDeployableData"
           },
           "deprecated": true
         },
         "counters": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ICounterData"
+            "$ref": "common/interfaces.schema.json#/definitions/ICounterData"
           },
           "deprecated": true
         },
@@ -137,7 +137,7 @@
         "tags": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ITagData"
+            "$ref": "common/interfaces.schema.json#/definitions/ITagData"
           },
           "deprecated": true
         }
@@ -265,19 +265,19 @@
         "synergies": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ISynergyData"
+            "$ref": "common/interfaces.schema.json#/definitions/ISynergyData"
           }
         },
         "deployables": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IDeployableData"
+            "$ref": "common/interfaces.schema.json#/definitions/IDeployableData"
           }
         },
         "counters": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ICounterData"
+            "$ref": "common/interfaces.schema.json#/definitions/ICounterData"
           }
         },
         "integrated": {
@@ -497,7 +497,7 @@
         "actions": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IActionData"
+            "$ref": "common/actions.schema.json"
           }
         },
         "bonuses": {
@@ -509,19 +509,19 @@
         "synergies": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ISynergyData"
+            "$ref": "common/interfaces.schema.json#/definitions/ISynergyData"
           }
         },
         "counters": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ICounterData"
+            "$ref": "common/interfaces.schema.json#/definitions/ICounterData"
           }
         },
         "tags": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ITagData"
+            "$ref": "common/interfaces.schema.json#/definitions/ITagData"
           }
         },
         "pilot": {
@@ -539,7 +539,7 @@
         "deployables": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IDeployableData"
+            "$ref": "common/interfaces.schema.json#/definitions/IDeployableData"
           }
         },
         "integrated": {
@@ -588,23 +588,6 @@
         "name"
       ]
     },
-    "ITagData": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "val": {
-          "type": [
-            "string",
-            "number"
-          ]
-        }
-      },
-      "required": [
-        "id"
-      ]
-    },
     "ICoreSystemData": {
       "type": "object",
       "properties": {
@@ -632,7 +615,7 @@
         "active_actions": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IActionData"
+            "$ref": "common/actions.schema.json"
           }
         },
         "active_bonuses": {
@@ -644,7 +627,7 @@
         "active_synergies": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ISynergyData"
+            "$ref": "common/interfaces.schema.json#/definitions/ISynergyData"
           }
         },
         "passive_name": {
@@ -656,7 +639,7 @@
         "passive_actions": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IActionData"
+            "$ref": "common/actions.schema.json"
           }
         },
         "passive_bonuses": {
@@ -668,19 +651,19 @@
         "passive_synergies": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ISynergyData"
+            "$ref": "common/interfaces.schema.json#/definitions/ISynergyData"
           }
         },
         "deployables": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IDeployableData"
+            "$ref": "common/interfaces.schema.json#/definitions/IDeployableData"
           }
         },
         "counters": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ICounterData"
+            "$ref": "common/interfaces.schema.json#/definitions/ICounterData"
           }
         },
         "integrated": {
@@ -692,7 +675,7 @@
         "tags": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ITagData"
+            "$ref": "common/interfaces.schema.json#/definitions/ITagData"
           }
         }
       },

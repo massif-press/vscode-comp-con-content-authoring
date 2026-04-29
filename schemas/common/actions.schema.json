@@ -41,16 +41,28 @@
             "$ref": "interfaces.schema.json#/definitions/IRangeData"
         },
         "add_status": {
-            "$ref": "interfaces.schema.json#/definitions/IStatusEffectData"
+            "type": "array",
+            "items": {
+                "$ref": "interfaces.schema.json#/definitions/IStatusEffectData"
+            }
         },
         "add_resist": {
-            "$ref": "interfaces.schema.json#/definitions/IResistanceData"
+            "type": "array",
+            "items": {
+                "$ref": "interfaces.schema.json#/definitions/IResistanceData"
+            }
         },
         "add_special": {
-            "$ref": "interfaces.schema.json#/definitions/ISpecialStatusData"
+            "type": "array",
+            "items": {
+                "$ref": "interfaces.schema.json#/definitions/ISpecialStatusData"
+            }
         },
         "add_other": {
-            "$ref": "interfaces.schema.json#/definitions/IOtherEffectData"
+            "type": "array",
+            "items": {
+                "$ref": "interfaces.schema.json#/definitions/IOtherEffectData"
+            }
         },
         "remove_special": {
             "type": "array",

@@ -65,6 +65,36 @@
             ],
             "$schema": "https://json-schema.org/draft-07/schema#"
         },
+        "ICounterData": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "number"
+                },
+                "min": {
+                    "type": "number"
+                },
+                "max": {
+                    "type": "number"
+                },
+                "default_value": {
+                    "type": "number"
+                },
+                "custom": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ]
+        },
         "IDamageData": {
             "type": "object",
             "properties": {
@@ -124,6 +154,169 @@
                 "val"
             ],
             "$schema": "https://json-schema.org/draft-07/schema#"
+        },
+        "IDeployableData": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "detail": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "activation": {
+                    "$ref": "../enums/activation_type.schema.json#"
+                },
+                "instances": {
+                    "type": "number"
+                },
+                "deactivation": {
+                    "$ref": "../enums/activation_type.schema.json#"
+                },
+                "recall": {
+                    "$ref": "../enums/activation_type.schema.json#"
+                },
+                "redeploy": {
+                    "$ref": "../enums/activation_type.schema.json#"
+                },
+                "size": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "cost": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "armor": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "hp": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "evasion": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "edef": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "heatcap": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "repcap": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "sensor_range": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "tech_attack": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "save": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "speed": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "actions.schema.json#"
+                    }
+                },
+                "bonuses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IBonusData"
+                    }
+                },
+                "synergies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ISynergyData"
+                    }
+                },
+                "counters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ICounterData"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ITagData"
+                    }
+                },
+                "pilot": {
+                    "type": "boolean"
+                },
+                "mech": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "deployables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IDeployableData"
+                    }
+                },
+                "integrated": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "brew": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "detail",
+                "name",
+                "type"
+            ]
         },
         "IEffectSaveData": {
             "anyOf": [
@@ -355,6 +548,59 @@
                         "self",
                         "ally",
                         "enemy"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ]
+        },
+        "ISynergyData": {
+            "type": "object",
+            "properties": {
+                "locations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "detail": {
+                    "type": "string"
+                },
+                "weapon_types": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "system_types": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "weapon_sizes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "detail",
+                "locations"
+            ]
+        },
+        "ITagData": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "val": {
+                    "type": [
+                        "string",
+                        "number"
                     ]
                 }
             },

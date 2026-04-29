@@ -46,25 +46,25 @@
         "bonuses": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IBonusData"
+            "$ref": "common/interfaces.schema.json#/definitions/IBonusData"
           }
         },
         "synergies": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ISynergyData"
+            "$ref": "common/interfaces.schema.json#/definitions/ISynergyData"
           }
         },
         "deployables": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IDeployableData"
+            "$ref": "common/interfaces.schema.json#/definitions/IDeployableData"
           }
         },
         "counters": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ICounterData"
+            "$ref": "common/interfaces.schema.json#/definitions/ICounterData"
           }
         },
         "integrated": {
@@ -76,7 +76,7 @@
         "tags": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ITagData"
+            "$ref": "common/interfaces.schema.json#/definitions/ITagData"
           }
         },
         "special_equipment": {
@@ -380,25 +380,25 @@
         "bonuses": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IBonusData"
+            "$ref": "common/interfaces.schema.json#/definitions/IBonusData"
           }
         },
         "synergies": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ISynergyData"
+            "$ref": "common/interfaces.schema.json#/definitions/ISynergyData"
           }
         },
         "counters": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ICounterData"
+            "$ref": "common/interfaces.schema.json#/definitions/ICounterData"
           }
         },
         "tags": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ITagData"
+            "$ref": "common/interfaces.schema.json#/definitions/ITagData"
           }
         },
         "pilot": {
@@ -416,7 +416,7 @@
         "deployables": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IDeployableData"
+            "$ref": "common/interfaces.schema.json#/definitions/IDeployableData"
           }
         },
         "integrated": {
