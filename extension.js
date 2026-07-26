@@ -28,7 +28,8 @@ const files = [
   'npc_features.json',
   'npc_templates.json',
   'lists.json',
-  'tables.json'
+  'tables.json',
+  'eidolon_layers.json'
 ];
 
 function activate() {

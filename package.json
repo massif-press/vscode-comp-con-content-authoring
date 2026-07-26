@@ -114,6 +114,10 @@
       {
         "fileMatch": "tables.json",
         "url": "./schemas/tables.schema.json"
+      },
+      {
+        "fileMatch": "eidolon_layers.json",
+        "url": "./schemas/eidolon_layers.schema.json"
       }
     ]
   },
