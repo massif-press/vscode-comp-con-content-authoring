@@ -1,7 +1,7 @@
 {
   "name": "comp-con-content-tools",
   "displayName": "COMP/CON Content Tools",
-  "description": "LCP development tools for COMP/CON v2 and later.",
+  "description": "LCP development tools for COMP/CON v3 and later.",
   "version": "0.3.0",
   "engines": {
     "vscode": "^1.41.0"
@@ -108,16 +108,8 @@
         "url": "./schemas/bonds.schema.json"
       },
       {
-        "fileMatch": "lists.json",
-        "url": "./schemas/lists.schema.json"
-      },
-      {
-        "fileMatch": "tables.json",
-        "url": "./schemas/tables.schema.json"
-      },
-      {
-        "fileMatch": "eidolon_layers.json",
-        "url": "./schemas/eidolon_layers.schema.json"
+        "fileMatch": "eidolons.json",
+        "url": "./schemas/eidolons.json"
       }
     ]
   },
@@ -133,10 +125,10 @@
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.11.7",
     "@types/vscode": "^1.41.0",
-    "eslint": "^10.2.1",
-    "glob": "^7.1.5"
+    "eslint": "^10.7.0",
+    "glob": "^13.0.6"
   },
   "dependencies": {
-    "@vscode/vsce": "^2.25.0"
+    "@vscode/vsce": "^3.9.2"
   }
 }
