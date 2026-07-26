@@ -121,10 +121,10 @@
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.11.7",
     "@types/vscode": "^1.41.0",
-    "eslint": "^6.6.0",
-    "glob": "^7.1.5"
+    "eslint": "^10.7.0",
+    "glob": "^13.0.6"
   },
   "dependencies": {
-    "@vscode/vsce": "^3.3.2"
+    "@vscode/vsce": "^3.9.2"
   }
 }
