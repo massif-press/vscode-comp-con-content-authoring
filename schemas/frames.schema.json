@@ -325,7 +325,10 @@
           }
         },
         "active_effects": {
-          "$ref": "common/active_effect.schema.json"
+          "anyOf": [
+            {"$ref": "common/active_effect.schema.json"},
+            {"type": "array", "items": {"$ref": "common/active_effect.schema.json"}}
+          ]
         },
         "active_bonuses": {
           "type": "array",

@@ -53,7 +53,13 @@
             ]
         },
         "range": {
-            "$ref": "interfaces.schema.json#/definitions/IRangeData"
+            "anyOf": [
+                {"$ref": "interfaces.schema.json#/definitions/IRangeData"},
+                {
+                    "type": "array",
+                    "items": {"$ref": "interfaces.schema.json#/definitions/IRangeData"}
+                }
+            ]
         },
         "add_status": {
             "type": "array",
