@@ -1,0 +1,263 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "base": {
+            "type": "boolean"
+        },
+        "deprecated": {
+            "type": "boolean"
+        },
+        "effect": {
+            "type": "string"
+        },
+        "type": {
+            "enum": [
+                "reaction",
+                "system",
+                "tech",
+                "weapon",
+                "trait"
+            ]
+        },
+        "hide_active": {
+            "type": "boolean"
+        },
+        "build_feature": {
+            "type": "boolean"
+        },
+        "mod": {},
+        "tags": {
+            "anyOf": [
+                {"$ref": "../common/interfaces.schema.json#/definitions/ITagData"},
+                {"type":"array", "items": {"$ref": "../common/interfaces.schema.json#/definitions/ITagData"}}
+            ]
+        },
+        "actions": {
+            "anyOf": [
+                {"$ref": "../common/actions.schema.json#"},
+                {"type":"array","items": {"$ref": "../common/actions.schema.json#"}}
+            ]
+        },
+        "bonuses": {
+            "anyOf": [
+                {"$ref": "../common/interfaces.schema.json#/definitions/IBonusData"},
+                {"type":"array", "items": {"$ref": "../common/interfaces.schema.json#/definitions/IBonusData"}}
+            ]
+        },
+        "synergies": {
+            "anyOf": [
+                {"$ref": "../common/interfaces.schema.json#/definitions/ISynergyData"},
+                {"type":"array", "items": {"$ref": "../common/interfaces.schema.json#/definitions/ISynergyData"}}
+            ]
+        },
+        "deployables": {
+            "anyOf": [
+                {"$ref": "../common/interfaces.schema.json#/definitions/IDeployableData"},
+                {"type":"array", "items": {"$ref": "../common/interfaces.schema.json#/definitions/IDeployableData"}}
+            ]
+        },
+        "origin": true
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "reaction"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "trigger": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "trigger"
+                ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "oneOf": [
+                            {
+                                "const": "weapon"
+                            },
+                            {
+                                "const": "tech"
+                            }
+                        ]
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "attack_bonus": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "accuracy": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "weapon"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "weapon_type": {
+                        "type": "string",
+                        "examples": [
+                            "Superheavy Rifle",
+                            "Main Launcher",
+                            "Auxiliary Melee"
+                        ]
+                    },
+                    "damage": {
+                        "$ref": "#/definitions/INpcDamageData"
+                    },
+                    "range": {
+                        "$ref": "../common/interfaces.schema.json#/definitions/IRangeData"
+                    },
+                    "attacks": {
+                        "oneOf": [
+                            {
+                                "type": "number"
+                            },
+                            {
+                                "type": "array",
+                                "items": {
+                                    "type": "number"
+                                }
+                            }
+                        ]
+                    },
+                    "on_hit": {
+                        "anyOf": [
+                            {"$ref": "../common/active_effect.schema.json#"},
+                            {"type":"array","items": {"$ref": "../common/active_effect.schema.json#"}}
+                        ]
+                    },
+                    "on_crit": {
+                        "anyOf": [
+                            {"$ref": "../common/active_effect.schema.json#"},
+                            {"type":"array","items": {"$ref": "../common/active_effect.schema.json#"}}
+                        ]
+                    },
+                    "on_attack": {
+                        "anyOf": [
+                            {"$ref": "../common/active_effect.schema.json#"},
+                            {"type":"array","items": {"$ref": "../common/active_effect.schema.json#"}}
+                        ]
+                    },
+                    "on_miss": {
+                        "anyOf": [
+                            {"$ref": "../common/active_effect.schema.json#"},
+                            {"type":"array","items": {"$ref": "../common/active_effect.schema.json#"}}
+                        ]
+                    }
+                },
+                "required": [
+                    "weapon_type",
+                    "damage",
+                    "range",
+                    "attacks"
+                ]
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "name",
+        "type"
+    ],
+    "definitions": {
+        "IFeatureModData": {
+            "properties": {
+                "target": {
+                    "type": "string"
+                },
+                "add_effect": {
+                    "type": "string"
+                },
+                "add_bonuses": {
+                    "$ref": "../common/interfaces.schema.json#/definitions/IBonusData"
+                },
+                "add_tags": {
+                    "$ref": "../common/interfaces.schema.json#/definitions/ITagData"
+                },
+                "add_deployables": {
+                    "$ref": "../common/interfaces.schema.json#/definitions/IDeployableData"
+                }
+            }
+        },
+        "INpcDamageData": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$ref": "../enums/damage_type.schema.json#"
+                },
+                "val": {
+                    "type": "number"
+                },
+                "aoe": {
+                    "anyOf": [
+                        {
+                            "type": "boolean"
+                        },
+                        {
+                            "type": "string",
+                            "examples": [
+                                "burst 3",
+                                "blast 2"
+                            ]
+                        }
+                    ]
+                },
+                "save": {
+                    "$ref": "../common/interfaces.schema.json#/definitions/IEffectSaveData"
+                },
+                "save_half": {
+                    "type": "boolean",
+                    "description": "If true, targets that succeed on their saving throws take half damage. Otherwise, targets that succeed on their saving throws take NO damage."
+                },
+                "ap": {
+                    "type": "boolean",
+                    "description": "If true, the damage ignores armor"
+                },
+                "target": {
+                    "enum": [
+                        "self",
+                        "ally",
+                        "enemy"
+                    ]
+                }
+            },
+            "required": [
+                "val"
+            ],
+            "$schema": "https://json-schema.org/draft-07/schema#"
+        }
+    }
+}

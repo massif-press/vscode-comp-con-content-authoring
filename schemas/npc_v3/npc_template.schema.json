@@ -1,0 +1,62 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "template": {
+            "const": true
+        },
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "forceTag": {
+            "enum": [
+                "Mech",
+                "Ship",
+                "Vehicle",
+                "Biological",
+                "Squad",
+                "Other"
+            ]
+        },
+        "prohibitTemplates": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "optionalMin": {
+            "type": "number",
+            "minimum": 0
+        },
+        "optionalMax": {
+            "type": "number"
+        },
+        "optionalPerTier": {
+            "type": "number"
+        },
+        "optionalClassMin": {
+            "type": "number",
+            "minimum": 0
+        },
+        "optionalClassMax": {
+            "type": "number"
+        },
+        "optionalClassPerTier": {
+            "type": "number"
+        },
+        "caveat": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "id",
+        "template",
+        "name",
+        "description"
+    ]
+}

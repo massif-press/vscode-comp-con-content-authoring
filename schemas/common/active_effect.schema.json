@@ -19,47 +19,47 @@
         },
         "bonus_damage": {
             "anyOf": [
-                {"$ref": "interfaces.schema.json#/definitions/IDamageData"},
+                {"$ref": "../common/interfaces.schema.json#/definitions/IDamageData"},
                 {
                     "type": "array",
-                    "items": {"$ref": "interfaces.schema.json#/definitions/IDamageData"}
+                    "items": {"$ref": "../common/interfaces.schema.json#/definitions/IDamageData"}
                 }
             ]
         },
         "damage": {
             "anyOf": [
-                {"$ref": "interfaces.schema.json#/definitions/IDamageData"},
+                {"$ref": "../common/interfaces.schema.json#/definitions/IDamageData"},
                 {
                     "type": "array",
-                    "items": {"$ref": "interfaces.schema.json#/definitions/IDamageData"}
+                    "items": {"$ref": "../common/interfaces.schema.json#/definitions/IDamageData"}
                 }
             ]
         },
         "range": {
             "anyOf": [
-                {"$ref": "interfaces.schema.json#/definitions/IRangeData"},
+                {"$ref": "../common/interfaces.schema.json#/definitions/IRangeData"},
                 {
                     "type": "array",
-                    "items": {"$ref": "interfaces.schema.json#/definitions/IRangeData"}
+                    "items": {"$ref": "../common/interfaces.schema.json#/definitions/IRangeData"}
                 }
             ]
         },
         "add_status": {
             "type": "array",
             "items": {
-                "$ref": "interfaces.schema.json#/definitions/IStatusEffectData"
+                "$ref": "../common/interfaces.schema.json#/definitions/IStatusEffectData"
             }
         },
         "add_resist": {
             "type": "array",
             "items": {
-                "$ref": "interfaces.schema.json#/definitions/IResistanceData"
+                "$ref": "../common/interfaces.schema.json#/definitions/IResistanceData"
             }
         },
         "add_special": {
             "type": "array",
             "items": {
-                "$ref": "interfaces.schema.json#/definitions/ISpecialStatusData"
+                "$ref": "../common/interfaces.schema.json#/definitions/ISpecialStatusData"
             }
         },
         "remove_special": {
@@ -71,11 +71,11 @@
         "add_other": {
             "type": "array",
             "items": {
-                "$ref": "interfaces.schema.json#/definitions/IOtherEffectData"
+                "$ref": "../common/interfaces.schema.json#/definitions/IOtherEffectData"
             }
         },
         "save": {
-            "$ref": "interfaces.schema.json#/definitions/IEffectSaveData"
+            "$ref": "../common/interfaces.schema.json#/definitions/IEffectSaveData"
         },
         "attack": {
             "enum": [

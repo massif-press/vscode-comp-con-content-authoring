@@ -113,6 +113,14 @@
                         },
                         {
                             "type": "number"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minimum": 3,
+                            "maximum": 3
                         }
                     ]
                 },
@@ -131,7 +139,7 @@
                     ]
                 },
                 "save": {
-                    "$ref": "interfaces.schema.json#/definitions/IEffectSaveData"
+                    "$ref": "../common/interfaces.schema.json#/definitions/IEffectSaveData"
                 },
                 "save_half": {
                     "type": "boolean",
@@ -200,21 +208,57 @@
                     ]
                 },
                 "hp": {
-                    "type": [
-                        "string",
-                        "number"
+                    "anyOf": [
+                        {
+                            "type": [
+                                "string",
+                                "number"
+                            ]
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minimum": 3,
+                            "maximum": 3
+                        }
                     ]
                 },
                 "evasion": {
-                    "type": [
-                        "string",
-                        "number"
+                    "anyOf": [
+                        {
+                            "type": [
+                                "string",
+                                "number"
+                            ]
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minimum": 3,
+                            "maximum": 3
+                        }
                     ]
                 },
                 "edef": {
-                    "type": [
-                        "string",
-                        "number"
+                    "anyOf": [
+                        {
+                            "type": [
+                                "string",
+                                "number"
+                            ]
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minimum": 3,
+                            "maximum": 3
+                        }
                     ]
                 },
                 "heatcap": {
@@ -362,6 +406,12 @@
                         },
                         {
                             "type": "number"
+                        },
+                        {
+                            "type":"array",
+                            "items": {"type":"number"},
+                            "minimum": 3,
+                            "maximum": 3
                         }
                     ]
                 },
