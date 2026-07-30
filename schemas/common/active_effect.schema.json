@@ -18,10 +18,22 @@
             "$ref": "../enums/durationV3.schema.json#"
         },
         "bonus_damage": {
-            "type": "string"
+            "anyOf": [
+                {"$ref": "interfaces.schema.json#/definitions/IDamageData"},
+                {
+                    "type": "array",
+                    "items": {"$ref": "interfaces.schema.json#/definitions/IDamageData"}
+                }
+            ]
         },
         "damage": {
-            "$ref": "interfaces.schema.json#/definitions/IDamageData"
+            "anyOf": [
+                {"$ref": "interfaces.schema.json#/definitions/IDamageData"},
+                {
+                    "type": "array",
+                    "items": {"$ref": "interfaces.schema.json#/definitions/IDamageData"}
+                }
+            ]
         },
         "range": {
             "$ref": "interfaces.schema.json#/definitions/IRangeData"
@@ -86,7 +98,6 @@
         }
     },
     "required": [
-        "name",
         "detail"
     ],
     "$schema": "https://json-schema.org/draft-07/schema#"

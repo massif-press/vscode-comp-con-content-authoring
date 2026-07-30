@@ -1,7 +1,7 @@
 {
   "type": "array",
   "items": {
-    "$ref": "common/interfaces.schema.json#/definitions/ITagData"
+    "$ref": "#/definitions/ITagData"
   },
   "definitions": {
     "ITagData": {

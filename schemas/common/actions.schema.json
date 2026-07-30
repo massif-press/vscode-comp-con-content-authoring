@@ -32,10 +32,25 @@
             "type": "boolean"
         },
         "bonus_damage": {
-            "type": "string"
+            "anyOf": [
+                {"$ref": "interfaces.schema.json#/definitions/IDamageData"},
+                {
+                    "type": "array",
+                    "items": {"$ref": "interfaces.schema.json#/definitions/IDamageData"}
+                }
+            ]
         },
         "damage": {
-            "$ref": "interfaces.schema.json#/definitions/IDamageData"
+            "anyOf": [
+                {"allOf": [
+                   {"$ref": "interfaces.schema.json#/definitions/IDamageData"},
+                   {"required": ["type"]} 
+                ]},
+                {
+                    "type": "array",
+                    "items": {"$ref": "interfaces.schema.json#/definitions/IDamageData"}
+                }
+            ]
         },
         "range": {
             "$ref": "interfaces.schema.json#/definitions/IRangeData"
