@@ -2,6 +2,7 @@
     "$id": "/enums/ActivationType",
     "enum": [
         "Free",
+        "Free Action",
         "Full",
         "Full Tech",
         "Invade",
@@ -13,6 +14,7 @@
         "Quick",
         "Quick Tech",
         "Reaction",
-        "Downtime"
+        "Downtime",
+        "Jockey"
     ]
 }

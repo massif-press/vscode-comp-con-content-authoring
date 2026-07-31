@@ -2,7 +2,7 @@
   "name": "comp-con-content-tools",
   "displayName": "COMP/CON Content Tools",
   "description": "LCP development tools for COMP/CON v3 and later.",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "engines": {
     "vscode": "^1.41.0"
   },
@@ -23,6 +23,10 @@
       }
     ],
     "jsonValidation": [
+      {
+        "fileMatch": ["npcc_*.json", "npct_*.json"],
+        "url": "./schemas/npc_v3/npc_collection.schema.json"
+      },
       {
         "fileMatch": "actions.json",
         "url": "./schemas/actions.schema.json"
@@ -106,6 +110,10 @@
       {
         "fileMatch": "bonds.json",
         "url": "./schemas/bonds.schema.json"
+      },
+      {
+        "fileMatch": "eidolons.json",
+        "url": "./schemas/eidolons.json"
       }
     ]
   },

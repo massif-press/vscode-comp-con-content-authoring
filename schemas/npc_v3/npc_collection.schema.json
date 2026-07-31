@@ -1,0 +1,20 @@
+{
+    "type":"array",
+    "items": {"oneOf": [
+        {"$ref": "#/definitions/class_or_template"},
+        {"$ref": "./npc_feature.schema.json"}
+    ]},
+    "contains": {
+        "$ref": "#/definitions/class_or_template"
+    },
+    "minContains": 1,
+    "maxContains": 1,
+    "definitions": {
+        "class_or_template": {
+            "oneOf": [
+                {"$ref": "npc_class.schema.json"},
+                {"$ref": "npc_template.schema.json"}
+            ]
+        }
+    }
+}

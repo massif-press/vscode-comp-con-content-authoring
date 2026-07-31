@@ -1,0 +1,82 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/IEidolonLayerData"
+    },
+    "definitions": {
+        "IEidolonLayerData": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "appearance": {
+                    "type": "string"
+                },
+                "hints": {
+                    "type": "string"
+                },
+                "rules": {
+                    "type": "string"
+                },
+                "features": {
+                    "$ref": "npc_v3/npc_feature.schema.json#"
+                },
+                "shards": {
+                    "$ref": "#/definitions/IEidolonShardData"
+                },
+                "active_effects": {
+                    "$ref": "common/active_effect.schema.json#"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "appearance",
+                "hints",
+                "rules"
+            ]
+        },
+        "IEidolonShardData": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        }
+                    ]
+                },
+                "detail": {
+                    "type": "string"
+                },
+                "features": {
+                    "$ref": "npc_v3/npc_feature.schema.json#"
+                },
+                "tier": {
+                    "type": "number",
+                    "minimum": 1,
+                    "maximum": 3
+                }
+            },
+            "required": [
+                "count",
+                "detail",
+                "features"
+            ]
+        }
+    }
+}

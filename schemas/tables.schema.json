@@ -1,0 +1,68 @@
+{
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/IRollableTableData"
+    },
+    "definitions": {
+        "IRollableTableData": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "die": {
+                    "type": "number"
+                },
+                "results": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IRollableTableResultData"
+                    }
+                },
+                "mult": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "description",
+                "die",
+                "results"
+            ]
+        },
+        "IRollableTableResultData": {
+            "type": "object",
+            "properties": {
+                "min": {
+                    "type": "number",
+                    "minimum": -1,
+                    "description": "The minimum die roll (inclusive) for this result. Use the value -1 for 'Multiple 1s.'"
+                },
+                "max": {
+                    "type": "number",
+                    "minimum": -1,
+                    "description": "The maximum die roll (inclusive) for this result. Use the value -1 for 'Multiple 1s.'"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "min",
+                "max",
+                "title",
+                "result"
+            ]
+        }
+    }
+}

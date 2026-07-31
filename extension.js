@@ -1,10 +1,10 @@
 'use strict';
-const vscode = require('vscode');
-const os = require('os');
-const path = require('path');
+import { tasks, workspace, Task, TaskScope, ShellExecution, TaskGroup } from 'vscode';
+import { platform } from 'os';
+import { resolve } from 'path';
 
-const { exists } = require('fs');
-const { promisify } = require('util');
+import { exists } from 'fs';
+import { promisify } from 'util';
 
 const existsPromise = promisify(exists);
 
@@ -27,24 +27,32 @@ const files = [
   'npc_classes.json',
   'npc_features.json',
   'npc_templates.json',
+  'lists.json',
+  'tables.json',
+  'eidolon_layers.json'
 ];
 
 function activate() {
   var type = 'compconTaskProvider';
-  vscode.tasks.registerTaskProvider(type, {
+  tasks.registerTaskProvider(type, {
     async provideTasks() {
-      const root = vscode.workspace.workspaceFolders[0].uri.fsPath;
+      const root = 
+        workspace.workspaceFolders
+        ? workspace.workspaceFolders[0].uri.fsPath
+        : null;
+
+      if (!root) return [];
 
       const manifestExists = await existsPromise(root + '/lcp_manifest.json');
 
       if (!manifestExists) return [];
 
-      const textDoc = await vscode.workspace.openTextDocument(root + '/lcp_manifest.json');
+      const textDoc = await workspace.openTextDocument(root + '/lcp_manifest.json');
 
       const existingFiles = (
         await Promise.all(
           files.map(async (filename) => {
-            const doesExist = await existsPromise(path.resolve(root, filename));
+            const doesExist = await existsPromise(resolve(root, filename));
             return doesExist ? filename : null;
           })
         )
@@ -53,20 +61,20 @@ function activate() {
       const manifest = JSON.parse(textDoc.getText());
       const { name, version } = manifest;
 
-      const cmd = os.platform() === 'win32' ? '7z a -tzip' : 'zip';
+      const cmd = platform() === 'win32' ? '7z a -tzip' : 'zip';
       const packageName = `${name}-${version}.lcp`;
       const filesStr = existingFiles.join(' ');
 
-      const task = new vscode.Task(
+      const task = new Task(
         { type },
-        vscode.TaskScope.Workspace,
+        TaskScope.Workspace,
         'Build .LCP package',
         'compcon',
-        new vscode.ShellExecution(`${cmd} "${packageName.replace('"', '\\"')}" ${filesStr}`),
+        new ShellExecution(`${cmd} "${packageName.replace('"', '\\"')}" ${filesStr}`),
         []
       );
 
-      task.group = vscode.TaskGroup.Build;
+      task.group = TaskGroup.Build;
 
       return [task];
     },
@@ -79,7 +87,7 @@ function activate() {
 // this method is called when your extension is deactivated
 function deactivate() {}
 
-module.exports = {
+export default {
   activate,
   deactivate,
 };

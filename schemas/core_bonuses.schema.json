@@ -34,25 +34,25 @@
         "bonuses": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IBonusData"
+            "$ref": "common/interfaces.schema.json#/definitions/IBonusData"
           }
         },
         "synergies": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ISynergyData"
+            "$ref": "common/interfaces.schema.json#/definitions/ISynergyData"
           }
         },
         "deployables": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IDeployableData"
+            "$ref": "common/interfaces.schema.json#/definitions/IDeployableData"
           }
         },
         "counters": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ICounterData"
+            "$ref": "common/interfaces.schema.json#/definitions/ICounterData"
           }
         },
         "integrated": {
@@ -65,6 +65,12 @@
           "type": "array",
           "items": {
             "type": "string"
+          }
+        },
+        "active_effects": {
+          "type": "array",
+          "items": {
+            "$ref": "common/active_effect.schema.json#"
           }
         }
       },
@@ -146,64 +152,7 @@
         "name"
       ]
     },
-    "IBonusData": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "val": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "number"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": ["number", "string"]
-              }
-            }
-          ]
-        },
-        "damage_types": {
-          "type": "array",
-          "items": {
-            "$ref": "enums/damage_type.schema.json#"
-          }
-        },
-        "range_types": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "weapon_types": {
-          "type": "array",
-          "items": {
-            "$ref": "enums/weapon_type.schema.json#"
-          }
-        },
-        "weapon_sizes": {
-          "type": "array",
-          "items": {
-            "$ref": "enums/weapon_size.schema.json#"
-          }
-        },
-        "overwrite": {
-          "type": "boolean"
-        },
-        "replace": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "id",
-        "val"
-      ]
-    },
+    "IBonusData": {"$ref": "common/interfaces.schema.json#/definitions/IBonusData"},
     "ISynergyData": {
       "type": "object",
       "properties": {
@@ -354,25 +303,25 @@
         "bonuses": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IBonusData"
+            "$ref": "common/interfaces.schema.json#/definitions/IBonusData"
           }
         },
         "synergies": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ISynergyData"
+            "$ref": "common/interfaces.schema.json#/definitions/ISynergyData"
           }
         },
         "counters": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ICounterData"
+            "$ref": "common/interfaces.schema.json#/definitions/ICounterData"
           }
         },
         "tags": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ITagData"
+            "$ref": "common/interfaces.schema.json#/definitions/ITagData"
           }
         },
         "pilot": {
@@ -390,7 +339,7 @@
         "deployables": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/IDeployableData"
+            "$ref": "common/interfaces.schema.json#/definitions/IDeployableData"
           }
         },
         "integrated": {

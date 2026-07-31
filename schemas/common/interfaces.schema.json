@@ -1,0 +1,662 @@
+{
+    "definitions": {
+        "IBonusData": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "val": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "boolean"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": [
+                                    "number",
+                                    "string",
+                                    "boolean"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "damage_types": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../enums/damage_type.schema.json#"
+                    }
+                },
+                "range_types": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "weapon_types": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../enums/weapon_type.schema.json#"
+                    }
+                },
+                "weapon_sizes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "../enums/weapon_size.schema.json#"
+                    }
+                },
+                "overwrite": {
+                    "type": "boolean"
+                },
+                "replace": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "$schema": "https://json-schema.org/draft-07/schema#"
+        },
+        "ICounterData": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "number"
+                },
+                "min": {
+                    "type": "number"
+                },
+                "max": {
+                    "type": "number"
+                },
+                "default_value": {
+                    "type": "number"
+                },
+                "custom": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ]
+        },
+        "IDamageData": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$ref": "../enums/damage_type.schema.json#"
+                },
+                "val": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "examples": [
+                                "1d6",
+                                "(1d6+2)*2",
+                                "2d6+{agi}"
+                            ]
+                        },
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minimum": 3,
+                            "maximum": 3
+                        }
+                    ]
+                },
+                "aoe": {
+                    "anyOf": [
+                        {
+                            "type": "boolean"
+                        },
+                        {
+                            "type": "string",
+                            "examples": [
+                                "burst 3",
+                                "blast 2"
+                            ]
+                        }
+                    ]
+                },
+                "save": {
+                    "$ref": "../common/interfaces.schema.json#/definitions/IEffectSaveData"
+                },
+                "save_half": {
+                    "type": "boolean",
+                    "description": "If true, targets that succeed on their saving throws take half damage. Otherwise, targets that succeed on their saving throws take NO damage."
+                },
+                "ap": {
+                    "type": "boolean",
+                    "description": "If true, the damage ignores armor"
+                },
+                "target": {
+                    "enum": [
+                        "self",
+                        "ally",
+                        "enemy"
+                    ]
+                }
+            },
+            "required": [
+                "val"
+            ],
+            "$schema": "https://json-schema.org/draft-07/schema#"
+        },
+        "IDeployableData": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "detail": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "activation": {
+                    "$ref": "../enums/activation_type.schema.json#"
+                },
+                "instances": {
+                    "type": "number"
+                },
+                "deactivation": {
+                    "$ref": "../enums/activation_type.schema.json#"
+                },
+                "recall": {
+                    "$ref": "../enums/activation_type.schema.json#"
+                },
+                "redeploy": {
+                    "$ref": "../enums/activation_type.schema.json#"
+                },
+                "size": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "cost": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "armor": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "hp": {
+                    "anyOf": [
+                        {
+                            "type": [
+                                "string",
+                                "number"
+                            ]
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minimum": 3,
+                            "maximum": 3
+                        }
+                    ]
+                },
+                "evasion": {
+                    "anyOf": [
+                        {
+                            "type": [
+                                "string",
+                                "number"
+                            ]
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minimum": 3,
+                            "maximum": 3
+                        }
+                    ]
+                },
+                "edef": {
+                    "anyOf": [
+                        {
+                            "type": [
+                                "string",
+                                "number"
+                            ]
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minimum": 3,
+                            "maximum": 3
+                        }
+                    ]
+                },
+                "heatcap": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "repcap": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "sensor_range": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "tech_attack": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "save": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "speed": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "actions.schema.json#"
+                    }
+                },
+                "bonuses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IBonusData"
+                    }
+                },
+                "synergies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ISynergyData"
+                    }
+                },
+                "counters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ICounterData"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ITagData"
+                    }
+                },
+                "pilot": {
+                    "type": "boolean"
+                },
+                "mech": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "deployables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/IDeployableData"
+                    }
+                },
+                "integrated": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "brew": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "detail",
+                "name",
+                "type"
+            ]
+        },
+        "IEffectSaveData": {
+            "anyOf": [
+                {
+                    "enum": [
+                        "hull",
+                        "agi",
+                        "sys",
+                        "eng",
+                        "grit"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "stat": {
+                            "type": "string"
+                        },
+                        "aoe": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "stat"
+                    ]
+                }
+            ]
+        },
+        "IOtherEffectData": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "overshield",
+                        "hp",
+                        "repair",
+                        "cover"
+                    ]
+                },
+                "val": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type":"array",
+                            "items": {"type":"number"},
+                            "minimum": 3,
+                            "maximum": 3
+                        }
+                    ]
+                },
+                "target": {
+                    "enum": [
+                        "self",
+                        "ally",
+                        "enemy"
+                    ]
+                },
+                "aoe": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                }
+            }
+        },
+        "IRangeData": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "Threat",
+                        "Range",
+                        "Burst",
+                        "Blast",
+                        "Cone",
+                        "Line"
+                    ]
+                },
+                "val": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "examples": [
+                                "1d6",
+                                "(1d6+2)*2",
+                                "2d6+{agi}"
+                            ]
+                        },
+                        {
+                            "type": "number"
+                        }
+                    ]
+                },
+                "min": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "examples": [
+                                "1d6",
+                                "(1d6+2)*2",
+                                "2d6+{agi}"
+                            ]
+                        },
+                        {
+                            "type": "number"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "type",
+                "val"
+            ],
+            "$schema": "https://json-schema.org/draft-07/schema#"
+        },
+        "IResistanceData": {
+            "type": "object",
+            "properties": {
+                "immunity": {
+                    "anyOf": [
+                        {
+                            "enum": [
+                                "kinetic",
+                                "energy",
+                                "explosive",
+                                "heat",
+                                "burn",
+                                "aoe",
+                                "all"
+                            ]
+                        },
+                        {
+                            "type": "string",
+                            "description": "Status or Condition ID defined in `statuses.json` in core data, this LCP, or any of its dependencies."
+                        }
+                    ]
+                },
+                "resistance": {
+                    "enum": [
+                        "kinetic",
+                        "energy",
+                        "explosive",
+                        "heat",
+                        "burn",
+                        "aoe",
+                        "all"
+                    ]
+                },
+                "vulnerability": {
+                    "enum": [
+                        "kinetic",
+                        "energy",
+                        "explosive",
+                        "heat",
+                        "burn",
+                        "aoe",
+                        "all"
+                    ]
+                },
+                "target": {
+                    "enum": [
+                        "self",
+                        "ally",
+                        "enemy"
+                    ],
+                    "default": "self"
+                }
+            },
+            "required": []
+        },
+        "ISpecialStatusData": {
+            "type": "object",
+            "properties": {
+                "attribute": {
+                    "type": "string"
+                },
+                "detail": {
+                    "type": "string"
+                },
+                "target": {
+                    "enum": [
+                        "self",
+                        "ally",
+                        "enemy"
+                    ],
+                    "default": "enemy"
+                },
+                "duration": {
+                    "$ref": "../enums/durationV3.schema.json"
+                }
+            },
+            "required": [
+                "attribute"
+            ]
+        },
+        "IStatusEffectData": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "duration": {
+                    "$ref": "../enums/durationV3.schema.json#"
+                },
+                "save": {
+                    "enum": [
+                        "hull",
+                        "agi",
+                        "sys",
+                        "eng",
+                        "grit"
+                    ]
+                },
+                "aoe": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "target": {
+                    "enum": [
+                        "self",
+                        "ally",
+                        "enemy"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ]
+        },
+        "ISynergyData": {
+            "type": "object",
+            "properties": {
+                "locations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "detail": {
+                    "type": "string"
+                },
+                "weapon_types": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "system_types": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "weapon_sizes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "detail",
+                "locations"
+            ]
+        },
+        "ITagData": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "val": {
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ]
+        }
+    },
+    "$schema": "https://json-schema.org/draft-07/schema#"
+}

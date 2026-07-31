@@ -1,0 +1,29 @@
+{
+    "$id": "enums/DurationV3",
+    "enum": [
+        "next_turn_start_self",
+        "next_turn_end_self",
+        "next_turn_start_target",
+        "next_turn_end_target",
+        "round_start_1",
+        "round_start_2",
+        "round_start_3",
+        "round_start_4",
+        "round_start_5",
+        "round_start_6",
+        "round_start_7",
+        "round_start_8",
+        "round_start_9",
+        "round_start_10",
+        "round_end_1",
+        "round_end_2",
+        "round_end_3",
+        "round_end_4",
+        "round_end_5",
+        "round_end_6",
+        "round_end_7",
+        "round_end_8",
+        "round_end_9",
+        "round_end_10"
+    ]
+}

@@ -1,0 +1,110 @@
+{
+    "type": "object",
+    "$id": "common/ActiveEffects",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "detail": {
+            "type": "string"
+        },
+        "condition": {
+            "type": "string"
+        },
+        "frequency": {
+            "$ref": "../enums/frequency.schema.json#"
+        },
+        "duration": {
+            "$ref": "../enums/durationV3.schema.json#"
+        },
+        "bonus_damage": {
+            "anyOf": [
+                {"$ref": "../common/interfaces.schema.json#/definitions/IDamageData"},
+                {
+                    "type": "array",
+                    "items": {"$ref": "../common/interfaces.schema.json#/definitions/IDamageData"}
+                }
+            ]
+        },
+        "damage": {
+            "anyOf": [
+                {"$ref": "../common/interfaces.schema.json#/definitions/IDamageData"},
+                {
+                    "type": "array",
+                    "items": {"$ref": "../common/interfaces.schema.json#/definitions/IDamageData"}
+                }
+            ]
+        },
+        "range": {
+            "anyOf": [
+                {"$ref": "../common/interfaces.schema.json#/definitions/IRangeData"},
+                {
+                    "type": "array",
+                    "items": {"$ref": "../common/interfaces.schema.json#/definitions/IRangeData"}
+                }
+            ]
+        },
+        "add_status": {
+            "type": "array",
+            "items": {
+                "$ref": "../common/interfaces.schema.json#/definitions/IStatusEffectData"
+            }
+        },
+        "add_resist": {
+            "type": "array",
+            "items": {
+                "$ref": "../common/interfaces.schema.json#/definitions/IResistanceData"
+            }
+        },
+        "add_special": {
+            "type": "array",
+            "items": {
+                "$ref": "../common/interfaces.schema.json#/definitions/ISpecialStatusData"
+            }
+        },
+        "remove_special": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "add_other": {
+            "type": "array",
+            "items": {
+                "$ref": "../common/interfaces.schema.json#/definitions/IOtherEffectData"
+            }
+        },
+        "save": {
+            "$ref": "../common/interfaces.schema.json#/definitions/IEffectSaveData"
+        },
+        "attack": {
+            "enum": [
+                "melee",
+                "ranged",
+                "tech"
+            ]
+        },
+        "pilot": {
+            "type": "boolean"
+        },
+        "mech": {
+            "type": "boolean"
+        },
+        "accuracy": {
+            "type": "number"
+        },
+        "tech_accuracy": {
+            "type": "number"
+        },
+        "attack_bonus": {
+            "type": "number"
+        },
+        "tech_attack_bonus": {
+            "type": "number"
+        }
+    },
+    "required": [
+        "detail"
+    ],
+    "$schema": "https://json-schema.org/draft-07/schema#"
+}

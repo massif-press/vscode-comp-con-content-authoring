@@ -114,7 +114,7 @@
         "tags": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ITagData"
+            "$ref": "common/interfaces.schema.json#/definitions/ITagData"
           }
         },
         "effect": {
@@ -198,7 +198,7 @@
         "tags": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ITagData"
+            "$ref": "common/interfaces.schema.json#/definitions/ITagData"
           }
         },
         "effect": {
@@ -253,7 +253,7 @@
         "tags": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ITagData"
+            "$ref": "common/interfaces.schema.json#/definitions/ITagData"
           }
         },
         "effect": {
@@ -341,7 +341,7 @@
         "tags": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ITagData"
+            "$ref": "common/interfaces.schema.json#/definitions/ITagData"
           }
         },
         "effect": {
@@ -390,7 +390,7 @@
         "tags": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ITagData"
+            "$ref": "common/interfaces.schema.json#/definitions/ITagData"
           }
         },
         "effect": {
