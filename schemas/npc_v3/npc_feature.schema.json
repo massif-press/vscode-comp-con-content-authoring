@@ -135,10 +135,16 @@
                         ]
                     },
                     "damage": {
-                        "$ref": "#/definitions/INpcDamageData"
+                        "anyOf": [
+                            {"$ref": "#/definitions/INpcDamageData"},
+                            {"type": "array", "items": {"$ref": "#/definitions/INpcDamageData"}}
+                        ]
                     },
                     "range": {
-                        "$ref": "../common/interfaces.schema.json#/definitions/IRangeData"
+                        "anyOf": [
+                            {"$ref": "../common/interfaces.schema.json#/definitions/IRangeData"},
+                            {"type": "array", "items": {"$ref": "../common/interfaces.schema.json#/definitions/IRangeData"}}
+                        ]
                     },
                     "attacks": {
                         "oneOf": [
@@ -219,7 +225,10 @@
                     "$ref": "../enums/damage_type.schema.json#"
                 },
                 "val": {
-                    "type": "number"
+                    "anyOf": [
+                        {"type": "number"},
+                        {"type":"array", "items": {"type": "number"}}
+                    ]                    
                 },
                 "aoe": {
                     "anyOf": [
