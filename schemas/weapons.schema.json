@@ -71,7 +71,14 @@
           }
         },
         "effect": {
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "common/active_effect.schema.json#"
+            }
+          ]
         },
         "mount": {
           "$ref": "enums/weapon_size.schema.json#"

@@ -379,7 +379,7 @@
                             "type": "string"
                         },
                         "aoe": {
-                            "type": "boolean"
+                            "type": ["boolean", "string"]
                         }
                     },
                     "required": [
