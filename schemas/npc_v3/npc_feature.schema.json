@@ -62,7 +62,8 @@
                 {"type":"array", "items": {"$ref": "../common/interfaces.schema.json#/definitions/IDeployableData"}}
             ]
         },
-        "origin": true
+        "origin": true,
+        "active_effects": {"type":"array", "items": {"$ref": "../common/active_effect.schema.json#"}}
     },
     "allOf": [
         {

@@ -112,19 +112,7 @@
         "save": {
             "$ref": "../common/interfaces.schema.json#/definitions/IEffectSaveData"
         },
-        "active_effects": {
-            "anyOf": [
-                {
-                    "$ref": "../common/active_effect.schema.json#"
-                },
-                {
-                    "type": "array",
-                    "items": {
-                        "$ref": "../common/active_effect.schema.json#"
-                    }
-                }
-            ]
-        }
+        "active_effects": {"type":"array", "items": {"$ref": "../common/active_effect.schema.json#"}}
     },
     "required": [
         "name",
